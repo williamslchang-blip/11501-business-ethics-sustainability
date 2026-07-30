@@ -1,0 +1,1043 @@
+import sys
+
+html_portal = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11501企業道德與永續經營總覽 | 18 週頂尖商學院完整課程總覽入口網站 (ESG & SDGs Aligned Portal)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Portal Portal Hub Specific Styling */
+        body.canva-theme {
+            overflow-y: auto !important;
+            height: auto !important;
+            min-height: 100vh;
+        }
+
+        .portal-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .portal-hero {
+            position: relative;
+            padding: 80px 24px 60px;
+            background: radial-gradient(circle at 50% 20%, rgba(0, 242, 254, 0.15) 0%, rgba(11, 15, 25, 0) 70%),
+                        linear-gradient(180deg, #131b2e 0%, #0b0f19 100%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .hero-badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #00f2fe 50%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 860px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
+        }
+
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-teal);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-teal);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Search & Filter Bar */
+        .filter-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 24px 10px;
+        }
+
+        .filter-wrapper {
+            background: rgba(22, 31, 49, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px 24px;
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-teal);
+            font-size: 1.2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 54px;
+            background: rgba(11, 15, 25, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.2);
+        }
+
+        .module-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--grad-primary);
+            color: #0b0f19;
+            border-color: transparent;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Course Modules & Grid Layout */
+        .portal-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px 80px;
+        }
+
+        .module-group {
+            margin-bottom: 48px;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .module-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--grad-primary);
+            color: #0b0f19;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .module-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .week-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--grad-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .week-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 254, 0.15);
+        }
+
+        .week-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-top {
+            margin-bottom: 20px;
+        }
+
+        .card-week-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            border-radius: 20px;
+            color: var(--accent-teal);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .mini-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 0.78rem;
+            color: #d1d5db;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-html {
+            background: var(--grad-primary);
+            color: #0b0f19;
+            box-shadow: 0 4px 12px rgba(0, 242, 254, 0.25);
+        }
+
+        .btn-html:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .btn-docx {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-docx:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+        }
+
+        /* Footer */
+        .portal-footer {
+            background: #070a12;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Header -->
+    <header class="canva-header portal-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">ESG & SDGs Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">11501 企業道德與永續經營總覽</h1>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <a href="https://www.msci.com/our-solutions/esg-investing" target="_blank" class="btn btn-secondary" title="ESG Standards & Rating Frameworks">
+                <i class="fa-solid fa-leaf"></i> <span class="lang-zh">ESG 標準</span><span class="lang-en">ESG Standards</span>
+            </a>
+            <a href="https://sdgs.un.org/goals" target="_blank" class="btn btn-secondary" title="UN Sustainable Development Goals">
+                <i class="fa-solid fa-earth-americas"></i> <span class="lang-zh">SDGs 標準</span><span class="lang-en">SDGs Standards</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="portal-hero">
+        <div class="hero-badge-container">
+            <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> 100% EMI Dual-Language</span>
+            <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> 2026 ESG & UN SDGs Aligned</span>
+            <span class="badge" style="background: rgba(127, 0, 255, 0.2); border: 1px solid rgba(127, 0, 255, 0.4); color: #c084fc;">
+                <i class="fa-solid fa-certificate"></i> MBA / Executive Level
+            </span>
+        </div>
+        <h1 class="hero-title">
+            <span class="lang-zh">11501 企業道德與永續經營總覽</span>
+            <span class="lang-en">11501 Business Ethics and Sustainable Management</span>
+        </h1>
+        <p class="hero-subtitle">
+            <span class="lang-zh">對接 Harvard, MIT Sloan, Wharton, INSEAD 與 NUS 商學院認證標準。包含 18 週 16:9 Canva 黑金互動簡報與 Word 深度教學指引手冊！</span>
+            <span class="lang-en">Aligned with Harvard, MIT Sloan, Wharton, INSEAD & NUS MBA standards. Featuring 18-week interactive 16:9 Canva slides and Word facilitation guides.</span>
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="hero-stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">18</div>
+                <div class="stat-label"><span class="lang-zh">週次完整單元</span><span class="lang-en">Weekly Modules</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label"><span class="lang-zh">核心學習模組</span><span class="lang-en">Core Curriculum Tracks</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label"><span class="lang-zh">16:9 精美簡報頁</span><span class="lang-en">Canva Slide Decks</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">18</div>
+                <div class="stat-label"><span class="lang-zh">Word 教學手冊 (.docx)</span><span class="lang-en">Facilitation Guides</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <div class="filter-section">
+        <div class="filter-wrapper">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋關鍵字（例如：AI, 氣候, 供應鏈, 董事會, Capstone, CSR, MSCI）...">
+            </div>
+            <div class="module-tabs" id="moduleTabs">
+                <button class="tab-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> <span class="lang-zh">全部 18 週</span><span class="lang-en">All 18 Weeks</span></button>
+                <button class="tab-btn" data-filter="mod1"><i class="fa-solid fa-scale-balanced"></i> <span class="lang-zh">模組一：倫理基礎 (W1-3)</span><span class="lang-en">Mod 1: Foundations</span></button>
+                <button class="tab-btn" data-filter="mod2"><i class="fa-solid fa-leaf"></i> <span class="lang-zh">模組二：ESG治理 (W4-8)</span><span class="lang-en">Mod 2: ESG Core</span></button>
+                <button class="tab-btn" data-filter="mod3"><i class="fa-solid fa-microchip"></i> <span class="lang-zh">模組三：策略創新 (W9-12)</span><span class="lang-en">Mod 3: Strategy & Tech</span></button>
+                <button class="tab-btn" data-filter="mod4"><i class="fa-solid fa-briefcase"></i> <span class="lang-zh">模組四：應用提案 (W13-15)</span><span class="lang-en">Mod 4: Applied Capstone</span></button>
+                <button class="tab-btn" data-filter="mod5"><i class="fa-solid fa-crown"></i> <span class="lang-zh">模組五：領導決策 (W16-18)</span><span class="lang-en">Mod 5: Leadership</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="portal-content" id="portalContent">
+
+        <!-- MODULE 1 -->
+        <div class="module-group" data-module="mod1">
+            <div class="module-header">
+                <div class="module-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h2 class="module-title">
+                    <span class="lang-zh">模組一：企業倫理與責任基礎 (Module 1: Business Ethics Foundations)</span>
+                    <span class="lang-en">Module 1: Business Ethics Foundations (Weeks 1-3)</span>
+                </h2>
+            </div>
+            <div class="weeks-grid">
+                <!-- Week 1 -->
+                <div class="week-card" data-tags="W1 企業倫理 商業倫理 黑金簡報 AACSB 利益衝突">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-flag"></i> Week 01</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第1週：企業為何需要倫理？</span>
+                            <span class="lang-en">Week 1: Why Business Needs Ethics</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">建立全學期倫理思維基石！打破「商業唯利是圖」迷思，剖析誠信與短線獲利的衝突。</span>
+                            <span class="lang-en">Establishing the ethical cornerstone. Debunking profit-only myths and balancing ethics with business.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Ethics Baseline</span>
+                            <span class="mini-tag">24 Slides</span>
+                            <span class="mini-tag">Case Study</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第1週_企業為何需要倫理.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第1週_企業為何需要倫理.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="week-card" data-tags="W2 道德理論 效益論 義務論 德行論 Ford Pinto J&J Tylenol">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-scale-unbalanced-flip"></i> Week 02</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第2週：道德理論與商業決策</span>
+                            <span class="lang-en">Week 2: Ethical Theories & Business Decisions</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">三大西洋道德哲學（功利主義/義務論/德行論）深度對決！Ford Pinto 成本效益悲劇 vs. J&J 典範。</span>
+                            <span class="lang-en">Utilitarianism vs Deontology vs Virtue Ethics. Analyzing Ford Pinto Cost-Benefit analysis vs J&J Credo.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Utilitarianism</span>
+                            <span class="mini-tag">Deontology</span>
+                            <span class="mini-tag">Ford Pinto</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第2週_道德理論與商業決策.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第2週_道德理論與商業決策.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="week-card" data-tags="W3 CSR 企業社會責任 CSV 共享價值 Carroll 金字塔 漂綠偵探">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-hand-holding-heart"></i> Week 03</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第3週：企業社會責任與共享價值</span>
+                            <span class="lang-en">Week 3: CSR & Creating Shared Value (CSV)</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">Carroll 4層CSR金字塔與 Porter CSV 共享價值！探討漂綠 (Greenwashing) 偵測與價值創新。</span>
+                            <span class="lang-en">Carroll's CSR Pyramid and Porter's Creating Shared Value (CSV). Detecting Greenwashing in marketing.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Carroll Pyramid</span>
+                            <span class="mini-tag">Porter CSV</span>
+                            <span class="mini-tag">Greenwashing Audit</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第3週_企業社會責任與共享價值.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第3週_企業社會責任與共享價值.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 2 -->
+        <div class="module-group" data-module="mod2">
+            <div class="module-header">
+                <div class="module-icon"><i class="fa-solid fa-leaf"></i></div>
+                <h2 class="module-title">
+                    <span class="lang-zh">模組二：ESG 與永續治理 (Module 2: ESG & Sustainable Management)</span>
+                    <span class="lang-en">Module 2: ESG & Sustainable Management (Weeks 4-8)</span>
+                </h2>
+            </div>
+            <div class="weeks-grid">
+                <!-- Week 4 -->
+                <div class="week-card" data-tags="W4 ESG 永續發展 MSCI 評級 UN SDGs CSR與ESG區別">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-chart-pie"></i> Week 04</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第4週：ESG 與永續發展</span>
+                            <span class="lang-en">Week 4: ESG & Sustainable Development</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">ESG 不是 CSR 的新名詞，而是策略管理工具！解析 E/S/G 三大柱石與 MSCI ESG 評級。</span>
+                            <span class="lang-en">ESG is a strategic management tool, not just new CSR jargon. Understanding E, S, G and MSCI Ratings.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">ESG vs CSR</span>
+                            <span class="mini-tag">MSCI Ratings</span>
+                            <span class="mini-tag">UN SDGs</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第4週_ESG與永續發展.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第4週_ESG與永續發展.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 5 -->
+                <div class="week-card" data-tags="W5 氣候變遷 淨零排放 碳中和 碳盤查 碳定價 CBAM Scope1-3">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-temperature-arrow-up"></i> Week 05</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第5週：氣候變遷與淨零排放策略</span>
+                            <span class="lang-en">Week 5: Climate Change & Net Zero Strategy</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">1.5°C 巴黎協定、Net Zero 2050、Scope 1-3 碳盤查、碳定價與歐盟 CBAM 碳邊境關稅對策！</span>
+                            <span class="lang-en">Paris 1.5°C Agreement, Net Zero 2050, Scope 1-3 Carbon Audits, Carbon Pricing & EU CBAM Tariffs.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Net Zero 2050</span>
+                            <span class="mini-tag">Scope 1-3</span>
+                            <span class="mini-tag">EU CBAM</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第5週_氣候變遷與淨零排放.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第5週_氣候變遷與淨零排放.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 6 -->
+                <div class="week-card" data-tags="W6 利害關係人 管理 權力利益圖譜 雙重重大性 社會責任">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-users-gear"></i> Week 06</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第6週：利害關係人管理與實務</span>
+                            <span class="lang-en">Week 6: Stakeholder Management & CSR</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">回答「企業到底對誰負責？」Stakeholder Matrix 權力利益圖譜與雙重重大性原則。</span>
+                            <span class="lang-en">Answering "Who are businesses accountable to?" Power-Interest Matrix and Stakeholder Engagement.</span></p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Stakeholder Theory</span>
+                            <span class="mini-tag">Power-Interest Matrix</span>
+                            <span class="mini-tag">Engagement</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第6週_利害關係人管理.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第6週_利害關係人管理.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 7 -->
+                <div class="week-card" data-tags="W7 公司治理 企業誠信 負責任領導 代理人問題 舞弊三角 獨立董事">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-gavel"></i> Week 07</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第7週：公司治理、企業誠信與負責任領導</span>
+                            <span class="lang-en">Week 7: Corporate Governance & Ethics</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">Governance (G) 補齊最後拼圖！代理人問題、獨立董事監督、COSO 內控與舞弊三角模型。</span>
+                            <span class="lang-en">Completing Governance (G)! Agency problems, Independent Directors, COSO Framework & Fraud Triangle.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Agency Problem</span>
+                            <span class="mini-tag">Fraud Triangle</span>
+                            <span class="mini-tag">COSO Framework</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第7週_公司治理與企業誠信.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第7週_公司治理與企業誠信.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 8 -->
+                <div class="week-card" data-tags="W8 永續報告 ESG揭露 GRI ISSB SASB TCFD CDP 5大準則">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-file-invoice"></i> Week 08</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第8週：永續報告、ESG資訊揭露與透明度</span>
+                            <span class="lang-en">Week 8: Sustainability Reporting & Disclosure</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">全球國際 5 大永續揭露報告準則：GRI, ISSB, SASB, TCFD 與 CDP 資訊揭露實務。</span>
+                            <span class="lang-en">Mastering global reporting frameworks: GRI, ISSB, SASB, TCFD, and CDP Disclosure standards.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">GRI Standard</span>
+                            <span class="mini-tag">ISSB / SASB</span>
+                            <span class="mini-tag">TCFD Alignment</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第8週_永續報告與ESG揭露.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第8週_永續報告與ESG揭露.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 3 -->
+        <div class="module-group" data-module="mod3">
+            <div class="module-header">
+                <div class="module-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h2 class="module-title">
+                    <span class="lang-zh">模組三：企業永續策略與數位轉型 (Module 3: Strategic Sustainability)</span>
+                    <span class="lang-en">Module 3: Strategic Sustainability (Weeks 9-12)</span>
+                </h2>
+            </div>
+            <div class="weeks-grid">
+                <!-- Week 9 -->
+                <div class="week-card" data-tags="W9 永續金融 ESG投資 綠色債券 SLL 責任投資原則 UN PRI SFDR">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-coins"></i> Week 09</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第9週：永續金融與 ESG 投資</span>
+                            <span class="lang-en">Week 9: Sustainable Finance & ESG Investing</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">跨入金融市場！UN PRI 責任投資 5 大策略、綠色債券 (Green Bonds)、SLL 永續貸款與 SFDR。</span>
+                            <span class="lang-en">Entering financial markets! UN PRI 5 Strategies, Green Bonds, SLLs, MSCI Rating divergence & SFDR.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">UN PRI</span>
+                            <span class="mini-tag">Green Bonds</span>
+                            <span class="mini-tag">SFDR Art 8/9</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第9週_永續金融與ESG投資.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第9週_永續金融與ESG投資.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 10 -->
+                <div class="week-card" data-tags="W10 永續供應鏈 循環經濟 Scope3 5Rs 責任採購 Patagonia IKEA">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-truck-ramp-box"></i> Week 10</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第10週：永續供應鏈管理與循環經濟</span>
+                            <span class="lang-en">Week 10: Sustainable Supply Chain & Circularity</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">70%-95% 碳排來自 Scope 3！負責任採購、5 R's 框架、Patagonia / IKEA 與 Circular Canvas。</span>
+                            <span class="lang-en">Addressing 70-95% Scope 3 carbon footprints! Responsible Sourcing, 5 R's & Circular Canvas.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Scope 3 Management</span>
+                            <span class="mini-tag">5 R's Framework</span>
+                            <span class="mini-tag">Circular Canvas</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第10週_永續供應鏈與循環經濟.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第10週_永續供應鏈與循環經濟.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 11 -->
+                <div class="week-card" data-tags="W11 AI 數位治理 企業倫理 Responsible AI EU AI Act ISO42001 演算法偏誤">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-robot"></i> Week 11</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第11週：AI、數位治理與企業倫理</span>
+                            <span class="lang-en">Week 11: AI, Digital Governance & Ethics</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">2026 最熱門科技議題！Responsible AI 5 原則、演算法偏誤、歐盟 EU AI Act 4 大風險分級與 ISO 42001。</span>
+                            <span class="lang-en">2026's hottest topic! Responsible AI 5 Principles, EU AI Act 4 Risk Tiers & ISO 42001 AI Governance.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Responsible AI</span>
+                            <span class="mini-tag">EU AI Act</span>
+                            <span class="mini-tag">ISO 42001</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第11週_AI與數位治理.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第11週_AI與數位治理.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 12 -->
+                <div class="week-card" data-tags="W12 永續創新 ESG策略 商業模式轉型 PaaS VRIO 護城河 Kotter 8步驟">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-lightbulb"></i> Week 12</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第12週：永續創新與 ESG 策略轉型</span>
+                            <span class="lang-en">Week 12: Sustainability Innovation & ESG Strategy</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">把 ESG 變成利潤而非成本！PaaS 訂閱制、BSC × ESG 儀表板、VRIO 護城河與 2035 轉型藍圖。</span>
+                            <span class="lang-en">Turning ESG into profit, not cost! PaaS subscriptions, BSC × ESG Dashboard & VRIO Moat.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">PaaS Subscriptions</span>
+                            <span class="mini-tag">VRIO Moat</span>
+                            <span class="mini-tag">Kotter 8 Steps</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第12週_永續創新與ESG策略.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第12週_永續創新與ESG策略.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 4 -->
+        <div class="module-group" data-module="mod4">
+            <div class="module-header">
+                <div class="module-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <h2 class="module-title">
+                    <span class="lang-zh">模組四：整合應用實戰 (Module 4: Applied Sustainability)</span>
+                    <span class="lang-en">Module 4: Applied Sustainability (Weeks 13-15)</span>
+                </h2>
+            </div>
+            <div class="weeks-grid">
+                <!-- Week 13 -->
+                <div class="week-card" data-tags="W13 全球企業 案例分析 台積電 Patagonia Microsoft 標竿評分卡">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-building-flag"></i> Week 13</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第13週：全球企業永續策略案例分析</span>
+                            <span class="lang-en">Week 13: Global Corporate Sustainability Cases</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">10 大全球與臺灣頂尖標竿（Patagonia, Microsoft, 台積電, 玉山金等）交叉比較與顧問診斷。</span>
+                            <span class="lang-en">Cross-auditing 10 global & Taiwan leaders (Patagonia, Microsoft, TSMC, Delta, E.SUN) and Scorecards.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">10 Global Leaders</span>
+                            <span class="mini-tag">ESG Scorecards</span>
+                            <span class="mini-tag">Consultant Pitch</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第13週_全球企業永續案例分析.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第13週_全球企業永續案例分析.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 14 -->
+                <div class="week-card" data-tags="W14 ESG危機 企業韌性 聲譽管理 黃金一小時 J&J VW Boeing CEO模擬">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-shield-cat"></i> Week 14</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第14週：ESG危機管理、企業韌性與聲譽</span>
+                            <span class="lang-en">Week 14: ESG Crisis Management & Resilience</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">當黑天鵝降臨！Golden Hour 黃金 1 小時原則、J&J 典範、VW/Boeing 失敗教訓與 CEO 危機模擬。</span>
+                            <span class="lang-en">Navigating black swans! Golden Hour principles, J&J Tylenol benchmark, VW/Boeing cases & CEO Simulation.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Golden Hour Rule</span>
+                            <span class="mini-tag">Corporate Resilience</span>
+                            <span class="mini-tag">CEO Simulation</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第14週_ESG危機管理與企業韌性.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第14週_ESG危機管理與企業韌性.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 15 -->
+                <div class="week-card" data-tags="W15 顧問專題 Capstone 永續策略提案 董事會簡報 ESG健檢 2035藍圖">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-graduation-cap"></i> Week 15</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第15週：ESG企業顧問專題：永續策略提案</span>
+                            <span class="lang-en">Week 15: ESG Consulting Capstone Project</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">AACSB AoL 頂峰專題！化身 McKinsey/BCG 顧問進行 7 大維度健檢、2035 藍圖與董事會提案 Pitch！</span>
+                            <span class="lang-en">AACSB AoL Capstone! Roleplaying McKinsey/BCG consultants delivering 2035 Roadmaps to the Board.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">AACSB AoL Capstone</span>
+                            <span class="mini-tag">2035 Strategy Roadmap</span>
+                            <span class="mini-tag">Boardroom Pitch</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第15週_ESG企業顧問專題.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第15週_ESG企業顧問專題.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 5 -->
+        <div class="module-group" data-module="mod5">
+            <div class="module-header">
+                <div class="module-icon"><i class="fa-solid fa-crown"></i></div>
+                <h2 class="module-title">
+                    <span class="lang-zh">模組五：領導、決策與前瞻 (Module 5: Leadership & Governance)</span>
+                    <span class="lang-en">Module 5: Leadership & Governance (Weeks 16-18)</span>
+                </h2>
+            </div>
+            <div class="weeks-grid">
+                <!-- Week 16 -->
+                <div class="week-card" data-tags="W16 未來發展 前瞻趨勢 Responsible Leadership 領導宣言 AI+ESG TNFD">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-crystal-ball"></i> Week 16</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第16週：企業倫理與永續管理的未來</span>
+                            <span class="lang-en">Week 16: The Future of Business Ethics</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">16 週知識總融合！AI+ESG 雙軸趨勢、TNFD 生態、Digital Trust 核心資產與 My Leadership Manifesto。</span>
+                            <span class="lang-en">16-week knowledge integration! AI+ESG convergence, TNFD natural capital, Digital Trust & Leadership Manifesto.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">AI+ESG Trends</span>
+                            <span class="mini-tag">TNFD Ecosystem</span>
+                            <span class="mini-tag">Leadership Manifesto</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第16週_企業倫理與永續的未來.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第16週_企業倫理與永續的未來.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 17 -->
+                <div class="week-card" data-tags="W17 董事會決策 模擬 Boardroom 7大利害關係人 閉門會議 CEO記者會">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-gavel"></i> Week 17</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第17週：ESG董事會決策模擬</span>
+                            <span class="lang-en">Week 17: Boardroom Simulation: Decision Making</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">不確定下的高階決策力！扮演董事會成員處理 7 大利害關係人衝突、舉手表決並召開 CEO 記者會。</span>
+                            <span class="lang-en">Strategic decision making under uncertainty! Roleplaying board members, resolving conflicts & Hosting Press Conferences.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Boardroom Simulation</span>
+                            <span class="mini-tag">Stakeholder Conflicts</span>
+                            <span class="mini-tag">Press Conference</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第17週_ESG董事會決策模擬.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第17週_ESG董事會決策模擬.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+
+                <!-- Week 18 -->
+                <div class="week-card" data-tags="W18 負責任領導 永續未來 大結業 2035CEO圓桌 承諾書 個人作品集">
+                    <div class="card-top">
+                        <span class="card-week-badge"><i class="fa-solid fa-trophy"></i> Week 18</span>
+                        <h3 class="card-title">
+                            <span class="lang-zh">第18週：負責任領導與永續未來 (大結業)</span>
+                            <span class="lang-en">Week 18: Responsible Leadership for a Sustainable Future</span>
+                        </h3>
+                        <p class="card-desc">
+                            <span class="lang-zh">18 週終極大結業！2035 CEO 圓桌論壇、宣讀 Responsible Leadership 承諾書與完成個人期末作品集 (Portfolio)。</span>
+                            <span class="lang-en">Grand Graduation! 2035 CEO Roundtable, reciting Responsible Leadership Commitments & completing Portfolios.</span>
+                        </p>
+                        <div class="tags-list">
+                            <span class="mini-tag">Grand Graduation</span>
+                            <span class="mini-tag">2035 CEO Roundtable</span>
+                            <span class="mini-tag">Leadership Portfolio</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="第18週_負責任領導與永續未來.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第18週_負責任領導與永續未來.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+        <div class="footer-brand">
+            <i class="fa-solid fa-graduation-cap glow-icon"></i>
+            <span>ESG & UN SDGs 2026 Executive Business Series</span>
+        </div>
+        <p><span class="lang-zh">© 2026 11501企業道德與永續經營總覽 18 週頂尖商學院全景課程入口網站 • 版權所有</span>
+        <span class="lang-en">© 2026 11501 Business Ethics and Sustainable Management 18-Week Curriculum Portal • All Rights Reserved.</span></p>
+    </footer>
+
+    <!-- Filter & Search JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const moduleGroups = document.querySelectorAll('.module-group');
+            const weekCards = document.querySelectorAll('.week-card');
+            const langToggleBtn = document.getElementById('langToggleBtn');
+            const langDisplay = document.getElementById('langDisplay');
+
+            // Bilingual Switcher
+            langToggleBtn.addEventListener('click', () => {
+                if (document.body.classList.contains('lang-zh')) {
+                    document.body.classList.remove('lang-zh');
+                    document.body.classList.add('lang-en');
+                    langDisplay.textContent = 'EN / 中';
+                } else {
+                    document.body.classList.remove('lang-en');
+                    document.body.classList.add('lang-zh');
+                    langDisplay.textContent = '中 / EN';
+                }
+            });
+
+            // Tab Filter
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.getAttribute('data-filter');
+
+                    moduleGroups.forEach(group => {
+                        if (filter === 'all' || group.getAttribute('data-module') === filter) {
+                            group.style.display = 'block';
+                        } else {
+                            group.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Live Search Filter
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+
+                weekCards.forEach(card => {
+                    const text = (card.innerText + ' ' + (card.getAttribute('data-tags') || '')).toLowerCase();
+                    if (text.includes(query)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show module groups if they contain visible cards
+                moduleGroups.forEach(group => {
+                    const visibleCards = group.querySelectorAll('.week-card[style*="display: flex"], .week-card:not([style*="display: none"])');
+                    if (query === '') {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = visibleCards.length > 0 ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>"""
+
+# Write to both filenames
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\11501企業道德與永續經營總覽.html", "w", encoding="utf-8") as f:
+    f.write(html_portal)
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\index.html", "w", encoding="utf-8") as f:
+    f.write(html_portal)
+
+print("Successfully updated build_portal_hub.py and generated 11501企業道德與永續經營總覽.html!")

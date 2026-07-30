@@ -1,0 +1,809 @@
+import sys
+
+html_week13 = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 13: Global Corporate Case Studies | 全球企業永續案例分析</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 13: Global Corporate Sustainability Case Studies</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第13週_全球企業永續案例分析.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 13 • Module 4 Application Case Audits</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">全球企業永續策略案例分析</span>
+                            <span class="lang-en">Global Sustainability Case Studies</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Global Corporate Sustainability Case Studies</span>
+                            <span class="lang-en">Global Corporate Sustainability Case Studies</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">國際與台灣 10 大標竿企業診斷、企業評分卡與 ESG 顧問模擬大賽</span>
+                            <span class="lang-en">Auditing 10 Global & Taiwan Leaders, ESG Scorecards, and Consultant Challenge</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week13_cases_cover.jpg" alt="Week 13 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-earth-americas"></i> 10 Global Leaders • Case Audits
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Warm-up Question -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 暖身問題 - 最成功的 ESG 標竿">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-award"></i> Benchmark Audit</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：在你心目中，哪一家企業最能代表 ESG 的成功案例？</span>
+                            <span class="lang-en">Warm-up: Which Firm Represents the Ultimate ESG Benchmark?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="dilemma-statement">
+                            <p class="quote-text">
+                                <span class="lang-zh">「是 Patagonia 的使命品牌？Microsoft 的負碳承諾？Ørsted 的能源轉型？還是台積電的綠色製造？<strong>永續策略的成功取決於是否將 ESG 融入產業核心競爭力！</strong>」</span>
+                                <span class="lang-en">"ESG success is defined by embedding sustainability directly into sector core competitiveness!"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: W1-W12 Review -->
+            <section class="slide" id="slide-3" data-title="Slide 3: W1-W12 全景知識地圖">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Module 4 Integration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W1-W12 全景知識地圖融會貫通</span>
+                            <span class="lang-en">W1-W12 Comprehensive Knowledge Matrix</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5 mt-3">
+                        <div class="decision-card glass-card"><h4>1-3 Foundation</h4><p><span class="lang-zh">Ethics • CSR • CSV</span><span class="lang-en">Ethics & CSR</span></p></div>
+                        <div class="decision-card glass-card"><h4>4-8 ESG & Report</h4><p><span class="lang-zh">E/S/G • Climate • GRI</span><span class="lang-en">E/S/G & Reporting</span></p></div>
+                        <div class="decision-card glass-card"><h4>9 Finance</h4><p><span class="lang-zh">PRI • Green Bonds</span><span class="lang-en">Sustainable Fin</span></p></div>
+                        <div class="decision-card glass-card"><h4>10-11 Operations</h4><p><span class="lang-zh">Supply Chain • AI</span><span class="lang-en">Scope 3 & AI</span></p></div>
+                        <div class="decision-card glass-card"><h4>12 Strategy</h4><p><span class="lang-zh">VRIO • PaaS • BSC</span><span class="lang-en">Strategy & VRIO</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: 5 Common Traits -->
+            <section class="slide" id="slide-4" data-title="Slide 4: 企業永續成功 5 特徵">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-star"></i> Champions Traits</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業永續成功的 5 大共同特徵</span>
+                            <span class="lang-en">5 Common Traits of ESG Champions</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-to-slot accent-icon"></i> <span class="lang-zh">高層支持、策略融合、創新、參與與透明揭露</span><span class="lang-en">C-suite Support, Strategy, Innovation & Transparency</span></h3>
+                            <p><span class="lang-zh">1. C-suite 最高高層親自承諾；2. 融入公司 10 年期營運策略；3. 驅動商業模式創新；4. 利害關係人深度參與；5. 高品質透明資訊揭露。</span>
+                            <span class="lang-en">Top-down leadership combined with business model innovation and transparent disclosures.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Case 1: Patagonia -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 國際案例 - Patagonia">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-shirt"></i> Global Case 1</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Patagonia：目的導向商業與循環經濟</span>
+                            <span class="lang-en">Case 1: Patagonia Purpose-Driven Model</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-heart accent-icon"></i> <span class="lang-zh">「Earth is Now Our Only Shareholder」</span><span class="lang-en">Earth is Now Our Only Shareholder</span></h3>
+                            <p><span class="lang-zh">把 100% 股權與利潤投入氣候信託，推出 Worn Wear 維修拍賣與「Don't Buy This Jacket」反快時尚廣告，打造不可複製的品牌忠誠度。</span>
+                            <span class="lang-en">Donating 100% of profits to climate trusts while pioneering repair culture created unmatched brand equity.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Case 2: Microsoft -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 國際案例 - Microsoft">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-brands fa-microsoft"></i> Global Case 2</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Microsoft：2030 負碳排與 Responsible AI</span>
+                            <span class="lang-en">Case 2: Microsoft Carbon Negative 2030</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-leaf accent-icon"></i> <span class="lang-zh">承諾清除自創立以來的所有歷史碳排放</span><span class="lang-en">Removing All Historical Carbon Since 1975</span></h3>
+                            <p><span class="lang-zh">承諾 2030 實現 Carbon Negative (負碳排)，設立 10 億美元氣候創新基金，並制定全業界最具紀律的 Responsible AI Standard。</span>
+                            <span class="lang-en">Pledging to remove all historical emissions since 1975 while pioneering Responsible AI standards.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Case 3: Ørsted -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 國際案例 - Ørsted">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-wind"></i> Global Case 3</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Ørsted：從化石燃料轉型全球風電龍頭</span>
+                            <span class="lang-en">Case 3: Ørsted Offshore Wind Transformation</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-arrows-spin accent-icon"></i> <span class="lang-zh">10 年內將 85% 黑石化能翻轉為 90%+ 綠能</span><span class="lang-en">Flipping 85% Fossil Fuel to 90%+ Clean Energy</span></h3>
+                            <p><span class="lang-zh">賣掉傳統石油天然氣部門，賭注離岸風電，市值暴增 10 倍，被全球商學院評為「史上最成功的企業重塑轉型」。</span>
+                            <span class="lang-en">Divesting black oil assets to build global offshore wind leadership multiplied valuation by 10x.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Case 4: Unilever -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 國際案例 - Unilever">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-box-open"></i> Global Case 4</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Unilever：Sustainable Living Plan 品牌策略</span>
+                            <span class="lang-en">Case 4: Unilever USLP Framework</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-chart-line accent-icon"></i> <span class="lang-zh">永續生活品牌貢獻 75% 公司營業額成長</span><span class="lang-en">Sustainable Brands Driving 75% of Growth</span></h3>
+                            <p><span class="lang-zh">將永續目標植入 Dove, Ben & Jerry's 等 400+ 品牌，實證永續品牌成長力道遠超越傳統商業品牌。</span>
+                            <span class="lang-en">Integrating USLP goals into consumer brands generated faster growth and higher market share.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Case 5: IKEA -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 國際案例 - IKEA">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-couch"></i> Global Case 5</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">IKEA：循環經濟與家具買回租賃</span>
+                            <span class="lang-en">Case 5: IKEA Circular Furniture</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-arrows-rotate accent-icon"></i> <span class="lang-zh">2030 年 100% 採用再生與可回收原料</span><span class="lang-en">100% Circular & Renewable Materials by 2030</span></h3>
+                            <p><span class="lang-zh">推動舊家具回購 (Buy Back)、二手拍賣與商業辦公家具租賃，實現源頭設計可拆解、材料永久循環。</span>
+                            <span class="lang-en">Piloting furniture leasing, buyback marketplaces, and 100% circular product design by 2030.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Global Case Comparison Matrix -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 國際標竿案例比較矩陣">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-table"></i> Cross-Case Matrix</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">5 大國際企業 ESG 策略優勢比較</span>
+                            <span class="lang-en">Global Leaders ESG Strategy Comparison</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">企業</span><span class="lang-en">Firm</span></th>
+                                    <th><span class="lang-zh">核心永續驅動點</span><span class="lang-en">Driver</span></th>
+                                    <th><span class="lang-zh">標竿突破實務</span><span class="lang-en">Best Practice</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Patagonia</strong></td>
+                                    <td>Purpose-driven Mission</td>
+                                    <td>Worn Wear & 100% 股權氣候信託</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Microsoft</strong></td>
+                                    <td>Carbon Negative & Tech Governance</td>
+                                    <td>1975 至今歷史碳消除 + Responsible AI</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ørsted</strong></td>
+                                    <td>Full Business Model Transition</td>
+                                    <td>拋售油氣資產，轉型 90%+ 離岸風電</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Case 6: TSMC -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 臺灣案例 - 台積電">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-microchip"></i> Taiwan Case 6</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">台積電 (TSMC)：綠色製造與代工鏈減碳</span>
+                            <span class="lang-en">Case 6: TSMC Green Manufacturing</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-industry accent-icon"></i> <span class="lang-zh">全球首家加入 RE100 的半導體晶圓代工龍頭</span><span class="lang-en">First Semiconductor Foundry to Join RE100</span></h3>
+                            <p><span class="lang-zh">極致減碳與廢水零排放，要求全台數百家供應商進行碳盤查與減碳，帶動整體半導體產業鏈轉向綠電。</span>
+                            <span class="lang-en">Driving global semiconductor supply chain decarbonization through RE100 commitments and supplier audits.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Case 7: Delta Electronics -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 臺灣案例 - 台達電">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bolt"></i> Taiwan Case 7</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">台達電 (Delta)：節能科技與綠建築</span>
+                            <span class="lang-en">Case 7: Delta Energy Solutions</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-building-circle-check accent-icon"></i> <span class="lang-zh">將 ESG 融入高效能電源與綠建築核心產品</span><span class="lang-en">Integrating ESG into Efficient Power & Green Buildings</span></h3>
+                            <p><span class="lang-zh">研發 98%+ 高效率電源轉換與智慧綠建築系統，至今協助全球客戶節省數百億度電，實現以技術創造 CSV。</span>
+                            <span class="lang-en">Creating Shared Value by developing high-efficiency power supplies and green building solutions.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Case 8: E.SUN Financial -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 臺灣案例 - 玉山金控">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-building-columns"></i> Taiwan Case 8</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">玉山金控 (E.SUN)：永續金融與綠色授信</span>
+                            <span class="lang-en">Case 8: E.SUN Sustainable Finance</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-money-bill-trend-up accent-icon"></i> <span class="lang-zh">赤道原則領航者與 SLL 永續連結貸款</span><span class="lang-en">Equator Principles Leader & SLL Innovation</span></h3>
+                            <p><span class="lang-zh">率先停止燃煤發電融資，推動 SLL 永續連結貸款與投融資氣候壓力測試，引導企業客戶加速淨零轉型。</span>
+                            <span class="lang-en">Leading Taiwan financial green transition through SLL loans and strict climate stress testing.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Case 9: Uni-President -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 臺灣案例 - 統一企業">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-utensils"></i> Taiwan Case 9</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">統一企業：食安透明、農採與包裝減塑</span>
+                            <span class="lang-en">Case 9: Uni-President Agri & Food Safety</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-halved accent-icon"></i> <span class="lang-zh">建構最高標準食品安全與輕量化包裝</span><span class="lang-en">Highest Food Safety Standards & Plastic Reduction</span></h3>
+                            <p><span class="lang-zh">建置國家級食品安全檢驗中心，推動契約農作永續採購與容器瓶身輕量化減塑，展現食品業社會責任。</span>
+                            <span class="lang-en">Ensuring food safety transparency, sustainable agricultural sourcing, and lightweight packaging.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Case 10: Chunghwa Telecom -->
+            <section class="slide" id="slide-15" data-title="Slide 15: 臺灣案例 - 中華電信">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-tower-cell"></i> Taiwan Case 10</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">中華電信：數位治理、5G 節能與電子回收</span>
+                            <span class="lang-en">Case 10: CHT Digital Governance</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-lock accent-icon"></i> <span class="lang-zh">強韌資安治理、5G C-RAN 智慧節能與廢棄回收</span><span class="lang-en">Robust Cybersecurity Governance & 5G Energy Efficiency</span></h3>
+                            <p><span class="lang-zh">導入國際最高標準資安保護，運用 AI 智慧技術控管 5G 基地台耗電，並推動全台舊手機電子廢棄物回收。</span>
+                            <span class="lang-en">Applying AI to optimize 5G network power use while maintaining top cybersecurity data governance.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Unique ESG Characteristics of Taiwan -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 臺灣企業 ESG 4 大產業特色">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-map-pin"></i> Taiwan ESG Ecosystem</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">臺灣企業 ESG 的 4 大產業特色</span>
+                            <span class="lang-en">4 Industry ESG Features of Taiwan</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <h4>1. Manufacturing (製造)</h4>
+                            <p><span class="lang-zh">Scope 3 減碳與國際品牌轉價壓力。</span><span class="lang-en">Scope 3 & RE100 pressure</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>2. Financial (金融)</h4>
+                            <p><span class="lang-zh">投融資綠電引導與氣候壓力測試。</span><span class="lang-en">Green credit & stress tests</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>3. Technology (科技)</h4>
+                            <p><span class="lang-zh">低碳產品創新與綠電共購 (PPA)。</span><span class="lang-en">Eco-tech & Green PPA</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>4. Service (服務)</h4>
+                            <p><span class="lang-zh">包裝減塑、食安透明與在地農採。</span><span class="lang-en">Plastic reduction & food safety</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Activity 1 - Global ESG Benchmark -->
+            <section class="slide" id="slide-17" data-title="Slide 17: 活動一 - 企業評分卡">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-clipboard-list"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Global ESG Benchmark (評分卡)</span>
+                            <span class="lang-en">Global ESG Benchmark Scorecard</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">任務：製作一頁「企業永續評分卡」</span><span class="lang-en">Draft a 1-Page Corporate ESG Scorecard</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 評估使命 (Purpose) 與 ESG 策略相關性</p></div>
+                                <div class="opt-choice"><p>2. 列出 3 項 Best Practices 最佳實務</p></div>
+                                <div class="opt-choice"><p>3. 找出 1 項待改善的潛在痛點或風險</p></div>
+                                <div class="opt-choice"><p>4. 給予 E, S, G 與總體永續轉型評分</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Activity 1 - Debrief -->
+            <section class="slide" id="slide-18" data-title="Slide 18: 活動一 - 答案與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">優秀企業均具備明確 Purpose 與定量 KPI</span>
+                            <span class="lang-en">Activity 1: Purpose & Metrics Drive Scorecards</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「無效的評分卡只堆疊美化文字；真正的永續標竿企業，其評分卡建立在可驗證的碳盤查數據與強大的商業驅動力上！」</span>
+                            <span class="lang-en">"Real ESG scorecards rely on verifiable data and strong commercial drivers, not marketing fluff."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Which Firms Embedded ESG Strategy -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 哪些企業真正做到 ESG 策略？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chess"></i> Strategic Integration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">哪些企業真正做到 ESG 策略融入？</span>
+                            <span class="lang-en">Firms with Truly Embedded ESG Strategy</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-chart-line accent-icon"></i> <span class="lang-zh">Patagonia, Ørsted, Tesla 翻轉傳統商業模式</span><span class="lang-en">Patagonia, Ørsted, Tesla Reinventing Models</span></h3>
+                            <p><span class="lang-zh">將 ESG 轉化為核心產品與獲利來源，而非附加的公關活動，真正實現了價值主張與綠色轉型的完美結合。</span>
+                            <span class="lang-en">Transforming ESG directly into core products and revenue rather than add-on PR activities.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Which Firms Stagnate at Compliance -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 哪些企業滯留在 Compliance？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> Compliance Trap</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">哪些企業仍滯留在被動 Compliance 階段？</span>
+                            <span class="lang-en">Firms Stagnating at Pure Compliance</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-xmark red-text"></i> <span class="lang-zh">將 ESG 視為被動填表與開罰公關支出</span><span class="lang-en">Treating ESG as Sunk Regulatory Costs</span></h3>
+                            <p><span class="lang-zh">缺乏長線創新眼光，僅在政府開罰或客戶強制要求時被動修改，面臨極高的高碳關稅與資本撤資風險。</span>
+                            <span class="lang-en">Lacking long-term vision and making passive fixes only when threatened by regulations or client Ultimatums.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Which Firms Built VRIO Moats -->
+            <section class="slide" id="slide-21" data-title="Slide 21: 哪些企業建立 VRIO 護城河？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-trophy"></i> VRIO Advantage</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">哪些企業建立了難模仿的 VRIO 護城河？</span>
+                            <span class="lang-en">Firms Building Inimitable VRIO Moats</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-fort-awesome accent-icon"></i> <span class="lang-zh">台積電與 Microsoft 憑藉技術與生態系封頂</span><span class="lang-en">TSMC & Microsoft Harnessing Tech & Ecosystems</span></h3>
+                            <p><span class="lang-zh">台積電的綠色製造專利與代工規模，Microsoft 的 Copilot 資安保護與負碳基金，同業極難在短期內複製。</span>
+                            <span class="lang-en">Patents, scale, and data protection create moats that competitors cannot easily copy.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Which Firms Face Major Challenges -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 哪些企業仍面臨重大挑戰？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-cloud-showers-heavy"></i> Future Hurdles</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">哪些企業仍面臨轉型的重大瓶頸？</span>
+                            <span class="lang-en">Firms Facing Critical Transformation Hurdles</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-plug-circle-exclamation red-text"></i> <span class="lang-zh">高碳排產業與傳統石化/石化供應鏈</span><span class="lang-en">High-Emission Heavy Sectors & Supply Chain Bottlenecks</span></h3>
+                            <p><span class="lang-zh">鋼鐵、水泥與化學等傳統重工業，面臨綠氫技術成熟度不足、綠電採購昂貴與轉型資本巨大挑戰。</span>
+                            <span class="lang-en">Heavy industries struggling with green hydrogen maturity and high green power acquisition costs.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: Synthesis of Success Factors -->
+            <section class="slide" id="slide-23" data-title="Slide 23: 企業永續成功因素綜合矩陣">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-network-wired"></i> Success Synthesis</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業永續成功因素綜合矩陣</span>
+                            <span class="lang-en">Synthesis of Corporate Success Factors Matrix</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <h4>Purpose Alignment</h4>
+                            <p><span class="lang-zh">將使命與 ESG 緊密扣合</span><span class="lang-en">Purpose aligned with ESG</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Resource Capacity</h4>
+                            <p><span class="lang-zh">足夠的轉型資本與 R&D 投入</span><span class="lang-en">Transformation R&D budget</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Ecosystem Power</h4>
+                            <p><span class="lang-zh">攜手供應鏈與金融夥伴</span><span class="lang-en">Chain & Finance partners</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Data Rigor</h4>
+                            <p><span class="lang-zh">嚴謹合規之數據盤查系統</span><span class="lang-en">Rigorous audit systems</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Activity 2 - ESG Consultant Challenge -->
+            <section class="slide" id="slide-24" data-title="Slide 24: 活動二 - ESG 顧問競賽">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-user-ninja"></i> Activity 2 • 20 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ESG Consultant Challenge</span>
+                            <span class="lang-en">ESG Consultant Challenge</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">情境：模擬 Deloitte / PwC / KPMG / BCG 顧問團隊</span><span class="lang-en">Simulate Deloitte / PwC / KPMG / BCG Consultants</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 找出落後企業的 3 大 ESG 主要問題</p></div>
+                                <div class="opt-choice"><p>2. 提出 3 項長線改善與商業轉型策略</p></div>
+                                <div class="opt-choice"><p>3. 設計 2 項量化 ESG KPI 與監控機制</p></div>
+                                <div class="opt-choice"><p>4. 說明策略如何提升企業核心競爭力</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Activity 2 - Consultant Pitches -->
+            <section class="slide" id="slide-25" data-title="Slide 25: 活動二 - 各組簡報">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-microphone"></i> Consultant Pitches</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組 5 分鐘顧問提案 Pitch</span>
+                            <span class="lang-en">5-Min Consultant Proposals</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">為落後企業提出創新的永續解方</span><span class="lang-en">Delivering Innovative Turnaround Solutions</span></h3>
+                            <p><span class="lang-zh">評估各組提案之邏輯嚴謹度、財務可行性、問題診斷深度與簡報說服力！</span>
+                            <span class="lang-en">Evaluating diagnostic accuracy, strategic feasibility, and presentation persuasiveness.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Faculty Feedback & Evaluation -->
+            <section class="slide" id="slide-26" data-title="Slide 26: 教師回饋與綜合點評">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chalkboard-user"></i> Faculty Review</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">教師回饋與綜合評分 (Faculty Review)</span>
+                            <span class="lang-en">Faculty Feedback & Review Matrix</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-award accent-icon"></i> <span class="lang-zh">點評重點：痛點真實度與 ROI 財務自性</span><span class="lang-en">Key Point: Pain Point Realism & ROI Self-Sustaining</span></h3>
+                            <p><span class="lang-zh">優良的顧問提案必須能精準點出企業治理與範疇 3 的核心死穴，並證明提案具備良好的 ROI 財務回收！</span>
+                            <span class="lang-en">Great proposals pinpoint governance & Scope 3 vulnerabilities while proving strong financial ROI.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 27: Course Module 4 Synthesis -->
+            <section class="slide" id="slide-27" data-title="Slide 27: 模組四整合單元重點">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-layer-group"></i> Module 4 Synthesis</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">模組四「整合應用」單元核心梳理</span>
+                            <span class="lang-en">Module 4 Integration & Application Synthesis</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <h4>1. Audit (診斷)</h4>
+                            <p><span class="lang-zh">精準識別企業 ESG 痛點與曝險。</span><span class="lang-en">Diagnosing corporate ESG vulnerabilities</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>2. Benchmark (標竿)</h4>
+                            <p><span class="lang-zh">借鏡國際與在地標竿 Best Practice。</span><span class="lang-en">Benchmarking global & local leaders</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>3. Strategy (策略)</h4>
+                            <p><span class="lang-zh">將 ESG 結合商業模式創新與 VRIO。</span><span class="lang-en">Integrating VRIO & model innovation</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>4. Proposal (提案)</h4>
+                            <p><span class="lang-zh">產出具備 KPI 與 ROI 的顧問報告。</span><span class="lang-en">Formulating KPI-driven ROI proposals</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 28: Global Best Practices Framework -->
+            <section class="slide" id="slide-28" data-title="Slide 28: ESG Global Best Practices">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-globe"></i> Global Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ESG Global Best Practices 典範藍圖</span>
+                            <span class="lang-en">ESG Global Best Practices Blueprint</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-gem accent-icon"></i> <span class="lang-zh">融合科技、金融、供應鏈與透明治理的藍圖</span><span class="lang-en">Blending Tech, Finance, Chain & Transparency</span></h3>
+                            <p><span class="lang-zh">頂尖標竿企業皆以科技賦能減碳、以永續金融引導資本、以供應鏈共購達成閉環，並以 Responsible AI 確保數位信任。</span>
+                            <span class="lang-en">Combining digital decarbonization, green finance, and Responsible AI into a total framework.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 29: Preview W14 ESG Crisis -->
+            <section class="slide" id="slide-29" data-title="Slide 29: Preview W14 危機管理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-forward"></i> Preview W14</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W14 預告：ESG 危機管理與公關</span>
+                            <span class="lang-en">W14 Preview: ESG Crisis Management</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-shield-cat accent-icon"></i> <span class="lang-zh">W14 預告：ESG 危機管理與利害關係人溝通</span><span class="lang-en">W14 Preview: ESG Crisis & Stakeholder Communication</span></h3>
+                            <p class="mb-2"><span class="lang-zh">下一週我們將深入探討當企業爆發工安、環境污染、漂綠控訴或資安洩漏時的《ESG 危機管理與公關溝通》！</span><span class="lang-en">Next week we dive into ESG Crisis Management, Greenwashing Claims & Stakeholder PR!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 30: Summary & Homework 13 -->
+            <section class="slide" id="slide-30" data-title="Slide 30: Summary & Homework 13">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-flag-checkered"></i> Summary & HW13</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">本週總結與 Homework 13</span>
+                            <span class="lang-en">Week 13 Summary & Homework 13</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 13：全球企業 ESG 案例比較報告 (約 2,500 字)</span><span class="lang-en">Homework 13: Corporate Comparison Report (~2,500w)</span></h3>
+                            <p><span class="lang-zh">選擇 1 家國際企業 + 1 家臺灣企業：比較 E/S/G 策略、商業模式與競爭優勢，評估哪家做得更好及原因，並提出策略建議。</span>
+                            <span class="lang-en">Compare 1 Global + 1 Taiwan firm: audit E/S/G strategy, business model moats & recommend actions.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 25%;"><span class="lang-zh">企業分析 25%</span><span class="lang-en">Firm 25%</span></div>
+                                <div class="r-seg seg-2" style="width: 30%;"><span class="lang-zh">ESG比較 30%</span><span class="lang-en">ESG 30%</span></div>
+                                <div class="r-seg seg-3" style="width: 20%;"><span class="lang-zh">策略分析 20%</span><span class="lang-en">Strat 20%</span></div>
+                                <div class="r-seg seg-4" style="width: 15%;"><span class="lang-zh">建議品質 15%</span><span class="lang-en">Action 15%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">報告品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (30 Slides Overview)</span><span class="lang-en">30 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">30</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>"""
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\第13週_全球企業永續案例分析.html", "w", encoding="utf-8") as f:
+    f.write(html_week13)
+
+print("Successfully generated Week 13 HTML presentation file!")

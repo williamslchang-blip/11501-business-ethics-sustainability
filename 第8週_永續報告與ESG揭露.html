@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8: Sustainability Reporting & Disclosure | 永續報告與ESG揭露</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 8: Sustainability Reporting, ESG Disclosure, and Corporate Transparency</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第8週_永續報告與ESG揭露.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 08 • Disclosure & Transparency Milestone</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">永續報告、ESG資訊揭露與企業透明度</span>
+                            <span class="lang-en">Sustainability Reporting & ESG Disclosure</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Sustainability Reporting, ESG Disclosure, and Corporate Transparency</span>
+                            <span class="lang-en">Sustainability Reporting, ESG Disclosure, and Corporate Transparency</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">GRI、ISSB (IFRS S1/S2)、SASB、TCFD 國際準則、Double Materiality 雙重重大性與 ESG 報告書實務</span>
+                            <span class="lang-en">GRI, ISSB (IFRS S1/S2), SASB, TCFD Frameworks, Double Materiality, and Sustainability Report Audit Practice</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week8_reporting_cover.jpg" alt="Week 8 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-file-invoice"></i> GRI • ISSB • SASB • TCFD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Evolution Thread -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 課程邏輯主線">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Course Thread</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">課程邏輯主線：如何讓資本市場知道你的 ESG？</span>
+                            <span class="lang-en">Course Thread: Communicating ESG to Capital Markets</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-heart"></i></div><h4>W1-3 Ethics/CSR</h4><p><span class="lang-zh">倫理與責任</span><span class="lang-en">Ethics & CSR</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-leaf"></i></div><h4>W4-5 ESG & E</h4><p><span class="lang-zh">ESG與淨零</span><span class="lang-en">ESG & Climate</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-users"></i></div><h4>W6-7 S & G</h4><p><span class="lang-zh">社會與公司治理</span><span class="lang-en">Social & Gov</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-file-contract"></i></div><h4>W8 Today</h4><p><span class="lang-zh">Disclosure (揭露)<br>(永續報告與透明度)</span><span class="lang-en">Disclosure<br>(Reporting & Standards)</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Warm-up Question -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 暖身問題 - 不公開投資人知道嗎？">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-eye-slash"></i> Disclosure Dilemma</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：ESG 做很好但從不公開，投資人會知道嗎？</span>
+                            <span class="lang-en">Warm-up: Great ESG But Never Disclosed—Will Investors Know?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="dilemma-statement">
+                            <p class="quote-text">
+                                <span class="lang-zh">「做再多 ESG 善舉，若未經國際標準定量揭露與會計確信，在機構投資人眼中等同不存在！<strong>資訊揭露 (Disclosure) 是將永續行動轉化為資本估值與信任的唯一橋樑。</strong>」</span>
+                                <span class="lang-en">"Undisclosed ESG is invisible to institutional capital. Disclosure bridges action to market valuation."</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Disclosure Chain -->
+            <section class="slide" id="slide-4" data-title="Slide 4: 企業透明度價值鏈">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-link"></i> Value Chain</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業透明度與資本價值鏈</span>
+                            <span class="lang-en">Corporate Transparency & Capital Value Chain</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-file-lines"></i></div><h4>Disclosure</h4><p><span class="lang-zh">定量透明揭露</span><span class="lang-en">ESG Disclosure</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-eye"></i></div><h4>Transparency</h4><p><span class="lang-zh">企業資訊透明度</span><span class="lang-en">Transparency</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-handshake"></i></div><h4>Trust</h4><p><span class="lang-zh">投資人市場信任</span><span class="lang-en">Market Trust</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-chart-line"></i></div><h4>Valuation</h4><p><span class="lang-zh">企業估值與成長</span><span class="lang-en">Corporate Valuation</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Cost vs Competitiveness -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 揭露是成本還是競爭力？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-coins"></i> Cost vs Advantage</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">資訊揭露：合規成本還是核心競爭力？</span>
+                            <span class="lang-en">Disclosure: Compliance Cost or Strategic Advantage?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-trophy accent-icon"></i> <span class="lang-zh">吸引外資、降低融資利率與展現治理的頂級武器</span><span class="lang-en">Weapon to Attract Funds & Lower Cost of Capital</span></h3>
+                            <p><span class="lang-zh">將揭露視為合規成本的企業只做最低維護；主動提供高透明度報告書的企業，能獲得全球主權基金買進與銀行綠色融資利率優惠！</span>
+                            <span class="lang-en">Proactive firms treat reporting as a strategic asset to attract global ESG funds and lower borrowing rates.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: What is Sustainability Report -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 什麼是永續報告書？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-book-open"></i> Part II • Sustainability Report</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 Sustainability Report (永續報告書)？</span>
+                            <span class="lang-en">What is a Sustainability Report?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-file-contract accent-icon"></i> <span class="lang-zh">企業溝通 E/S/G 非財務績效的官方權威文件</span><span class="lang-en">Official Vehicle for Non-Financial ESG Performance</span></h3>
+                            <p><span class="lang-zh">永續報告書是企業年度向利害關係人、投資人與大眾展示氣候目標、社會責任與公司治理成果的正式綜合報告。</span>
+                            <span class="lang-en">An official publication communicating a company's environmental, social, and governance goals and achievements.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Integrated vs Annual vs Sustainability -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 三大報告書類型對比">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-code-compare"></i> Report Typology</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Annual Report vs. Sustainability Report vs. Integrated Report</span>
+                            <span class="lang-en">Comparing the Three Corporate Reports</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">比較面向</span><span class="lang-en">Dimension</span></th>
+                                    <th>Annual Report (股東年報)</th>
+                                    <th>Sustainability Report (永續報告書)</th>
+                                    <th class="highlight-th">Integrated Report (整合報告 IR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><span class="lang-zh">主要受眾</span><span class="lang-en">Audience</span></strong></td>
+                                    <td><span class="lang-zh">股東與金融分析師</span><span class="lang-en">Shareholders & Financial Analysts</span></td>
+                                    <td><span class="lang-zh">多重利害關係人與社會大眾</span><span class="lang-en">Multi-stakeholders & Society</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">機構投資人與長線資本</span><span class="lang-en">Institutional Long-term Capital</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">核心焦點</span><span class="lang-en">Core Focus</span></strong></td>
+                                    <td><span class="lang-zh">歷史財務數字與損益</span><span class="lang-en">Historical Financial GAAP Metrics</span></td>
+                                    <td><span class="lang-zh">E/S/G 非財務績效與永續專案</span><span class="lang-en">Non-financial ESG Impact & Goals</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">財務資本與自然/社會資本融合</span><span class="lang-en">Merging Financial & ESG Capital</span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Anatomy of ESG Report -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 報告書核心章節">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-list-check"></i> Report Anatomy</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">一份高品質 ESG 報告書的 4 大核心章節</span>
+                            <span class="lang-en">Four Core Chapters of an ESG Report</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">01</div>
+                            <h4>CEO Message</h4>
+                            <p><span class="lang-zh">CEO 承諾與願景宣示</span><span class="lang-en">CEO Vision & Commitment</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">02</div>
+                            <h4>Material Topics</h4>
+                            <p><span class="lang-zh">重大議題與利害關係人溝通</span><span class="lang-en">Materiality & Stakeholders</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">03</div>
+                            <h4>ESG Performance</h4>
+                            <p><span class="lang-zh">E/S/G 定量數據與目標</span><span class="lang-en">Quantitative ESG Metrics</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">04</div>
+                            <h4>Assurance</h4>
+                            <p><span class="lang-zh">第三方會計師獨立確信聲明</span><span class="lang-en">Third-party Assurance Letter</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: CEO Message -->
+            <section class="slide" id="slide-9" data-title="Slide 9: CEO 致詞與 Tone at the Top">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-comment-dots"></i> CEO Vision</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CEO Message：高層承諾與願景</span>
+                            <span class="lang-en">CEO Message & Tone at the Top</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-bullhorn accent-icon"></i> <span class="lang-zh">將永續目標納入企業核心營運戰略</span><span class="lang-en">Integrating Sustainability into Strategy</span></h3>
+                            <p><span class="lang-zh">CEO 致詞不應是公關稿，必須具體宣告 2030 減碳目標、2050 Net Zero 承諾與董事會監督機制，展現高層決心。</span>
+                            <span class="lang-en">The CEO letter must explicitly declare 2030 decarbonization pathways and 2050 Net Zero targets.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Material Topics -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 重大議題 Material Topics">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bullseye"></i> Materiality</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Material Topics：重大議題鑑別</span>
+                            <span class="lang-en">Identifying Material Topics</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-filter accent-icon"></i> <span class="lang-zh">聚焦對商業與社會最具影響力的議題</span><span class="lang-en">Focusing on Issues Impacting Value & Society</span></h3>
+                            <p><span class="lang-zh">企業不可能包辦所有環保慈善專案！報告書必須揭露經過問卷調查與評估鑑別出的前 10 大重大性議題。</span>
+                            <span class="lang-en">Reports must prioritize the top 10 material issues identified via rigorous stakeholder surveys.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Quantitative ESG Data -->
+            <section class="slide" id="slide-11" data-title="Slide 11: Quantitative ESG Performance">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chart-pie"></i> ESG Metrics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Quantitative ESG Data (可量化數據)</span>
+                            <span class="lang-en">Quantitative ESG Performance Metrics</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-table accent-icon"></i> <span class="lang-zh">拒絕空洞文字，用真實數據說話</span><span class="lang-en">Hard Data Over Vague Narratives</span></h3>
+                            <p><span class="lang-zh">揭露 Scope 1, 2, 3 碳排放噸數、綠電百分比、水資源回收率、女性主管比率、員工工安失能傷害率與董事會獨立性。</span>
+                            <span class="lang-en">Disclosing hard figures: Scope 1-3 metric tons, renewable energy %, female manager %, and safety incidents.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: TSMC Case -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 台積電永續報告標竿">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> Case Study • TSMC</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">台積電永續報告書實務標竿</span>
+                            <span class="lang-en">TSMC Sustainability Report Benchmark</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">整合 GRI, SASB, TCFD 與 ISSB 揭露典範</span><span class="lang-en">Pioneering Integrated ESG Frameworks</span></h3>
+                            <p><span class="lang-zh">台積電每年發布完整的永續報告書與 ESG 數據庫，率先導入 SASB 半導體指標與 TCFD 氣候財務揭露，並取得第三方獨立會計師查驗確信。</span>
+                            <span class="lang-en">TSMC publishes comprehensive ESG databooks aligned with SASB semiconductor metrics and independent assurance.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Activity 1 - Materiality Workshop -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 活動一 - 重大性工作坊">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-gamepad"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Materiality Workshop</span>
+                            <span class="lang-en">Materiality Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">任務：為目標產業挑出最精準的重大議題</span><span class="lang-en">Plot Materiality Matrix for Target Industry</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 航空公司 (碳排/燃油效率/客安)</p></div>
+                                <div class="opt-choice"><p>2. 銀行金融 (綠色融資/資安/氣候風險)</p></div>
+                                <div class="opt-choice"><p>3. 科技半導體 (綠電水資源/晶片隱私/供應鏈)</p></div>
+                                <div class="opt-choice"><p>4. 食品餐飲 (食品安全/有機採購/包材廢棄)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Activity 1 - Debrief -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 活動一 - 各組分享與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">不同產業的重大議題本質差異</span>
+                            <span class="lang-en">Activity 1: Industry Materiality Differences</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「重大性 (Materiality) 絕非套用公版！航空業的核心是 E (碳排)；金融業的核心是 G (風險與資安)；餐飲業的核心是 S (食安與供應鏈)。」</span>
+                            <span class="lang-en">"Materiality is industry-dependent! Aviation focuses on E; Finance on G; Food & Retail on S & Supply Chain."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: GRI Standards -->
+            <section class="slide" id="slide-15" data-title="Slide 15: GRI Standards">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-globe"></i> Part III • Global Standards</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">GRI (Global Reporting Initiative)</span>
+                            <span class="lang-en">GRI Standards</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-layer-group accent-icon"></i> <span class="lang-zh">全球普及率最高的多重利害關係人揭露框架</span><span class="lang-en">Most Widely Used Multi-Stakeholder Standard</span></h3>
+                            <p><span class="lang-zh">GRI 涵蓋通用標準、行業標準與主題標準，著重企業營運對經濟、環境與社會產生的廣泛衝擊 (Impact Materiality)。</span>
+                            <span class="lang-en">GRI covers universal, sector, and topic standards focusing on a firm's impact on society and environment.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: ISSB Standards -->
+            <section class="slide" id="slide-16" data-title="Slide 16: ISSB (IFRS S1 / S2)">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-landmark"></i> ISSB Global Baseline</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ISSB (IFRS S1 與 IFRS S2) 國際永續準則</span>
+                            <span class="lang-en">ISSB Standards (IFRS S1 & IFRS S2)</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-scale-balanced accent-icon"></i> <span class="lang-zh">全球資本市場統一的投資人揭露基準</span><span class="lang-en">Global Baseline for Investor Capital Markets</span></h3>
+                            <p><span class="lang-zh">由國際會計準則理事會 (IFRS Foundation) 成立：IFRS S1 (永續相關財務揭露一般要求) 與 IFRS S2 (氣候相關揭露)，專為投資人提供財務重大性數據。</span>
+                            <span class="lang-en">IFRS S1 & S2 create a global baseline of sustainability-related financial disclosures for capital investors.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: SASB Standards -->
+            <section class="slide" id="slide-17" data-title="Slide 17: SASB Standards">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-industry"></i> Industry Materiality</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">SASB (77 個特定產業財務重大性)</span>
+                            <span class="lang-en">SASB Industry Standards</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-bullseye accent-icon"></i> <span class="lang-zh">針對 77 個產業量身打造的精準財務指標</span><span class="lang-en">Tailored Financial Metrics for 77 Industries</span></h3>
+                            <p><span class="lang-zh">SASB 提供特定產業（如半導體、零售、金融）最具財務重大性的關鍵指標，幫助投資人進行橫向跨公司比較。</span>
+                            <span class="lang-en">SASB provides industry-specific metrics for 77 sectors to help investors compare financial materiality across peers.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: TCFD Framework -->
+            <section class="slide" id="slide-18" data-title="Slide 18: TCFD 氣候財務揭露">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-cloud-sun-rain"></i> Climate Disclosure</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">TCFD 氣候相關財務揭露 4 大柱石</span>
+                            <span class="lang-en">TCFD 4 Core Pillars</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="cards-grid-4">
+                            <div class="decision-card glass-card"><h4>1. Governance</h4><p><span class="lang-zh">董事會對氣候風險之監督</span><span class="lang-en">Board climate oversight</span></p></div>
+                            <div class="decision-card glass-card"><h4>2. Strategy</h4><p><span class="lang-zh">氣候情境分析與長遠策略</span><span class="lang-en">Scenario analysis & plan</span></p></div>
+                            <div class="decision-card glass-card"><h4>3. Risk</h4><p><span class="lang-zh">氣候風險識別與整合管理</span><span class="lang-en">Risk management integration</span></p></div>
+                            <div class="decision-card glass-card"><h4>4. Metrics</h4><p><span class="lang-zh">Scope 1-3 溫室氣體目標</span><span class="lang-en">Scope 1-3 targets & metrics</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: CDP Questionnaire -->
+            <section class="slide" id="slide-19" data-title="Slide 19: CDP 碳揭露問卷">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chart-line"></i> CDP Rating</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CDP 全球氣候與水資源問卷</span>
+                            <span class="lang-en">CDP Carbon & Water Ratings</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-award accent-icon"></i> <span class="lang-zh">機構法人最看重的全球氣候評級 (A to D-)</span><span class="lang-en">Global Benchmark Rating for Fund Managers</span></h3>
+                            <p><span class="lang-zh">評估企業在氣候變遷 (Climate Change)、水資源安全 (Water) 與森林防護 (Forests) 的揭露透明度與減碳行動。</span>
+                            <span class="lang-en">Evaluating corporate transparency and action on climate change, water security, and deforestation.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: 5 Standards Comparison Matrix -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 5 大國際揭露準則比較表">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-table"></i> Standards Matrix</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全球 5 大 ESG 揭露準則綜合比較表</span>
+                            <span class="lang-en">Global 5 ESG Reporting Standards Comparison</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">揭露準則</span><span class="lang-en">Framework</span></th>
+                                    <th><span class="lang-zh">核心受眾</span><span class="lang-en">Audience</span></th>
+                                    <th><span class="lang-zh">重大性視角</span><span class="lang-en">Materiality Lens</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>GRI</strong></td>
+                                    <td><span class="lang-zh">多重利害關係人 (社區/員工/NGOs)</span><span class="lang-en">Multi-stakeholders</span></td>
+                                    <td><span class="lang-zh">Impact Materiality (對環境社會的影響)</span><span class="lang-en">Impact Materiality (Inside-Out)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ISSB (IFRS S1/S2)</strong></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">資本市場與機構投資人</span><span class="lang-en">Capital Investors</span></span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">Financial Materiality (財務重大性)</span><span class="lang-en">Financial Materiality (Outside-In)</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SASB</strong></td>
+                                    <td><span class="lang-zh">特定產業投資人 (77 產業)</span><span class="lang-en">Industry Investors</span></td>
+                                    <td><span class="lang-zh">特定產業財務重大指標</span><span class="lang-en">Industry Financial Materiality</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Double Materiality -->
+            <section class="slide" id="slide-21" data-title="Slide 21: Double Materiality 雙重重大性">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-arrows-left-right"></i> EU CSRD Concept</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">雙重重大性 (Double Materiality) 概念</span>
+                            <span class="lang-en">The Concept of Double Materiality</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-2col gap-4 mt-3">
+                        <div class="theory-card glass-card">
+                            <div class="theory-header"><h3>1. Impact Materiality (由內而外)</h3></div>
+                            <p class="mt-2"><span class="lang-zh">企業經營活動對外部地球環境與社會產生的衝擊與影響 (Inside-Out)。</span><span class="lang-en">Inside-Out: How the firm impacts society and planet.</span></p>
+                        </div>
+                        <div class="theory-card glass-card highlight-card">
+                            <div class="theory-header"><h3>2. Financial Materiality (由外而內)</h3></div>
+                            <p class="mt-2"><span class="lang-zh">外部氣候變遷與社會風險對企業本身財務價值與股價的影響 (Outside-In)。</span><span class="lang-en">Outside-In: How ESG risks impact financial value.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Materiality Matrix Diagram -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 重大性矩陣 Materiality Matrix">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-chart-gantt"></i> Matrix Diagram</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Materiality Matrix 重大性矩陣</span>
+                            <span class="lang-en">The Materiality Matrix Diagram</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card mt-3">
+                        <i class="fa-solid fa-border-all debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">矩陣座標定義：</span><span class="lang-en">Matrix Axes Definition:</span></h4>
+                            <p><span class="lang-zh"><strong>X 軸：對企業營運與財務之影響度 (Financial Materiality)</strong><br><strong>Y 軸：對利害關係人與社會之關切度 (Impact Materiality)</strong><br>落在右上角第一象限的議題（如碳排、資安、供應鏈），即為永續報告書必須優先著墨的核心單元！</span>
+                            <span class="lang-en">Top-right quadrant issues (e.g. Carbon, Cyber, Supply Chain) demand priority disclosure in the report.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: ESG Disclosure Quality -->
+            <section class="slide" id="slide-23" data-title="Slide 23: ESG 資訊揭露品質">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-certificate"></i> Part IV • Quality & Washing</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">評估 ESG 揭露品質的 5 大核心要素</span>
+                            <span class="lang-en">5 Key Elements of Disclosure Quality</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Balance</h4><p><span class="lang-zh">平衡性：揭露優點亦坦承缺點</span><span class="lang-en">Balance: Good & bad impacts</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Compare</h4><p><span class="lang-zh">可比性：跨年度與同業可對比</span><span class="lang-en">Comparability: Year-on-year</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Accuracy</h4><p><span class="lang-zh">準確性：方法學與數據精準</span><span class="lang-en">Accuracy: Precise methods</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Timely</h4><p><span class="lang-zh">即時性：年度定期公開</span><span class="lang-en">Timeliness: Regular updates</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. Assurance</h4><p><span class="lang-zh">第三方獨立會計師確信</span><span class="lang-en">Third-party assurance</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Greenwashing vs Disclosure Washing -->
+            <section class="slide" id="slide-24" data-title="Slide 24: Disclosure Washing 漂洗辨識">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-mask"></i> Disclosure Washing</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Greenwashing vs. Disclosure Washing</span>
+                            <span class="lang-en">Greenwashing vs. Disclosure Washing</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-triangle-exclamation red-text"></i> <span class="lang-zh">選擇性揭露好數據 (Cherry-picking) 的風險</span><span class="lang-en">Cherry-Picking Metrics to Hide Negatives</span></h3>
+                            <p><span class="lang-zh">Disclosure Washing 指企業在報告書中大量大張旗鼓宣傳少數環保亮點，卻刻意隱瞞罰款、勞資糾紛或工安天價天災。</span>
+                            <span class="lang-en">Disclosure Washing occurs when reports highlight minor eco-projects while omitting severe labor abuse or pollution fines.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Case Study: VW Dieselgate -->
+            <section class="slide" id="slide-25" data-title="Slide 25: VW 柴油門案例">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-ban"></i> Case Audit • VW</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Volkswagen 柴油門與報告書漂洗</span>
+                            <span class="lang-en">Volkswagen Dieselgate & Report Washing</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-car red-text"></i> <span class="lang-zh">永續報告書宣揚清潔柴油，實則作弊欺詐</span><span class="lang-en">Clean Diesel Marketing vs Illegal Defeat Software</span></h3>
+                            <p><span class="lang-zh">VW 曾在永續報告書中獲得全球高分，宣稱其柴油車極度環保，實則安裝作弊軟體規避檢驗。案例凸顯無第三方客觀會計確信的報告書風險！</span>
+                            <span class="lang-en">VW marketed clean diesel in ESG reports while installing illegal defeat devices, proving the necessity of independent auditing.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Activity 2 - ESG Report Challenge -->
+            <section class="slide" id="slide-26" data-title="Slide 26: 活動二 - ESG Report Challenge">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-magnifying-glass"></i> Activity 2 • 25 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ESG Report Reading Challenge</span>
+                            <span class="lang-en">ESG Report Reading Challenge</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">小組實務審查：閱讀目標企業最新永續報告書</span><span class="lang-en">Audit Latest Report for Target Listed Firm</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 台積電 (TSMC)</p></div>
+                                <div class="opt-choice"><p>2. Apple</p></div>
+                                <div class="opt-choice"><p>3. Microsoft / Unilever</p></div>
+                                <div class="opt-choice"><p>4. Starbucks / 玉山金控</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 27: Activity 2 - Team Presentations -->
+            <section class="slide" id="slide-27" data-title="Slide 27: 活動二 - 各組簡報">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-microphone"></i> Team Pitches</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組 5 分鐘簡報與揭露改善建議</span>
+                            <span class="lang-en">5-Min Pitches & Disclosure Audit</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">教師點評：從閱讀者提升為審計批判者</span><span class="lang-en">Transforming Readers into Critical Auditors</span></h3>
+                            <p><span class="lang-zh">審查重點：企業是否精準對接 GRI/SASB/TCFD？重大性議題是否迴避關鍵爭議？是否有第三方獨立確信聲明書？</span>
+                            <span class="lang-en">Auditing whether reports align with GRI/SASB/TCFD and include independent third-party assurance statements.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 28: W1-W8 Synthesis & Preview W9 -->
+            <section class="slide" id="slide-28" data-title="Slide 28: W1-W8 總整與 W9 預告">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-graduation-cap"></i> W1-W8 Synthesis & HW8</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W1–W8 第一階段總整與 Homework 8</span>
+                            <span class="lang-en">W1-W8 Phase 1 Synthesis & Homework 8</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-trophy accent-icon"></i> <span class="lang-zh">恭喜完成前半學期永續管理完整能力建構！</span><span class="lang-en">Phase 1 Complete: Ethics to Disclosure</span></h3>
+                            <p><span class="lang-zh">W1 Ethics → W2 Decision → W3 CSR/CSV → W4 ESG → W5 Climate → W6 Stakeholders → W7 Governance → W8 Disclosure！下週 W9 將開啟《永續金融與 ESG 投資》！</span>
+                            <span class="lang-en">W1 Ethics → W2 Decision → W3 CSR → W4 ESG → W5 Climate → W6 Stakeholders → W7 Governance → W8 Disclosure! W9 opens Sustainable Finance!</span></p>
+                        </div>
+
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 8：永續報告書分析個案 (約 2,000 字)</span><span class="lang-en">Homework 8: Report Audit Case (~2,000w)</span></h3>
+                            <p><span class="lang-zh">下載一家上市公司最新永續報告書：分析概況、三項重大議題、E/S/G措施與準則對接 (GRI/ISSB/SASB/TCFD)、批判分析與三項改善建議。</span>
+                            <span class="lang-en">Audit a listed firm's report: intro, 3 material topics, E/S/G actions, GRI/ISSB/SASB/TCFD standards, critical analysis & 3 recommendations.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 25%;"><span class="lang-zh">報告閱讀 25%</span><span class="lang-en">Audit 25%</span></div>
+                                <div class="r-seg seg-2" style="width: 20%;"><span class="lang-zh">重大分析 20%</span><span class="lang-en">Material 20%</span></div>
+                                <div class="r-seg seg-3" style="width: 25%;"><span class="lang-zh">準則應用 25%</span><span class="lang-en">Standards 25%</span></div>
+                                <div class="r-seg seg-4" style="width: 20%;"><span class="lang-zh">批判建議 20%</span><span class="lang-en">Critical 20%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">報告品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (28 Slides Overview)</span><span class="lang-en">28 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">28</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

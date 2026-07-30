@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 18: Responsible Leadership for a Sustainable Future | 負責任領導與永續未來</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 18: Responsible Leadership for a Sustainable Future</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第18週_負責任領導與永續未來.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 18 • Course Graduation & Responsible Leadership</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">負責任領導與永續未來</span>
+                            <span class="lang-en">Responsible Leadership</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Responsible Leadership for a Sustainable Future</span>
+                            <span class="lang-en">Responsible Leadership for a Sustainable Future</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">18 週知識終極大融會、2035 CEO 圓桌論壇、領導力承諾書與個人作品集</span>
+                            <span class="lang-en">18-Week Synthesis, 2035 CEO Roundtable, Leadership Commitment & Portfolio</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week18_leader_cover.jpg" alt="Week 18 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-graduation-cap"></i> Grand Graduation • Responsible Leadership
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: 18-Week Course Learning Map -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 18週全景學習地圖">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-map-location-dot"></i> 18-Week Full Map</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">本學期 18 週全景學習地圖終極融合</span>
+                            <span class="lang-en">Full 18-Week Learning Journey Synthesis</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5 mt-3">
+                        <div class="decision-card glass-card"><h4>Mod 1: Foundations</h4><p><span class="lang-zh">Ethics • CSR • CSV</span><span class="lang-en">W1-3 Foundations</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 2: ESG Core</h4><p><span class="lang-zh">E/S/G • GRI Standards</span><span class="lang-en">W4-8 ESG Tools</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 3: Strategy</h4><p><span class="lang-zh">Finance • Chain • AI</span><span class="lang-en">W9-12 Strategy</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 4: Practice</h4><p><span class="lang-zh">Cases • Crisis • Pitch</span><span class="lang-en">W13-15 Applied</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 5: Leadership</h4><p><span class="lang-zh">Board • Future Leadership</span><span class="lang-en">W16-18 Leadership</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Enterprise Sustainable Management Integration -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 企業永續管理整合架構">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Integration Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業永續管理整合架構</span>
+                            <span class="lang-en">Enterprise Sustainable Management Framework</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-sitemap accent-icon"></i> <span class="lang-zh">Ethics → Governance → ESG → Strategy → Innovation → Resilience → Leadership</span><span class="lang-en">Ethics -> Governance -> ESG -> Strategy -> Innovation -> Resilience -> Leadership</span></h3>
+                            <p><span class="lang-zh">這套 7 階架構將倫理思維、治理內控、ESG 指標、商業創新與黑天鵝韌性，最終昇華為負責任的領導力！</span>
+                            <span class="lang-en">A 7-tier continuum integrating ethics, ESG tools, strategy, and resilience into leadership.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Responsible Leadership Framework -->
+            <section class="slide" id="slide-4" data-title="Slide 4: Responsible Leadership 5大架構">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-heart"></i> 5 Core Pillars</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Responsible Leadership 5 大觀念架構</span>
+                            <span class="lang-en">Responsible Leadership 5 Core Pillars</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Integrity</h4><p><span class="lang-zh">誠信不妥協</span><span class="lang-en">Integrity</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Accountable</h4><p><span class="lang-zh">勇於擔當責任</span><span class="lang-en">Accountability</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Transparent</h4><p><span class="lang-zh">資訊公開透明</span><span class="lang-en">Transparency</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Inclusiveness</h4><p><span class="lang-zh">多元社會包容</span><span class="lang-en">Inclusiveness</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. Long-term</h4><p><span class="lang-zh">創造長遠價值</span><span class="lang-en">Long-term value</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Manager to Responsible Leader -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 從管理者到領導者">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-user-gear"></i> Role Transition</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">從管理者 (Manager) 到領導者 (Leader)</span>
+                            <span class="lang-en">Transitioning from Manager to Responsible Leader</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-arrow-trend-up accent-icon"></i> <span class="lang-zh">從短期 KPI 交易走向變革使命與價值創造</span><span class="lang-en">Shifting from Task Execution to Purpose-Driven Value</span></h3>
+                            <p><span class="lang-zh">你們不再是單純執行指令的管理者，而是能在利益衝突中守護倫理底線、引領組織創新的 Responsible Leader！</span>
+                            <span class="lang-en">Empowering you to step beyond task management and lead with purpose and ethical courage.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Enterprise Challenges in 2035 -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 2035 年企業 6 大極限挑戰">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-crystal-ball"></i> 2035 Horizon</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">2035 年企業將面臨的 6 大極限挑戰</span>
+                            <span class="lang-en">6 Enterprise Challenges in 2035</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-3 gap-4 mt-3">
+                        <div class="rc-card glass-card">
+                            <h4>1. AI Autonomy</h4>
+                            <p><span class="lang-zh">AI 自主決策倫理與歸責。</span><span class="lang-en">AI autonomous decisions</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>2. Net Zero 2050</h4>
+                            <p><span class="lang-zh">強制去碳與能源系統變革。</span><span class="lang-en">Mandatory net zero speed</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>3. Natural Capital</h4>
+                            <p><span class="lang-zh">TNFD 自然資本與生態系。</span><span class="lang-en">TNFD & natural capital</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: AI & Autonomous Decision Making -->
+            <section class="slide" id="slide-7" data-title="Slide 7: AI 與自主決策">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-robot"></i> AI Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">AI 與自主決策倫理治理 (AI Autonomy)</span>
+                            <span class="lang-en">AI & Autonomous Decision Governance</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-brain accent-icon"></i> <span class="lang-zh">演算法責任歸屬與人類監督機制 (Human-in-the-Loop)</span><span class="lang-en">Algorithmic Accountability & Human-in-the-Loop</span></h3>
+                            <p><span class="lang-zh">當 AI 獨立決定貸款發放、招聘與自動駕駛時，領導者必須建立透明審查與責任追究流程，維護數位倫理。</span>
+                            <span class="lang-en">Ensuring human-in-the-loop oversight for automated AI decision-making systems.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Climate Transition Acceleration -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 氣候淨零與能源治理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-fire-flame-curved"></i> Climate Governance</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">淨零轉型與氣候治理 (Net Zero 2050)</span>
+                            <span class="lang-en">Climate Transition & Energy Governance</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-solar-panel accent-icon"></i> <span class="lang-zh">能源結構翻轉與全價值鏈去碳戰略</span><span class="lang-en">Energy Infrastructure Transition & Value Chain Decarbonization</span></h3>
+                            <p><span class="lang-zh">2035 年前完全去碳化將成為企業參與國際頂尖供應鏈的門檻條件，領導者需大規模部署綠電與低碳技術。</span>
+                            <span class="lang-en">Deploying renewables and low-carbon tech as non-negotiable supply chain entry permits.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Nature & Biodiversity (TNFD) -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 生物多樣性與自然資本">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-tree"></i> Natural Capital</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">生物多樣性與自然資本 (TNFD)</span>
+                            <span class="lang-en">Nature & Biodiversity Protection (TNFD)</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-seedling accent-icon"></i> <span class="lang-zh">將天然水資源與森林生態系納入財務會計</span><span class="lang-en">Accounting Natural Capital on Corporate Balance Sheets</span></h3>
+                            <p><span class="lang-zh">保護生態系與自然資本 (Natural Capital) 成為與減碳同等重要的指標，領導者需貫徹 Net Positive 生態正回饋。</span>
+                            <span class="lang-en">Incorporating ecosystem preservation and biodiversity impacts into standard corporate disclosures.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Global Supply Chain Reconfiguration -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 全球供應鏈重組">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-truck-fast"></i> Supply Chain Resilience</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全球供應鏈重組與友岸外包 (Reshoring)</span>
+                            <span class="lang-en">Global Supply Chain Reconfiguration</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-handshake accent-icon"></i> <span class="lang-zh">從最低成本轉向最高韌性與可信網絡</span><span class="lang-en">Transitioning from Lowest Cost to Highest Trust Networks</span></h3>
+                            <p><span class="lang-zh">地緣政治推動供應鏈重組，領導者必須建立在地化、模組化且符合最高人權與低碳標準的代工網絡。</span>
+                            <span class="lang-en">Building resilient, localized, and human-rights-compliant supply networks under geopolitics.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Digital Trust & Cybersecurity -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 數位信任與網路安全">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-lock"></i> Digital Trust</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">數位信任與網路安全防衛 (Digital Trust)</span>
+                            <span class="lang-en">Digital Trust & Cybersecurity Protection</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-halved accent-icon"></i> <span class="lang-zh">捍衛客戶隱私與建立誠信品牌的底線防線</span><span class="lang-en">Defending Customer Privacy & Brand Integrity Baseline</span></h3>
+                            <p><span class="lang-zh">資安即是倫理。領導者需部署零信任 (Zero Trust) 資安體系，確保數據與 AI 服務免於勒索軟體與隱私外洩。</span>
+                            <span class="lang-en">Deploying Zero Trust cybersecurity frameworks to protect customer privacy and AI services.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Geopolitical Volatility -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 地緣政治與企業韌性">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-earth-americas"></i> Geopolitics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">地緣政治與企業全方位韌性 (Resilience)</span>
+                            <span class="lang-en">Geopolitical Volatility & Corporate Resilience</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-cat accent-icon"></i> <span class="lang-zh">在多極化地緣政治衝突中的彈性應變體系</span><span class="lang-en">Hedging Multi-polar Geopolitical Risks</span></h3>
+                            <p><span class="lang-zh">面對關稅大戰與貿易壁壘，領導者需靈活部署備援產能與多國合規對策，確保企業在黑天鵝襲來時屹立不搖。</span>
+                            <span class="lang-en">Managing tariff conflicts and trade barriers with flexible multi-country manufacturing backups.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Future CEO Competency Map -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 未來 CEO 能力地圖">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-crown"></i> CEO Competencies</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">未來 CEO 的 5 大能力地圖</span>
+                            <span class="lang-en">Future CEO Competency Map</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Ethical Radar</h4><p><span class="lang-zh">倫理雷達：精準抓出隱性風險</span><span class="lang-en">Ethical risk radar</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Systems Thinking</h4><p><span class="lang-zh">系統思考：掌控複雜網絡</span><span class="lang-en">Systems thinking</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Sustainability</h4><p><span class="lang-zh">永續策略：驅動 CSV 共享</span><span class="lang-en">CSV sustainability</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Collaboration</h4><p><span class="lang-zh">跨界協商：對齊多方利益</span><span class="lang-en">Cross-sector alignment</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. AI Literacy</h4><p><span class="lang-zh">AI 素養：引領數位轉型</span><span class="lang-en">AI & tech literacy</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Activity 1 - Future CEO Roundtable -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 活動一 - 2035 CEO 圓桌論壇">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Future CEO Roundtable</span>
+                            <span class="lang-en">Future CEO Roundtable Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">任務：各組以「2035 CEO 圓桌論壇」形式發表前瞻對策</span><span class="lang-en">2035 CEO Roundtable Forward-Looking Debrief</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 選擇議題 (AI/氣候/循環經濟/資安/人權)</p></div>
+                                <div class="opt-choice"><p>2. 闡述該議題為何對 2035 企業最關鍵</p></div>
+                                <div class="opt-choice"><p>3. 剖析對營運與商業模式的潛在影響</p></div>
+                                <div class="opt-choice"><p>4. 提出 CEO 的 3 項前瞻回應策略</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Activity 1 - Debrief -->
+            <section class="slide" id="slide-15" data-title="Slide 15: 活動一 - 圓桌論壇點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">未來的 CEO 必須將挑戰翻轉為新商業契機</span>
+                            <span class="lang-en">Activity 1: Turning Challenges into Moats</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「圓桌論壇展現了高階企管人的視野：把氣候關稅、AI 規範與資安要求，轉化為競爭對手難以跨越的 VRIO 綠色護城河！」</span>
+                            <span class="lang-en">"Transforming regulatory hurdles and ESG challenges into unassailable VRIO moats."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: My Leadership Style -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 我的領導風格">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-fingerprint"></i> Part III • My Identity</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">我的領導風格 (Authentic Leadership)</span>
+                            <span class="lang-en">My Authentic Leadership Style</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-compass accent-icon"></i> <span class="lang-zh">探索真誠領導、服務型領導與變革型領導</span><span class="lang-en">Discovering Authentic, Servant & Transformational Leadership</span></h3>
+                            <p><span class="lang-zh">明確你的領導風格：真誠領導 (Authentic Leadership) 用言行一致贏得跟隨者；變革型領導 (Transformational Leadership) 用使命感激發團隊！</span>
+                            <span class="lang-en">Building your leadership style around authenticity, purpose, and team empowerment.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: My Core Values -->
+            <section class="slide" id="slide-17" data-title="Slide 17: 我的核心價值觀">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-gem"></i> Core Values</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">我最重視的三項個人核心價值觀</span>
+                            <span class="lang-en">My 3 Non-Negotiable Core Values</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-3 gap-4 mt-3">
+                        <div class="rc-card glass-card">
+                            <h4>1. Integrity (誠信)</h4>
+                            <p><span class="lang-zh">黑夜無人之處依然堅持正道。</span><span class="lang-en">Uncompromising honesty</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>2. Fairness (公平)</h4>
+                            <p><span class="lang-zh">尊重利害關係人正當權益。</span><span class="lang-en">Equitable stakeholder respect</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>3. Sustainability (永續)</h4>
+                            <p><span class="lang-zh">為下一代創造共榮價值。</span><span class="lang-en">Intergenerational stewardship</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Ethics in Action -->
+            <section class="slide" id="slide-18" data-title="Slide 18: Ethics in Action">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-hand-holding-heart"></i> Daily Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Ethics in Action (日常商業決策中的實踐)</span>
+                            <span class="lang-en">Living Ethics Daily in Corporate Decisions</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-route accent-icon"></i> <span class="lang-zh">拒絕黑箱關痛點、尊重多元與維持資訊透明</span><span class="lang-en">Rejecting Shady Deals & Driving Transparency</span></h3>
+                            <p><span class="lang-zh">倫理不是高高在上的口號！在採購合約、績效考核、產品發布與財務報表中，貫徹對同仁與顧客的誠信防線。</span>
+                            <span class="lang-en">Practicing integrity in daily procurement deals, performance reviews, and financial reports.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Career & Sustainability 5-Year Roadmap -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 5 年職涯行動藍圖">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bullseye"></i> 5-Year Roadmap</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">5 年職涯與學習行動藍圖 (Career Roadmap)</span>
+                            <span class="lang-en">5-Year Career & Learning Action Roadmap</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-chart-line accent-icon"></i> <span class="lang-zh">將 ESG 永續思維融入個人職場專業晉升</span><span class="lang-en">Embedding ESG Thinking into Professional Career Growth</span></h3>
+                            <p><span class="lang-zh">規劃 5 年個人職涯：不論是在投資銀行、半導體供應鏈、消費品行銷或 AI 技術研發，發揮綠色與倫理影響力。</span>
+                            <span class="lang-en">Mapping personal career milestones to champion sustainability in finance, tech, or marketing.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Lifelong Learning Commitment -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 終身學習承諾">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-book-bookmark"></i> Lifelong Learning</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Lifelong Learning (終身學習承諾)</span>
+                            <span class="lang-en">Lifelong Learning Commitment</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-infinity accent-icon"></i> <span class="lang-zh">在快速變革的科技與氣候時代保持好奇與演進</span><span class="lang-en">Continuous Adaptation in the AI & Climate Era</span></h3>
+                            <p><span class="lang-zh">學期的結束是領導說服力的起點！持續閱讀國際頂尖報告 (ISSB/TCFD/EU AI Act)，保持謙遜與長線學習動力。</span>
+                            <span class="lang-en">Committing to lifelong learning as regulations, AI models, and climate frameworks evolve.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Activity 2 - Leadership Commitment -->
+            <section class="slide" id="slide-21" data-title="Slide 21: 活動二 - 領導力承諾書">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-file-contract"></i> Activity 2 • 30 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Responsible Leadership Commitment</span>
+                            <span class="lang-en">Leadership Commitment Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">任務：撰寫個人「Responsible Leadership 承諾書」</span><span class="lang-en">Drafting Your Responsible Leadership Commitment</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 我希望成為什麼樣的管理者？</p></div>
+                                <div class="opt-choice"><p>2. 我將堅持的三項倫理原則</p></div>
+                                <div class="opt-choice"><p>3. 我認為企業最大的社會責任</p></div>
+                                <div class="opt-choice"><p>4. 我未來五年的職涯與學習目標</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Commitment Recitation & Closing -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 全班宣讀與教師圓滿總結">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-scroll"></i> Recitation</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全班宣讀與教師圓滿總結</span>
+                            <span class="lang-en">Commitment Recitation & Final Class Closing</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-award accent-icon"></i> <span class="lang-zh">共同見證並保存個人承諾書作為成長紀念</span><span class="lang-en">Witnessing Personal Commitments into Lifelong Mindsets</span></h3>
+                            <p><span class="lang-zh">學生代表宣讀承諾書，全班簽署保存。教師感言：帶著這份倫理勇氣走入職場，你們將成為改變商業世界的負責任領導者！</span>
+                            <span class="lang-en">Holding tight to your ethical compass as you enter the global corporate stage.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: 18-Week Complete Learning Loop -->
+            <section class="slide" id="slide-23" data-title="Slide 23: 18週完整學習歷程大結業">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Grand Graduation</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">18 週完整學習歷程大結業總融會</span>
+                            <span class="lang-en">18-Week Complete Learning Journey Synthesis</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5 mt-3">
+                        <div class="decision-card glass-card"><h4>Mod 1: Ethics</h4><p><span class="lang-zh">倫理思維與 CSV 共享</span><span class="lang-en">Ethics & CSV</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 2: Tools</h4><p><span class="lang-zh">E/S/G 構面與 GRI 揭露</span><span class="lang-en">ESG & Disclosure</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 3: Strategy</h4><p><span class="lang-zh">金融、 Scope 3 與 AI</span><span class="lang-en">Finance, Chain, AI</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 4: Practice</h4><p><span class="lang-zh">案例、危機與 Capstone</span><span class="lang-en">Applied Capstone</span></p></div>
+                        <div class="decision-card glass-card"><h4>Mod 5: Leader</h4><p><span class="lang-zh">董事會決策與未來領導</span><span class="lang-en">Board & Leadership</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Recommended Masters Booklist -->
+            <section class="slide" id="slide-24" data-title="Slide 24: 推薦大師閱讀書單">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-book-open"></i> Master Reading</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">推薦大師閱讀書單 (Recommended Books)</span>
+                            <span class="lang-en">Recommended Masters' Booklist</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="cards-grid-5">
+                            <div class="info-box glass-card"><h4>Net Positive</h4><p>Paul Polman</p></div>
+                            <div class="info-box glass-card"><h4>Conscious Capital</h4><p>John Mackey</p></div>
+                            <div class="info-box glass-card"><h4>Infinite Game</h4><p>Simon Sinek</p></div>
+                            <div class="info-box glass-card"><h4>Doughnut Econ</h4><p>Kate Raworth</p></div>
+                            <div class="info-box glass-card"><h4>The Age of AI</h4><p>Henry Kissinger</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Call to Action & Homework 18 -->
+            <section class="slide" id="slide-25" data-title="Slide 25: Call to Action & Homework 18">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-flag-checkered"></i> Graduation & Portfolio</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Call to Action & Homework 18</span>
+                            <span class="lang-en">Call to Action & Homework 18</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-rocket accent-icon"></i> <span class="lang-zh">Take Responsibility, Create Sustainable Value! 結業宣告</span><span class="lang-en">Take Responsibility, Create Sustainable Value!</span></h3>
+                            <p class="mb-2"><span class="lang-zh">恭喜圓滿完成 18 週 AACSB 頂尖規格課程！帶上誠信與勇氣，開啟你的永續領導人職涯！</span><span class="lang-en">Congratulations on graduating from this 18-week AACSB top-tier course!</span></p>
+                        </div>
+
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 18：個人期末成果集 (Portfolio 約 2,000–2,500 字)</span><span class="lang-en">Homework 18: Personal Leadership Portfolio (~2,000-2,500w)</span></h3>
+                            <p><span class="lang-zh">個人完成：18週學習回顧、案例反思、顧問專題摘要、董事會模擬心得與個人 Responsible Leadership Manifesto。</span>
+                            <span class="lang-en">Individual Portfolio: 18-week review, case insights, Capstone summary, Board reflection & Manifesto.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 25%;"><span class="lang-zh">整合 25%</span><span class="lang-en">Integration 25%</span></div>
+                                <div class="r-seg seg-2" style="width: 20%;"><span class="lang-zh">趨勢 20%</span><span class="lang-en">Trends 20%</span></div>
+                                <div class="r-seg seg-3" style="width: 25%;"><span class="lang-zh">領導理念 25%</span><span class="lang-en">Philosophy 25%</span></div>
+                                <div class="r-seg seg-4" style="width: 20%;"><span class="lang-zh">反思 20%</span><span class="lang-en">Reflect 20%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (25 Slides Overview)</span><span class="lang-en">25 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">25</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

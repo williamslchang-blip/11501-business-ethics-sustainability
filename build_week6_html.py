@@ -1,0 +1,740 @@
+import sys
+
+html_week6 = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6: Stakeholder Management & CSR | 利害關係人管理與企業社會責任實務</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 6: Stakeholder Management and Corporate Social Responsibility in Practice</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第6週_利害關係人管理.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 06 • Social Pillar Presentation</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">利害關係人管理與企業社會責任實務</span>
+                            <span class="lang-en">Stakeholder Management & CSR Practice</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Stakeholder Management and Corporate Social Responsibility in Practice</span>
+                            <span class="lang-en">Stakeholder Management and Corporate Social Responsibility in Practice</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">權力利益矩陣 (Power-Interest Matrix)、DEI 人權保障、供應鏈責任與雙贏社會策略</span>
+                            <span class="lang-en">Power-Interest Matrix Mapping, DEI & Human Rights, Supply Chain Responsibility, and Win-Win Social Strategies</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week6_stakeholder_cover.jpg" alt="Week 6 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-users-gear"></i> Stakeholders • DEI • Human Rights
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Evolution Thread -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 課程邏輯主線">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Course Thread</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">課程邏輯主線：企業究竟該對誰負責？</span>
+                            <span class="lang-en">Course Thread: Who is the Firm Accountable To?</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-heart"></i></div><h4>W1-2 Ethics</h4><p><span class="lang-zh">倫理基因</span><span class="lang-en">Moral DNA</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-hand-holding-hand"></i></div><h4>W3 CSR/CSV</h4><p><span class="lang-zh">責任行動</span><span class="lang-en">Actions</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-chart-pie"></i></div><h4>W4-5 ESG & E</h4><p><span class="lang-zh">ESG與淨零</span><span class="lang-en">ESG & Net Zero</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-users"></i></div><h4>W6 Today</h4><p><span class="lang-zh">Stakeholders (S)<br>(利害關係人管理)</span><span class="lang-en">Stakeholders (S)<br>(Social Strategy)</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Warm-up Question -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 暖身問題 - 滿足哪一個人？">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-user-gear"></i> Stakeholder Dilemma</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：如果只能滿足一個人，你會選誰？</span>
+                            <span class="lang-en">Warm-up: If You Could Satisfy ONLY One Party?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="cards-grid-4 mt-3">
+                            <div class="option-card"><h4>股東 (Shareholders)</h4><p><span class="lang-zh">提供資本，要求 EPS 獲利最大化</span><span class="lang-en">Providing capital, demanding EPS</span></p></div>
+                            <div class="option-card"><h4>員工 (Employees)</h4><p><span class="lang-zh">付出勞力，要求薪酬與健康保障</span><span class="lang-en">Providing labor, demanding fair pay</span></p></div>
+                            <div class="option-card"><h4>顧客 (Customers)</h4><p><span class="lang-zh">支付購買，要求品質安全與CP值</span><span class="lang-en">Paying for products, demanding quality</span></p></div>
+                            <div class="option-card"><h4>社會 (Society)</h4><p><span class="lang-zh">提供環境資源，要求零污染與正效應</span><span class="lang-en">Providing resources, demanding zero harm</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Friedman vs Freeman -->
+            <section class="slide" id="slide-4" data-title="Slide 4: Friedman vs Freeman">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-scale-balanced"></i> Theoretical Paradigm</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Milton Friedman vs. Edward Freeman</span>
+                            <span class="lang-en">Shareholder Primacy vs. Stakeholder Theory</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-2col gap-4 mt-3">
+                        <div class="theory-card glass-card">
+                            <div class="theory-header">
+                                <h3>Milton Friedman (1970)</h3>
+                                <div class="author-name">"The business of business is business."</div>
+                            </div>
+                            <p class="mt-2"><span class="lang-zh">企業唯一的社會責任是在法律範圍內最大化股東財富。</span><span class="lang-en">The sole duty of business is to maximize shareholder profit.</span></p>
+                        </div>
+                        <div class="theory-card glass-card highlight-card">
+                            <div class="theory-header">
+                                <h3>Edward Freeman (1984)</h3>
+                                <div class="author-name">Stakeholder Theory</div>
+                            </div>
+                            <p class="mt-2"><span class="lang-zh">企業必須為影響或被企業影響的所有利害關係人創造價值。</span><span class="lang-en">Business must create value for all stakeholders involved.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Shareholder vs Stakeholder Comparison -->
+            <section class="slide" id="slide-5" data-title="Slide 5: Shareholder vs Stakeholder 對比">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-code-compare"></i> Paradigm Matrix</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Shareholder vs. Stakeholder 比較矩陣</span>
+                            <span class="lang-en">Shareholder vs. Stakeholder Comparison</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">比較面向</span><span class="lang-en">Dimension</span></th>
+                                    <th>Shareholder Primacy (股東至上)</th>
+                                    <th class="highlight-th">Stakeholder Theory (利害關係人)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><span class="lang-zh">核心經營目標</span><span class="lang-en">Goal</span></strong></td>
+                                    <td><span class="lang-zh">最大化股東短期財富與 EPS</span><span class="lang-en">Maximize short-term shareholder EPS</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">創造永續共享價值 (Shared Value)</span><span class="lang-en">Create long-term shared value</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">時間視角</span><span class="lang-en">Horizon</span></strong></td>
+                                    <td><span class="lang-zh">短期季報績效 (Quarterly Profit)</span><span class="lang-en">Short-term quarterly targets</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">長期永續經營 (Long-term Resilience)</span><span class="lang-en">Long-term corporate resilience</span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Who is a Stakeholder? -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 誰是 Stakeholder？">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-users"></i> Part II • Stakeholder Theory</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">誰是企業的 8 大關鍵 Stakeholders？</span>
+                            <span class="lang-en">8 Key Corporate Stakeholders</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card"><h4>1. Customers</h4><p><span class="lang-zh">顧客與消費者</span><span class="lang-en">Clients & Consumers</span></p></div>
+                        <div class="rc-card glass-card"><h4>2. Employees</h4><p><span class="lang-zh">員工與工會</span><span class="lang-en">Staff & Labor Unions</span></p></div>
+                        <div class="rc-card glass-card"><h4>3. Suppliers</h4><p><span class="lang-zh">供應商與夥伴</span><span class="lang-en">Supply Chain Partners</span></p></div>
+                        <div class="rc-card glass-card"><h4>4. Government</h4><p><span class="lang-zh">政府與監管機構</span><span class="lang-en">Regulators & State</span></p></div>
+                        <div class="rc-card glass-card"><h4>5. Community</h4><p><span class="lang-zh">在地社區與居民</span><span class="lang-en">Local Community</span></p></div>
+                        <div class="rc-card glass-card"><h4>6. NGOs</h4><p><span class="lang-zh">非政府組織與倡議團體</span><span class="lang-en">Non-Governmental Orgs</span></p></div>
+                        <div class="rc-card glass-card"><h4>7. Media</h4><p><span class="lang-zh">新聞媒體與社群</span><span class="lang-en">News & Social Media</span></p></div>
+                        <div class="rc-card glass-card"><h4>8. Investors</h4><p><span class="lang-zh">股東與機構投資人</span><span class="lang-en">Shareholders & Funds</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Power-Interest Matrix -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 權力利益矩陣">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-border-all"></i> Mapping Tool</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Stakeholder Map：Power–Interest Matrix</span>
+                            <span class="lang-en">The Power–Interest Matrix (Mendelow)</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-2col gap-3 mt-3">
+                        <div class="info-box glass-card highlight-border">
+                            <h4>High Power / High Interest (Key Players)</h4>
+                            <p><span class="lang-zh">核心夥伴：必須密切合作與共同決策（如大客戶、關鍵主管）。</span><span class="lang-en">Manage Closely: Core partners and major investors.</span></p>
+                        </div>
+                        <div class="info-box glass-card">
+                            <h4>High Power / Low Interest (Keep Satisfied)</h4>
+                            <p><span class="lang-zh">重點安撫：保持滿意，防範強大反彈（如監管機關、大股東）。</span><span class="lang-en">Keep Satisfied: Regulatory bodies and major funds.</span></p>
+                        </div>
+                        <div class="info-box glass-card">
+                            <h4>Low Power / High Interest (Keep Informed)</h4>
+                            <p><span class="lang-zh">即時告知：保持資訊透明溝通（如在地居民、基層員工）。</span><span class="lang-en">Keep Informed: Local residents and frontline staff.</span></p>
+                        </div>
+                        <div class="info-box glass-card">
+                            <h4>Low Power / Low Interest (Minimal Effort)</h4>
+                            <p><span class="lang-zh">最低維護：定期關註即可（如一般社會大眾）。</span><span class="lang-en">Monitor: General public with minimal active engagement.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Matrix Strategies -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 矩陣溝通策略">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-comments"></i> Communication Strategy</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">權力利益矩陣 4 大溝通策略</span>
+                            <span class="lang-en">4 Communication Strategies</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-bullseye accent-icon"></i> <span class="lang-zh">因地制宜的利害關係人溝通機制</span><span class="lang-en">Tailored Engagement Mechanisms</span></h3>
+                            <p><span class="lang-zh">針對 High Power & High Interest 的 Key Players 建立高層定期會議；針對 High Interest 但 Low Power 的弱勢社區建立傾聽管道，防止權力失衡！</span>
+                            <span class="lang-en">Establish executive dialogues for Key Players while providing feedback channels for vulnerable communities with high interest.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Salience Model -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 顯著性模型 Salience Model">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-triangle-exclamation"></i> Mitchell Salience Model</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業如何排序？Salience 顯著性模型</span>
+                            <span class="lang-en">Mitchell's Stakeholder Salience Model</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-3col gap-3 mt-3">
+                        <div class="value-card glass-card"><div class="v-icon color-1"><i class="fa-solid fa-bolt"></i></div><h3>Power (權力)</h3><p><span class="lang-zh">影響企業決策的實質強制力。</span><span class="lang-en">Forceful ability to influence firm decisions.</span></p></div>
+                        <div class="value-card glass-card"><div class="v-icon color-2"><i class="fa-solid fa-gavel"></i></div><h3>Legitimacy (正當性)</h3><p><span class="lang-zh">訴求合乎法律、道德與社會規範。</span><span class="lang-en">Lawful, moral & appropriate claims.</span></p></div>
+                        <div class="value-card glass-card"><div class="v-icon color-3"><i class="fa-solid fa-clock-rotate-left"></i></div><h3>Urgency (緊迫性)</h3><p><span class="lang-zh">訴求具備極高的時間緊迫度。</span><span class="lang-en">Time-sensitive & critical demands.</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Case 1 - Starbucks -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 案例一：Starbucks">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-mug-hot"></i> Case 1 • Starbucks</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">案例一：Starbucks 員工與公平貿易</span>
+                            <span class="lang-en">Case 1: Starbucks Employee Welfare</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-heart accent-icon"></i> <span class="lang-zh">把員工當「夥伴 (Partners)」的利害關係人戰略</span><span class="lang-en">Treating Staff as True Partners</span></h3>
+                            <p><span class="lang-zh">Starbucks 為兼職與全職員工提供完整醫療保險與大學學費補助 (College Achievement Plan)，並推動 C.A.F.E. Practices 公平採購，展現高品質利害關係人管理。</span>
+                            <span class="lang-en">Starbucks offers health insurance and tuition coverage for part-time staff, paired with C.A.F.E. Practices for fair coffee sourcing.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Case 2 - Apple Supply Chain -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 案例二：Apple & Foxconn">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-brands fa-apple"></i> Case 2 • Apple</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">案例二：Apple & Foxconn 供應鏈責任</span>
+                            <span class="lang-en">Case 2: Apple & Foxconn Supply Chain</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-halved accent-icon"></i> <span class="lang-zh">將代工廠勞工納入核心 Stakeholders</span><span class="lang-en">Auditing Overseas Factory Working Conditions</span></h3>
+                            <p><span class="lang-zh">遭遇富士康勞工事件後，Apple 頒布 Supplier Code of Conduct，年度公開稽核超時加班與住宿條件，提升供應鏈勞工權益。</span>
+                            <span class="lang-en">Following Foxconn labor incidents, Apple published Supplier Codes of Conduct and annual audits on working hours and dormitory conditions.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Case 3 - Nike -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 案例三：Nike">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-shoe-prints"></i> Case 3 • Nike</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">案例三：Nike 勞工權益與人權重塑</span>
+                            <span class="lang-en">Case 3: Nike Labor Rights Transformation</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-hand-holding-hand accent-icon"></i> <span class="lang-zh">從抵制黑名單到透明人權標竿</span><span class="lang-en">From Boycotts to Transparent Rights Leader</span></h3>
+                            <p><span class="lang-zh">1990s 遭遇童工與血汗工廠抵制後，Nike 成立永續委員會，公開全球所有代工廠地圖，並由公平勞動協會 (FLA) 進行獨立第三方查核。</span>
+                            <span class="lang-en">After 1990s boycotts, Nike published interactive factory maps and partnered with the Fair Labor Association for independent audits.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Activity 1 - Mapping Workshop -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 活動一 - Stakeholder Mapping">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-gamepad"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Stakeholder Mapping Workshop</span>
+                            <span class="lang-en">Stakeholder Mapping Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">小組任務：抽籤為下列企業繪製 Power-Interest Map</span><span class="lang-en">Map Power-Interest Matrix for Selected Firm</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. Apple (供應鏈/消費者/股東)</p></div>
+                                <div class="opt-choice"><p>2. Starbucks (夥伴員工/咖啡農/社區)</p></div>
+                                <div class="opt-choice"><p>3. Uniqlo (勞工/消費者/棉花農)</p></div>
+                                <div class="opt-choice"><p>4. TSMC (地緣政治/政府/客戶)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Activity 1 - Debrief -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 活動一 - 各組分享與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組分享與不同產業權力差異</span>
+                            <span class="lang-en">Activity 1: Debrief & Industry Differences</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「B2B 半導體 (TSMC) 的 Key Players 是地緣政治政府與大客戶；B2C 餐飲 (Starbucks) 的 Key Players 則是第一線服務員工與品牌消費者！」</span>
+                            <span class="lang-en">"B2B tech key players are governments & major clients; B2C retail key players are frontline staff & consumers."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: What Does Social (S) Include? -->
+            <section class="slide" id="slide-15" data-title="Slide 15: Social (S) 到底包含什麼？">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-users"></i> Part III • Social (S) In-Depth</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Social (S) 構面包含什麼？</span>
+                            <span class="lang-en">What Does Social (S) Really Include?</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Rights</h4><p><span class="lang-zh">人權與基本尊嚴</span><span class="lang-en">Human rights & dignity</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. DEI</h4><p><span class="lang-zh">多元、平等與包容</span><span class="lang-en">Diversity, Equity & Inclusion</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Well-being</h4><p><span class="lang-zh">員工健康與心理安全</span><span class="lang-en">Employee well-being</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Supply Chain</h4><p><span class="lang-zh">供應鏈勞工責任</span><span class="lang-en">Supply chain labor duty</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. Slavery</h4><p><span class="lang-zh">防範現代奴隸強迫勞動</span><span class="lang-en">Modern slavery prevention</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Human Rights UNGPs -->
+            <section class="slide" id="slide-16" data-title="Slide 16: Human Rights 與 UNGPs">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-person"></i> Human Rights</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">人權保障與聯合國 UNGPs 原則</span>
+                            <span class="lang-en">UN Guiding Principles on Business & Human Rights</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-cat accent-icon"></i> <span class="lang-zh">Protect, Respect, Remedy 三大柱石</span><span class="lang-en">Protect, Respect, Remedy Framework</span></h3>
+                            <p><span class="lang-zh">聯合國要求企業主動進行人權盡職調查 (Human Rights Due Diligence)，辨識營運與供應鏈中潛在的人權侵害，並建立救濟補償機制。</span>
+                            <span class="lang-en">Mandating corporate human rights due diligence to identify risks and establish remediation mechanisms across operations.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: DEI -->
+            <section class="slide" id="slide-17" data-title="Slide 17: DEI (Diversity, Equity, Inclusion)">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-hand-holding-hand"></i> DEI Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">DEI：多元、平等與包容文化</span>
+                            <span class="lang-en">DEI: Diversity, Equity, and Inclusion</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-3col gap-3 mt-3">
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-1"><i class="fa-solid fa-people-group"></i></div>
+                            <h3>Diversity (多元)</h3>
+                            <p><span class="lang-zh">包容不同性別、種族、年齡與背景的人才。</span><span class="lang-en">Embracing gender, race & background variety.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-2"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <h3>Equity (公平)</h3>
+                            <p><span class="lang-zh">打破同工不同酬與升遷玻璃天花板。</span><span class="lang-en">Eliminating pay gaps & glass ceilings.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-3"><i class="fa-solid fa-heart-circle-check"></i></div>
+                            <h3>Inclusion (包容)</h3>
+                            <p><span class="lang-zh">確保每位員工感到被尊重與安全表達。</span><span class="lang-en">Ensuring all voices feel heard and respected.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Employee Well-being -->
+            <section class="slide" id="slide-18" data-title="Slide 18: Employee Well-being">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-briefcase-medical"></i> Well-being</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">員工福祉與心理安全感</span>
+                            <span class="lang-en">Employee Well-being & Psychological Safety</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-brain accent-icon"></i> <span class="lang-zh">防範職業倦怠，建立心理安全感</span><span class="lang-en">Preventing Burnout & Fostering Safety</span></h3>
+                            <p><span class="lang-zh">Google 研究顯示：最高效的團隊核心在於「心理安全感 (Psychological Safety)」，員工敢於承認錯誤、提出創新且不擔心受到懲罰。</span>
+                            <span class="lang-en">Google's Project Aristotle proves that the highest performing teams possess Psychological Safety where members feel safe to take risks.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Supply Chain Responsibility -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 供應鏈社會責任">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-truck-ramp-box"></i> Ethical Sourcing</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">供應鏈社會責任與倫理採購</span>
+                            <span class="lang-en">Supply Chain Social Responsibility</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-sitemap accent-icon"></i> <span class="lang-zh">從 Tier 1 到 Tier 3 原料廠的責任延伸</span><span class="lang-en">Extending Responsibility Across All Tiers</span></h3>
+                            <p><span class="lang-zh">企業無法以「那是外包廠」為由免責！責任必須延伸至深層供應商的工安、工時與勞工環境。</span>
+                            <span class="lang-en">Firms cannot outsource moral liability. Responsibility extends deep into Tier 2 and Tier 3 suppliers.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Modern Slavery -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 現代奴隸法案">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-link-slash"></i> Forced Labor</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">防範強迫勞動與現代奴隸法案</span>
+                            <span class="lang-en">Modern Slavery & Forced Labor Acts</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-gavel red-text"></i> <span class="lang-zh">各國打壓強迫勞動的法律重罰</span><span class="lang-en">Global Legal Penalties Against Forced Labor</span></h3>
+                            <p><span class="lang-zh">英國 Modern Slavery Act 與美國強迫勞動預防法案，要求企業每年公開全供應鏈防範強迫勞動聲明，否則扣押海關貨物！</span>
+                            <span class="lang-en">Acts like the UK Modern Slavery Act require public transparency statements to eliminate forced labor from supply chains.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Case Study: Apple & Foxconn -->
+            <section class="slide" id="slide-21" data-title="Slide 21: Apple & Foxconn 案例">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-building"></i> Case Audit</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Apple & Foxconn 勞工管理重塑</span>
+                            <span class="lang-en">Apple & Foxconn Labor Overhaul</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-users-gear accent-icon"></i> <span class="lang-zh">從超時加班到公平勞動協會獨立查核</span><span class="lang-en">From Overtime Scandals to Independent Audits</span></h3>
+                            <p><span class="lang-zh">Apple 引入公平勞動協會 (FLA) 進行無預警抽查，要求富士康改善住宿、限制每週工時不超過 60 小時，提升員工心理健康與安全防護。</span>
+                            <span class="lang-en">Apple brought in FLA for unannounced factory audits, limiting weekly work hours to 60 and upgrading mental health facilities.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Shared Value, CSR, and ESG Integration -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 社會責任策略整合">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Strategy Integration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Shared Value, CSR, and ESG 整合策略</span>
+                            <span class="lang-en">Integrating CSV, CSR, and ESG into Strategy</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-hand-holding-hand"></i></div><h4>CSR</h4><p><span class="lang-zh">回應社會需求與慈善</span><span class="lang-en">Response & Philanthropy</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-handshake"></i></div><h4>CSV</h4><p><span class="lang-zh">創造共享價值與雙贏</span><span class="lang-en">Creating Shared Value</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-users"></i></div><h4>Social (S)</h4><p><span class="lang-zh">S 構面可量化數據指標</span><span class="lang-en">Quantified Social Metrics</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: Formulating Win-Win Social Strategy -->
+            <section class="slide" id="slide-23" data-title="Slide 23: 雙贏社會策略">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> Win-Win Strategy</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業如何建立雙贏的 Social Strategy</span>
+                            <span class="lang-en">Formulating Win-Win Social Strategies</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-trophy accent-icon"></i> <span class="lang-zh">將社會需求轉化為商業競爭優勢</span><span class="lang-en">Turning Social Needs into Business Advantage</span></h3>
+                            <p><span class="lang-zh">從被動公關防火，轉為主動透過卓越的 DEI、照顧員工與誠信採購，建立強大的雇主品牌與無可取代的消費者信任！</span>
+                            <span class="lang-en">Shifting from reactive crisis management to proactive employer branding and consumer trust through DEI and ethical sourcing.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Activity 2 - Stakeholder Negotiation Role Play -->
+            <section class="slide" id="slide-24" data-title="Slide 24: 活動二 - 建廠協商 Role Play">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-masks-theater"></i> Activity 2 • 20 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Stakeholder Negotiation Role Play</span>
+                            <span class="lang-en">Stakeholder Negotiation Role Play</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">情境談判：企業擬於在地城鎮興建化學新廠</span><span class="lang-en">Scenario: Negotiating a New Chemical Factory</span></h3>
+                            <div class="cards-grid-3x2 mt-2">
+                                <div class="opt-choice"><p>1. CEO (要求按時完工獲利)</p></div>
+                                <div class="opt-choice"><p>2. 在地居民 (要求零污染與水質)</p></div>
+                                <div class="opt-choice"><p>3. 當地政府 (要求就業與稅收)</p></div>
+                                <div class="opt-choice"><p>4. 綠色 NGO (要求環境評估)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Activity 2 - Debrief -->
+            <section class="slide" id="slide-25" data-title="Slide 25: 活動二 - 教師總結">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">真正的 ESG 是動態平衡多元利益</span>
+                            <span class="lang-en">Activity 2: True ESG is Balancing Stakeholders</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「真正的 ESG 管理不是某一方完全勝利，而是透過誠信溝通，在環境保護、居民健康、就業成長與股東回報之間達成動態共榮平衡！」</span>
+                            <span class="lang-en">"True ESG is not a zero-sum victory, but creating a dynamic balance between environmental protection, community health, jobs, and shareholder returns."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Summary W1-W6 & Homework 6 -->
+            <section class="slide" id="slide-26" data-title="Slide 26: W1-W6 總結與 HW6">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-bookmark"></i> W1-W6 Summary & HW6</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W1–W6 總結與 Homework 6</span>
+                            <span class="lang-en">W1-W6 Architecture & Homework 6</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-cubes accent-icon"></i> <span class="lang-zh">W1–W6 完整永續管理基礎建構完成！</span><span class="lang-en">Foundation Complete: Ethics to Stakeholders</span></h3>
+                            <p><span class="lang-zh">W1 Ethics → W2 Decision → W3 CSR/CSV → W4 ESG → W5 Climate → W6 Stakeholders！下週 W7 將開啟 Corporate Governance (G 治理核心)！</span>
+                            <span class="lang-en">W1 Ethics → W2 Decision → W3 CSR → W4 ESG → W5 Climate → W6 Stakeholders! W7 opens Corporate Governance (G)!</span></p>
+                        </div>
+
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 6：Stakeholder Analysis Report (1,500-1,800字)</span><span class="lang-en">Homework 6: Stakeholder Report (1,500-1,800w)</span></h3>
+                            <p><span class="lang-zh">選擇一家企業，建立 Stakeholder Map，分析至少 5 個利害關係人、衝突最大處與管理解決方案。</span>
+                            <span class="lang-en">Select a firm, create a Stakeholder Map, analyze 5 stakeholders, key conflicts, and managerial solutions.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 30%;"><span class="lang-zh">分析 30%</span><span class="lang-en">Analysis 30%</span></div>
+                                <div class="r-seg seg-2" style="width: 20%;"><span class="lang-zh">Map品質 20%</span><span class="lang-en">Mapping 20%</span></div>
+                                <div class="r-seg seg-3" style="width: 25%;"><span class="lang-zh">策略 25%</span><span class="lang-en">Strategy 25%</span></div>
+                                <div class="r-seg seg-4" style="width: 15%;"><span class="lang-zh">建議 15%</span><span class="lang-en">Improve 15%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (26 Slides Overview)</span><span class="lang-en">26 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">26</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>"""
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\第6週_利害關係人管理.html", "w", encoding="utf-8") as f:
+    f.write(html_week6)
+
+print("Successfully generated Week 6 HTML presentation file!")

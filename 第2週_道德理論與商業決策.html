@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Ethical Theories & Business Decision Frameworks | 道德理論與商業決策</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 2: Ethical Theories and Business Decision Frameworks</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第2週_道德理論與商業決策.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 02 • Lecture Presentation</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">道德理論與商業決策</span>
+                            <span class="lang-en">Ethical Theories & Business Decisions</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Utilitarianism, Deontology, and Virtue Ethics</span>
+                            <span class="lang-en">Utilitarianism, Deontology, and Virtue Ethics</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">從直覺式判斷邁向三大經典哲學理論與高階管理決策矩陣</span>
+                            <span class="lang-en">From Intuitive Reactions to Systematic Philosophical Frameworks and Executive Decision Matrices</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (110 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (110 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week2_ethical_theories_cover.jpg" alt="Week 2 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-scale-balanced"></i> Bentham • Kant • Aristotle
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Review & Objectives -->
+            <section class="slide" id="slide-2" data-title="Slide 2: W1 複習與 W2 學習目標">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bullseye"></i> Week 2 Objectives</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W1 複習與本週學習目標</span>
+                            <span class="lang-en">Review & Week 2 Objectives</span>
+                        </h2>
+                        <p class="slide-sub">Bridging Moral Intuition to Systematic Analysis</p>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-3">
+                            <h3><i class="fa-solid fa-rotate-left accent-icon"></i> <span class="lang-zh">W1 快速複習：信任崩潰與利害關係人</span><span class="lang-en">W1 Review: Trust & Stakeholders</span></h3>
+                            <p><span class="lang-zh">第一週我們建立了「企業非僅賺錢機器」與「法律 ≠ 倫理上限」觀念。但當利益衝突時，我們該如何客觀衡量對錯？</span><span class="lang-en">In Week 1 we established that Law ≠ Ethics ceiling. But how do we objectively measure right vs wrong in trade-offs?</span></p>
+                        </div>
+                        <div class="cards-grid-3x2 mt-2">
+                            <div class="decision-card glass-card">
+                                <h4>1. <span class="lang-zh">效益主義 (Utilitarianism)</span><span class="lang-en">Utilitarianism</span></h4>
+                                <p><span class="lang-zh">評估最大多數人的最大淨效益。</span><span class="lang-en">Maximize net utility for greatest number.</span></p>
+                            </div>
+                            <div class="decision-card glass-card">
+                                <h4>2. <span class="lang-zh">義務論 (Deontology)</span><span class="lang-en">Deontology</span></h4>
+                                <p><span class="lang-zh">遵守普世無條件的道德原則與尊嚴。</span><span class="lang-en">Respect universal duties and human dignity.</span></p>
+                            </div>
+                            <div class="decision-card glass-card">
+                                <h4>3. <span class="lang-zh">德行倫理 (Virtue Ethics)</span><span class="lang-en">Virtue Ethics</span></h4>
+                                <p><span class="lang-zh">形塑誠信品德與領導者人格中庸。</span><span class="lang-en">Cultivate moral character and Golden Mean.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: 4-Step Ethical Decision Model -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 4-Step 倫理決策模型">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-next"></i> Decision Process</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">4-Step 企業倫理決策模型</span>
+                            <span class="lang-en">4-Step Ethical Decision-Making Model</span>
+                        </h2>
+                        <p class="slide-sub">Rest's Four-Component Model of Moral Action</p>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">01</div>
+                            <h4><span class="lang-zh">1. 辨識倫理議題</span><span class="lang-en">1. Moral Awareness</span></h4>
+                            <p><span class="lang-zh">敏感察覺商業營運中潛在的受害者與兩難道德衝突。</span><span class="lang-en">Recognize moral issues and potential victims in decisions.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">02</div>
+                            <h4><span class="lang-zh">2. 形成倫理判斷</span><span class="lang-en">2. Moral Judgment</span></h4>
+                            <p><span class="lang-zh">運用效益主義或義務論推理，評估何者為正當選項。</span><span class="lang-en">Apply ethical frameworks to evaluate right vs wrong choices.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">03</div>
+                            <h4><span class="lang-zh">3. 建立道德意圖</span><span class="lang-en">3. Moral Intent</span></h4>
+                            <p><span class="lang-zh">在短期商業利潤與倫理原則之間，選擇將道德排在優先。</span><span class="lang-en">Prioritize moral values over short-term profit pressure.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">04</div>
+                            <h4><span class="lang-zh">4. 展現道德行為</span><span class="lang-en">4. Moral Action</span></h4>
+                            <p><span class="lang-zh">展現道德勇氣 (Moral Courage)，頂住壓力落實倫理決策。</span><span class="lang-en">Demonstrate moral courage to execute ethical decisions.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Kohlberg's 6 Stages -->
+            <section class="slide" id="slide-4" data-title="Slide 4: Kohlberg 6 階段道德發展">
+                <div class="slide-container">
+                    <div class="header-block">
+                        <div class="section-tag"><i class="fa-solid fa-stairs"></i> Moral Psychology</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">柯爾堡 6 階段道德發展理論</span>
+                            <span class="lang-en">Kohlberg's 6 Stages of Moral Development</span>
+                        </h2>
+                        <p class="slide-sub">Evolution of Moral Reasoning in Individuals and Organizations</p>
+                    </div>
+
+                    <div class="grid-4col mt-3">
+                        <div class="news-company-card glass-card">
+                            <span class="company-badge">前慣習期 Pre-Conventional</span>
+                            <h4><span class="lang-zh">1-2 階段：避罰與功利</span><span class="lang-en">Stage 1-2: Punishment & Reward</span></h4>
+                            <p><span class="lang-zh">出於「害怕被罰鍰逮捕」或「純粹利益交換」而合規。</span><span class="lang-en">Driven purely by fear of fines or immediate personal gain.</span></p>
+                        </div>
+                        <div class="news-company-card glass-card">
+                            <span class="company-badge">慣習期 Conventional</span>
+                            <h4><span class="lang-zh">3-4 階段：順從與法制</span><span class="lang-en">Stage 3-4: Conforming & Law</span></h4>
+                            <p><span class="lang-zh">出於「同業大家都這樣做」或「遵守國家法律規定」。</span><span class="lang-en">Driven by peer conformity or compliance with codified law.</span></p>
+                        </div>
+                        <div class="news-company-card glass-card highlight-border">
+                            <span class="company-badge alt">後慣習期 Post-Conventional</span>
+                            <h4><span class="lang-zh">5-6 階段：契約與普世倫理</span><span class="lang-en">Stage 5-6: Social Contract & Ethics</span></h4>
+                            <p><span class="lang-zh">超越現行法律，追求社會福祉、人權尊嚴與普世正義。</span><span class="lang-en">Transcending laws to pursue human rights and universal justice.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Ethical Blindspots -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 道德失明與有限倫理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-eye-slash"></i> Behavioral Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">商業情境中的道德失明</span>
+                            <span class="lang-en">Ethical Blindspots & Bounded Ethicality</span>
+                        </h2>
+                        <p class="slide-sub">Why Good Managers Make Ethical Mistakes</p>
+                    </div>
+                    <div class="main-panel">
+                        <div class="grid-2col gap-3">
+                            <div class="info-box glass-card">
+                                <h4><i class="fa-solid fa-crop red-text"></i> <span class="lang-zh">框架效應 (Framing Effect)</span><span class="lang-en">Framing Effect</span></h4>
+                                <p><span class="lang-zh">將問題標籤為「純財務/商業問題」而非「倫理問題」，導致倫理雷達關閉。</span><span class="lang-en">Framing decisions purely as "business issues" turns off moral awareness.</span></p>
+                            </div>
+                            <div class="info-box glass-card">
+                                <h4><i class="fa-solid fa-chart-line-down red-text"></i> <span class="lang-zh">漸進式道德滑坡 (Slippery Slope)</span><span class="lang-en">Slippery Slope</span></h4>
+                                <p><span class="lang-zh">從小微瑕疵開始合理化，一步步演變為大規模集體作弊。</span><span class="lang-en">Small rationalized compromises gradually escalate into catastrophic fraud.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Utilitarianism -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 效益主義 (Utilitarianism)">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-calculator"></i> Consequentialism</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">效益主義：最大多數人的最大幸福</span>
+                            <span class="lang-en">Utilitarianism: Greatest Good for Greatest Number</span>
+                        </h2>
+                        <p class="slide-sub">Jeremy Bentham & John Stuart Mill</p>
+                    </div>
+
+                    <div class="theory-card glass-card glow-card">
+                        <blockquote class="theory-quote">
+                            "The Greatest Happiness for the Greatest Number of People."
+                        </blockquote>
+                        <div class="grid-3col mt-3">
+                            <div class="info-box">
+                                <h4>1. <span class="lang-zh">結果導向 (Consequentialist)</span><span class="lang-en">Consequentialist</span></h4>
+                                <p><span class="lang-zh">行為對錯完全取決於最終產生的淨結果 (Net Consequences)。</span><span class="lang-en">Morality depends solely on net outcomes generated.</span></p>
+                            </div>
+                            <div class="info-box">
+                                <h4>2. <span class="lang-zh">效益極大化 (Utility Max)</span><span class="lang-en">Utility Maximization</span></h4>
+                                <p><span class="lang-zh">計算快樂與痛苦總和，選擇創造最大淨正面效益的方案。</span><span class="lang-en">Calculate pleasure minus pain; select highest net surplus.</span></p>
+                            </div>
+                            <div class="info-box">
+                                <h4>3. <span class="lang-zh">商業成本效益分析 (CBA)</span><span class="lang-en">Cost-Benefit Analysis</span></h4>
+                                <p><span class="lang-zh">現代企業財務與公共政策成本效益評估的核心哲學基礎。</span><span class="lang-en">Philosophical foundation of corporate Cost-Benefit Analysis (CBA).</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Cost-Benefit Analysis Risks -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 效益主義在商業中的代價">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-scale-unbalanced"></i> CBA Limitations</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">效益主義在商業中的盲點與代價</span>
+                            <span class="lang-en">Limitations & Risks of Cost-Benefit Analysis</span>
+                        </h2>
+                        <p class="slide-sub">When Money Meets Human Dignity</p>
+                    </div>
+                    <div class="main-panel">
+                        <div class="grid-2col gap-3">
+                            <div class="value-card glass-card">
+                                <h3><span class="lang-zh">1. 無法貨幣化的無形價值</span><span class="lang-en">1. Intangible Value</span></h3>
+                                <p><span class="lang-zh">人命、健康、生態平衡與人權尊嚴難以用精準金額折算。</span><span class="lang-en">Human life, health, and dignity cannot be accurately monetized.</span></p>
+                            </div>
+                            <div class="value-card glass-card">
+                                <h3><span class="lang-zh">2. 暴政般的少數犧牲</span><span class="lang-en">2. Tyranny of Majority</span></h3>
+                                <p><span class="lang-zh">為了多數人的利益，可能冷酷犧牲弱勢少數族群的基本權益。</span><span class="lang-en">Minority rights may be ruthlessly sacrificed for majority benefit.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Deontology / Immanuel Kant -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 義務論 (Deontology)">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-gavel"></i> Duty-Based Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">義務論：無條件的道德絕對律令</span>
+                            <span class="lang-en">Deontology: Kant's Categorical Imperative</span>
+                        </h2>
+                        <p class="slide-sub">Immanuel Kant's Duty-Based Moral Philosophy</p>
+                    </div>
+
+                    <div class="theory-card glass-card highlight-card">
+                        <blockquote class="theory-quote">
+                            "Act only according to that maxim whereby you can at the same time will that it should become a universal law."
+                        </blockquote>
+                        <div class="grid-2col mt-3 gap-4">
+                            <div class="info-box">
+                                <h4>1. <span class="lang-zh">普遍化原則 (Universalizability)</span><span class="lang-en">Universalizability Rule</span></h4>
+                                <p><span class="lang-zh">「若所有人遇到類似情境都這樣做，世界會運作嗎？」防範雙重標準與特權化。</span><span class="lang-en">If everyone did this, would society function? Prevents double standards.</span></p>
+                            </div>
+                            <div class="info-box">
+                                <h4>2. <span class="lang-zh">尊重人為目的 (Humanity as an End)</span><span class="lang-en">Humanity as an End</span></h4>
+                                <p><span class="lang-zh">「永遠將人視為目的，而非純粹當成賺錢工具。」維護基本人權與尊嚴。</span><span class="lang-en">Treat people as ends, never merely as profit tools. Protect human dignity.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Deontology in Business -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 義務論在商業中的應用">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-hand-holding-hand"></i> Applied Kantian Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">義務論在商業溝通中的不可妥協性</span>
+                            <span class="lang-en">Unconditional Duties & Human Rights</span>
+                        </h2>
+                        <p class="slide-sub">Moral Lines That Money Cannot Cross</p>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-halved accent-icon"></i> <span class="lang-zh">商業中的絕對道德防線 (Unconditional Lines)</span><span class="lang-en">Non-Negotiable Business Boundaries</span></h3>
+                            <ul class="styled-list mt-2">
+                                <li><strong><span class="lang-zh">誠信不說謊：</span><span class="lang-en">Truthfulness: </span></strong><span class="lang-zh">財務報告與廣告資訊必須真確，禁止欺騙行為。</span><span class="lang-en">Financial and ad claims must be truthful; fraud is unacceptable.</span></li>
+                                <li><strong><span class="lang-zh">尊重大眾安全：</span><span class="lang-en">Safety First: </span></strong><span class="lang-zh">產品安全責任是無條件的，不能因為召回太貴而隱瞞。</span><span class="lang-en">Product safety duties are unconditional regardless of recall costs.</span></li>
+                                <li><strong><span class="lang-zh">保護個人隱私：</span><span class="lang-en">Data Privacy: </span></strong><span class="lang-zh">顧客個人數據不得未經授權賣給第三方獲利。</span><span class="lang-en">User data must not be exploited as raw commodities without consent.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Virtue Ethics / Aristotle -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 德行倫理學 (Virtue Ethics)">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-crown"></i> Character-Based Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">德行倫理學：形塑誠信品質與中庸之道</span>
+                            <span class="lang-en">Virtue Ethics: Aristotle & Golden Mean</span>
+                        </h2>
+                        <p class="slide-sub">What Kind of Leader Should I Be?</p>
+                    </div>
+
+                    <div class="grid-3col gap-3">
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-1"><i class="fa-solid fa-user-gear"></i></div>
+                            <h3><span class="lang-zh">1. 關注領導者人格 (Character)</span><span class="lang-en">1. Focus on Character</span></h3>
+                            <p><span class="lang-zh">不單問「這件事對不對」，而是問「做這件事會讓我成為什麼樣的管理者？」</span><span class="lang-en">Focuses on "What kind of leader does this action make me?"</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-2"><i class="fa-solid fa-compass"></i></div>
+                            <h3><span class="lang-zh">2. 中庸之道 (Golden Mean)</span><span class="lang-en">2. Golden Mean</span></h3>
+                            <p><span class="lang-zh">美德介於過度與不及之間（如勇敢介於魯莽與怯懦之間）。</span><span class="lang-en">Virtue lies between extremes (e.g. Courage between Rashness and Cowardice).</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-3"><i class="fa-solid fa-seedling"></i></div>
+                            <h3><span class="lang-zh">3. 誠信習慣化 (Habituation)</span><span class="lang-en">3. Habituation</span></h3>
+                            <p><span class="lang-zh">美德是透過日常商業決策反複實踐所內化的良好習慣。</span><span class="lang-en">Moral character is built through repeated practice in daily business.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Comparative Matrix -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 三大理論對照矩陣">
+                <div class="slide-container">
+                    <div class="header-block">
+                        <div class="section-tag"><i class="fa-solid fa-code-compare"></i> Theoretical Comparison</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">三大經典倫理理論對照比較表</span>
+                            <span class="lang-en">Comparative Matrix: Three Ethical Frameworks</span>
+                        </h2>
+                        <p class="slide-sub">Summary of Utilitarianism, Deontology, and Virtue Ethics</p>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">比較面向</span><span class="lang-en">Dimension</span></th>
+                                    <th><span class="lang-zh">效益主義 (Utilitarianism)</span><span class="lang-en">Utilitarianism</span></th>
+                                    <th><span class="lang-zh">義務論 (Deontology)</span><span class="lang-en">Deontology</span></th>
+                                    <th><span class="lang-zh">德行倫理 (Virtue Ethics)</span><span class="lang-en">Virtue Ethics</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><span class="lang-zh">核心問題</span><span class="lang-en">Core Question</span></strong></td>
+                                    <td><span class="lang-zh">「如何創造最大淨結果？」</span><span class="lang-en">"How to maximize net utility?"</span></td>
+                                    <td><span class="lang-zh">「我的道德責任與原則為何？」</span><span class="lang-en">"What is my unconditional duty?"</span></td>
+                                    <td><span class="lang-zh">「我想成為什麼樣的人？」</span><span class="lang-en">"What kind of person should I be?"</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">關注焦點</span><span class="lang-en">Primary Focus</span></strong></td>
+                                    <td><span class="lang-zh">最終結果與利益總和</span><span class="lang-en">Net Consequences & Surplus</span></td>
+                                    <td><span class="lang-zh">行為動機與普遍法則</span><span class="lang-en">Motives & Universal Rules</span></td>
+                                    <td><span class="lang-zh">領導者品質與誠信習慣</span><span class="lang-en">Moral Character & Habits</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">商業工具</span><span class="lang-en">Business Tool</span></strong></td>
+                                    <td><span class="lang-zh">成本效益分析 (CBA)</span><span class="lang-en">Cost-Benefit Analysis</span></td>
+                                    <td><span class="lang-zh">人權政策與不妥協防線</span><span class="lang-en">Human Rights & Safety Redlines</span></td>
+                                    <td><span class="lang-zh">企業信條與誠信文化</span><span class="lang-en">Corporate Credo & Culture</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Activity 1 - Trolley Problem -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 活動一 - 電車問題商業版">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-gamepad"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">電車問題商業版</span>
+                            <span class="lang-en">The Corporate Trolley Problem</span>
+                        </h2>
+                        <p class="slide-sub">AI Self-Driving Dilemma Simulation</p>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">情境：AI 自駕車緊急時刻演算法抉擇</span><span class="lang-en">Scenario: AI Self-Driving Algorithm Choice</span></h3>
+                            <p class="scenario-text">
+                                <span class="lang-zh">你是科技車廠 CEO。自駕車遇到剎車失靈，演算法必須在 0.1 秒內二選一：<br>
+                                <strong>選項 A (效益主義)：</strong> 偏轉撞向單一高齡行人，保護車內 4 名高階乘客。<br>
+                                <strong>選項 B (義務論)：</strong> 直行撞向防護牆保護路人，車內乘客受重傷風險，不將行人生命當工具算計。</span>
+                                <span class="lang-en">Brakes fail on autonomous car. Algorithm must choose in 0.1s:<br>
+                                <strong>Option A (Utilitarian):</strong> Swerve to hit 1 pedestrian to save 4 passengers.<br>
+                                <strong>Option B (Kantian):</strong> Stay course protecting pedestrian, risking passenger injury to never use human life as calculation tool.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Activity 1 - Live Poll -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 活動一 - 即時線上表決">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-chart-pie"></i> Mentimeter Poll</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全班即時表決：演算法的哲學選擇？</span>
+                            <span class="lang-en">Activity 1: Algorithm Ethical Choice Poll</span>
+                        </h2>
+                    </div>
+
+                    <div class="poll-widget-wrapper glass-card">
+                        <div class="poll-controls">
+                            <button class="poll-vote-btn opt-a" onclick="castVote('A')">
+                                <i class="fa-solid fa-car"></i> <span class="lang-zh">選擇 A (效益主義)</span><span class="lang-en">Option A (Utilitarian)</span>
+                            </button>
+                            <button class="poll-vote-btn opt-b" onclick="castVote('B')">
+                                <i class="fa-solid fa-person-walking"></i> <span class="lang-zh">選擇 B (義務論)</span><span class="lang-en">Option B (Kantian)</span>
+                            </button>
+                            <button class="poll-vote-btn opt-reset" onclick="resetVote()" title="Reset Votes">
+                                <i class="fa-solid fa-rotate-left"></i> <span class="lang-zh">重置</span><span class="lang-en">Reset</span>
+                            </button>
+                        </div>
+
+                        <div class="poll-results-visualization mt-4">
+                            <div class="poll-bar-group">
+                                <div class="bar-label"><span class="lang-zh">選項 A：效益主義 (Utilitarian Option)</span><span class="lang-en">Option A: Utilitarian Option</span></div>
+                                <div class="bar-track">
+                                    <div class="bar-fill fill-a" id="barA" style="width: 0%;">
+                                        <span class="bar-percentage" id="percentA">0% (0 票 / 0 votes)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="poll-bar-group mt-3">
+                                <div class="bar-label"><span class="lang-zh">選項 B：義務論 (Kantian Duty Option)</span><span class="lang-en">Option B: Kantian Duty Option</span></div>
+                                <div class="bar-track">
+                                    <div class="bar-fill fill-b" id="barB" style="width: 0%;">
+                                        <span class="bar-percentage" id="percentB">0% (0 票 / 0 votes)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Case Study 1 - Ford Pinto -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 案例一：福斯平托案 (Ford Pinto)">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-car-burst"></i> Case 1 • Pure CBA Disaster</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">案例一：福特平托案 (Ford Pinto Case)</span>
+                            <span class="lang-en">Case Study 1: Ford Pinto Case</span>
+                        </h2>
+                        <p class="slide-sub">The Cold Cost-Benefit Calculation of Human Life</p>
+                        <div class="img-wrapper glass-card mt-3">
+                            <img src="week2_ford_pinto_jj_case.jpg" alt="Ford Pinto Case Visual" class="slide-img rounded">
+                        </div>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-3">
+                            <h3><i class="fa-solid fa-calculator red-text"></i> <span class="lang-zh">$11 零件 vs $4,950 萬人命賠償之算計</span><span class="lang-en">The $11 Part vs $49.5M Calculation</span></h3>
+                            <p><span class="lang-zh">1970 年代 Ford Pinto 車款油箱缺乏防追撞擋板。內部成本效益分析算計：<br>
+                            • **修正方案：** 強化油箱每台增加 $11 成本，總花費 <strong>$1.37 億美元</strong>。<br>
+                            • **不修正賠償：** 預估 180 人死亡 + 180 人燒傷賠償，總代價僅 <strong>$4,950 萬美元</strong>。<br>
+                            福特高層因此決定<strong>不修正瑕疵產品</strong>。</span>
+                            <span class="lang-en">1970s Ford Pinto fuel tank lacked rear crash protection. Ford's internal CBA:<br>
+                            • **Fix:** $11 per car = <strong>$137 Million</strong> total.<br>
+                            • **No Fix:** Estimated 180 deaths + 180 burns payouts = <strong>$49.5 Million</strong>.<br>
+                            Ford executives decided <strong>not to fix the defect</strong>.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Ford Pinto Fatal $11 Part -->
+            <section class="slide" id="slide-15" data-title="Slide 15: Ford Pinto 判決與反彈">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-gavel"></i> Backlash & Verdict</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Ford Pinto 判決與社會誠信風暴</span>
+                            <span class="lang-en">Ford Pinto Fatal Backlash & Verdict</span>
+                        </h2>
+                        <p class="slide-sub">When Utilitarian CBA Destroys Corporate Reputation</p>
+                    </div>
+                    <div class="crisis-card glass-card glow-red">
+                        <div class="crisis-main-statement">
+                            <h3 class="red-text"><span class="lang-zh">當人命被化為冷酷數字，品牌毀於一旦！</span><span class="lang-en">Monetizing Human Life Destroyed Ford's Brand</span></h3>
+                            <p class="crisis-sub-text"><span class="lang-zh">內部 memo 被媒體曝光後引發全美怒火，法院判定天價懲罰性賠償。省下小錢造成數十年無法抹滅的誠信污點。</span><span class="lang-en">Exposure of the internal memo sparked nationwide fury, leading to massive punitive damages and permanent brand stain.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Case Study 2 - J&J Tylenol -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 案例二：嬌生泰諾爾案">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-shield-heart"></i> Case 2 • Virtue & Deontology</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">案例二：嬌生泰諾爾案 (J&J Tylenol 1982)</span>
+                            <span class="lang-en">Case Study 2: J&J Tylenol 1982 Crisis</span>
+                        </h2>
+                        <p class="slide-sub">The Gold Standard of Corporate Ethics</p>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-capsules accent-icon"></i> <span class="lang-zh">1 億美元主動下架的誠信典範</span><span class="lang-en">$100M Voluntary Recall Benchmark</span></h3>
+                            <p><span class="lang-zh">1982 芝加哥發生泰諾爾膠囊遭投毒事件（極罕見個案）。J&J 執行長 James Burke 不計 short-term 虧損，主動下架全美 3,100 萬瓶藥品（損失 $1 億美元），並研發全美第一個防撕安全封條瓶蓋！</span>
+                            <span class="lang-en">In 1982, Tylenol capsules were poisoned in Chicago. CEO James Burke immediately recalled 31 Million bottles nationwide ($100M cost) and invented tamper-evident packaging.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: J&J Credo -->
+            <section class="slide" id="slide-17" data-title="Slide 17: J&J Credo 企業信條">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-scroll"></i> Corporate Credo</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">嬌生企業信條：責任的優先順序</span>
+                            <span class="lang-en">The Johnson & Johnson Credo</span>
+                        </h2>
+                        <p class="slide-sub">Written in 1943 by Robert Wood Johnson</p>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card highlight-border">
+                            <div class="rc-num">1st</div>
+                            <h4><span class="lang-zh">第一責任：病患與顧客</span><span class="lang-en">1st Priority: Customers</span></h4>
+                            <p><span class="lang-zh">優先照顧醫生、護理師與所有使用產品的患者安全。</span><span class="lang-en">Our first responsibility is to patients, doctors, and mothers.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">2nd</div>
+                            <h4><span class="lang-zh">第二責任：全體員工</span><span class="lang-en">2nd Priority: Employees</span></h4>
+                            <p><span class="lang-zh">尊重員工尊嚴，保障工作安全與公平薪酬。</span><span class="lang-en">Respect employee dignity and provide fair compensation.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">3rd</div>
+                            <h4><span class="lang-zh">第三責任：社區與環境</span><span class="lang-en">3rd Priority: Communities</span></h4>
+                            <p><span class="lang-zh">保護環境與善盡社會公民義務。</span><span class="lang-en">Protect environment and support community welfare.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">4th</div>
+                            <h4><span class="lang-zh">第四責任：股東報酬</span><span class="lang-en">4th Priority: Shareholders</span></h4>
+                            <p><span class="lang-zh">當前三者做好後，股東應獲得合理回報。</span><span class="lang-en">Shareholders receive fair return when first 3 are fulfilled.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Comparative Matrix: Ford vs J&J -->
+            <section class="slide" id="slide-18" data-title="Slide 18: Ford Pinto vs. J&J 比較">
+                <div class="slide-container">
+                    <div class="header-block">
+                        <div class="section-tag"><i class="fa-solid fa-scale-balanced"></i> Comparative Case Study</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Ford Pinto vs. J&J 兩大決策比較表</span>
+                            <span class="lang-en">Ford Pinto vs. J&J Comparative Matrix</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">分析面向</span><span class="lang-en">Dimension</span></th>
+                                    <th>Ford Pinto (1970s)</th>
+                                    <th>Johnson & Johnson (1982)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><span class="lang-zh">倫理理論採用</span><span class="lang-en">Ethical Theory</span></strong></td>
+                                    <td><span class="lang-zh">極端金額化效益主義 (CBA)</span><span class="lang-en">Extreme Financial Utilitarianism</span></td>
+                                    <td><span class="lang-zh">康德義務論與德行信條 (Credo)</span><span class="lang-en">Kantian Duty & Virtue Credo</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">短期決策</span><span class="lang-en">Short-term Action</span></strong></td>
+                                    <td><span class="lang-zh">隱瞞瑕疵，省下 $1.37 億美元</span><span class="lang-en">Conceal defect, save $137M</span></td>
+                                    <td><span class="lang-zh">主動花費 $1 億美元全面召回</span><span class="lang-en">Voluntary recall costing $100M</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">長期後果與品牌</span><span class="lang-en">Long-term Outcome</span></strong></td>
+                                    <td><span class="badge red-badge"><span class="lang-zh">天價賠償、品牌誠信滅頂</span><span class="lang-en">Punitive damages & ruined brand</span></span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">恢復 100% 股價與數十年消費信任</span><span class="lang-en">Full stock recovery & decadal trust</span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Algorithmic Pricing -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 大數據演算法與倫理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag tech-tag"><i class="fa-solid fa-robot"></i> Algorithmic Ethics</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">演算法定價與差別取價倫理</span>
+                            <span class="lang-en">Algorithmic Discrimination & Dynamic Pricing</span>
+                        </h2>
+                        <p class="slide-sub">Treating Users as Data Commodities?</p>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-code accent-icon"></i> <span class="lang-zh">「大數據殺熟」的康德反思</span><span class="lang-en">Kantian Critique of Big Data Pricing</span></h3>
+                            <p><span class="lang-zh">訂票平台利用演算法針對老顧客動態調高價格。此舉符合效益主義（利潤最大化），但違反康德義務論：「未經誠信同意將消費者個人數據作為剝削工具」。</span>
+                            <span class="lang-en">Dynamic pricing algorithms charge loyal users higher rates. While maximizing utilitarian profit, it violates Kantian principles by exploiting user data without consent.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Activity 2 - Ethics Matrix Workshop -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 活動二 - 倫理矩陣演練">
+                <div class="slide-container">
+                    <div class="header-block">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-cubes"></i> Activity 2 • 20 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">倫理決策矩陣小組演練</span>
+                            <span class="lang-en">Activity 2: Ethical Decision Matrix Workshop</span>
+                        </h2>
+                    </div>
+
+                    <div class="news-cards-grid mt-3">
+                        <div class="news-company-card glass-card">
+                            <span class="company-badge">案例 1</span>
+                            <h4><span class="lang-zh">抗癌藥品天價專利定價</span><span class="lang-en">Cancer Drug Monopoly Pricing</span></h4>
+                            <p><span class="lang-zh">研發成本高昂 vs 貧困患者無力負擔。</span><span class="lang-en">High R&D cost vs unaffordable patient lives.</span></p>
+                        </div>
+                        <div class="news-company-card glass-card">
+                            <span class="company-badge">案例 2</span>
+                            <h4><span class="lang-zh">AI 演算法無預警批量解僱</span><span class="lang-en">AI Automated Layoff Engine</span></h4>
+                            <p><span class="lang-zh">極高效率排班 vs 缺乏人情尊嚴。</span><span class="lang-en">Extreme efficiency vs lack of human dignity.</span></p>
+                        </div>
+                        <div class="news-company-card glass-card">
+                            <span class="company-badge">案例 3</span>
+                            <h4><span class="lang-zh">綠色洗腦公關包裝</span><span class="lang-en">Greenwashing PR Campaign</span></h4>
+                            <p><span class="lang-zh">高排碳企業天價廣告包裝淨零形象。</span><span class="lang-en">High polluter spending millions on net zero ads.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Activity 2 - Pitch -->
+            <section class="slide" id="slide-21" data-title="Slide 21: 活動二 - 發表與統整">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-microphone"></i> Team Pitch</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">小組 3 分鐘倫理發表</span>
+                            <span class="lang-en">Activity 2: 3-Min Team Pitch & Debrief</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">教師總結：如何建立倫理檢核表</span><span class="lang-en">Faculty Summary: Ethical Checklist</span></h3>
+                            <p><span class="lang-zh">高階經理人決策時，應同時通過三大過濾網：(1) 效益過濾（是否淨利益最大？）、(2) 義務過濾（是否尊重人權無欺騙？）、(3) 德行過濾（能否公開坦然無愧？）。</span>
+                            <span class="lang-en">Executives must filter decisions through 3 screens: (1) Utilitarian Net Surplus, (2) Kantian Duty/Rights, and (3) Virtue Character test.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Integrating into ESG -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 道德理論融入 ESG">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> ESG Integration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">三大道德理論如何融入 ESG 治理結構</span>
+                            <span class="lang-en">Integrating Ethical Frameworks into ESG</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node">
+                                <div class="c-icon"><i class="fa-solid fa-calculator"></i></div>
+                                <h4>Utilitarianism</h4>
+                                <p><span class="lang-zh">E: 環境影響與碳足跡總計算</span><span class="lang-en">E: Environmental Footprint CBA</span></p>
+                            </div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+
+                            <div class="c-node">
+                                <div class="c-icon"><i class="fa-solid fa-gavel"></i></div>
+                                <h4>Deontology</h4>
+                                <p><span class="lang-zh">S: 勞工人權、DEI與安全防線</span><span class="lang-en">S: Labor Rights & DEI Redlines</span></p>
+                            </div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+
+                            <div class="c-node highlight-node">
+                                <div class="c-icon"><i class="fa-solid fa-crown"></i></div>
+                                <h4>Virtue Ethics</h4>
+                                <p><span class="lang-zh">G: 董事會誠信與誠信治理文化</span><span class="lang-en">G: Board Integrity Culture</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: Key Takeaways -->
+            <section class="slide" id="slide-23" data-title="Slide 23: W2 重點總結">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-bookmark"></i> Key Takeaways</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Week 2 核心重點總結</span>
+                            <span class="lang-en">Week 2 Summary & Key Takeaways</span>
+                        </h2>
+                    </div>
+
+                    <div class="takeaways-grid-4">
+                        <div class="t-card glass-card">
+                            <div class="t-number">01</div>
+                            <h3><span class="lang-zh">結果非唯一標準</span><span class="lang-en">1. Outcomes Aren't All</span></h3>
+                            <p><span class="lang-zh">效益主義好用，但不能忽視無價的人命與少數人權益。</span><span class="lang-en">Utilitarian CBA is useful but cannot overwrite human rights.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">02</div>
+                            <h3><span class="lang-zh">人是目的非工具</span><span class="lang-en">2. People as Ends</span></h3>
+                            <p><span class="lang-zh">康德義務論提醒我們：絕不能將顧客或員工當純賺錢工具。</span><span class="lang-en">Kantian duty mandates treating employees/users as ends, not tools.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">03</div>
+                            <h3><span class="lang-zh">品德決定長遠價值</span><span class="lang-en">3. Character Drives Value</span></h3>
+                            <p><span class="lang-zh">J&J 案例證明：遵循企業信條的誠信決策創造最大品牌價值。</span><span class="lang-en">J&J proves that credo-driven integrity creates decadal brand value.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">04</div>
+                            <h3><span class="lang-zh">倫理理論是羅盤</span><span class="lang-en">4. Theories as Compass</span></h3>
+                            <p><span class="lang-zh">經理人需同時具備結果、原則與品德三維倫理羅盤。</span><span class="lang-en">Executives need 3D moral compass balancing utility, duty, and virtue.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Homework 2 -->
+            <section class="slide" id="slide-24" data-title="Slide 24: 本週課堂作業 (Homework 2)">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-pen-ruler"></i> Homework 2 • Due Next Week</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">課堂作業說明</span>
+                            <span class="lang-en">Homework 2 Guidelines & Rubrics</span>
+                        </h2>
+                        <p class="slide-sub">Ethical Theory Application Assignment</p>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-3">
+                            <h3><i class="fa-solid fa-question-circle accent-icon"></i> <span class="lang-zh">作業題目：三大道德理論個案實務診斷</span><span class="lang-en">Prompt: Three Ethical Frameworks Analysis</span></h3>
+                            <p><span class="lang-zh">選擇一家企業近 3 年爭議，同時運用效益主義、義務論與德行倫理進行交叉診斷 (1,000-1,200字)。</span><span class="lang-en">Select a 3-year corporate scandal and diagnose using Utilitarianism, Deontology, and Virtue Ethics (1,000-1,200w).</span></p>
+                        </div>
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 20%;"><span class="lang-zh">個案事實 20%</span><span class="lang-en">Facts 20%</span></div>
+                                <div class="r-seg seg-2" style="width: 30%;"><span class="lang-zh">理論運用 30%</span><span class="lang-en">Theory 30%</span></div>
+                                <div class="r-seg seg-3" style="width: 30%;"><span class="lang-zh">管理方案 30%</span><span class="lang-en">Solution 30%</span></div>
+                                <div class="r-seg seg-4" style="width: 20%;"><span class="lang-zh">個人反思 20%</span><span class="lang-en">Reflection 20%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (24 Slides Overview)</span><span class="lang-en">24 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">24</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

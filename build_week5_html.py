@@ -1,0 +1,775 @@
+import sys
+
+html_week5 = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5: Climate Change & Net Zero | 氣候變遷與淨零排放</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 5: Climate Change, Net Zero and Corporate Sustainability Strategy</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第5週_氣候變遷與淨零排放.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 05 • Environment Pillar Presentation</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">氣候變遷、淨零排放與企業永續策略</span>
+                            <span class="lang-en">Climate Change, Net Zero & Sustainability</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Climate Change, Net Zero and Corporate Sustainability Strategy</span>
+                            <span class="lang-en">Climate Change, Net Zero and Corporate Sustainability Strategy</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">巴黎協定 1.5°C 防線、Scope 1-3 碳盤查、歐盟 CBAM 碳關稅與全球 7 大企業標竿策略</span>
+                            <span class="lang-en">Paris Agreement 1.5°C Target, Scope 1-3 Accounting, EU CBAM, and Global Corporate Net Zero Strategies</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week5_net_zero_climate_cover.jpg" alt="Week 5 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-cloud-sun-rain"></i> Net Zero • 1.5°C • Scope 1-3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Evolution Thread -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 課程邏輯主線">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Strategic Thread</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">課程邏輯主線：深入 ESG 中的 Environment (E)</span>
+                            <span class="lang-en">Course Thread: Deep-Dive into ESG Environment (E)</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-heart"></i></div><h4>W1-2 Ethics</h4><p><span class="lang-zh">倫理基因</span><span class="lang-en">Moral DNA</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-hand-holding-hand"></i></div><h4>W3 CSR/CSV</h4><p><span class="lang-zh">責任行動</span><span class="lang-en">Actions</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-chart-pie"></i></div><h4>W4 ESG</h4><p><span class="lang-zh">永續全貌</span><span class="lang-en">ESG Overview</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-leaf"></i></div><h4>W5 Today</h4><p><span class="lang-zh">Climate & Net Zero<br>(氣候淨零策略)</span><span class="lang-en">Climate & Net Zero<br>(E Pillar Strategy)</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Warm-up Question -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 暖身問題 - 升溫 2°C">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-temperature-arrow-up"></i> Climate Dilemma</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：如果地球升溫 2°C，企業真的會受影響嗎？</span>
+                            <span class="lang-en">Warm-up: If Earth Warms +2°C, Will Business Suffer?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="dilemma-statement">
+                            <p class="quote-text">
+                                <span class="lang-zh">「氣候變遷不再是遙遠的環保口號！升溫 2°C 意味著極端天災導致全球供應鏈中斷、廠房淹水天價損毀、保險費用暴增與各國碳關稅重罰。<strong>氣候風險即是企業財務風險！</strong>」</span>
+                                <span class="lang-en">"Climate change is a direct financial risk! +2°C means supply chain collapse, flooded factories, soaring insurance costs, and carbon border tariffs."</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Global Climate Reality & IPCC -->
+            <section class="slide" id="slide-4" data-title="Slide 4: 全球氣候現實與 IPCC">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-volcano"></i> IPCC AR6 Report</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全球氣候現實：IPCC AR6 最新發現</span>
+                            <span class="lang-en">IPCC AR6 Climate Assessment</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="cards-grid-5">
+                            <div class="decision-card glass-card"><h4>Heatwaves</h4><p><span class="lang-zh">極端熱浪衝擊勞工生產力</span><span class="lang-en">Extreme heatwaves hit productivity</span></p></div>
+                            <div class="decision-card glass-card"><h4>Floods</h4><p><span class="lang-zh">暴雨洪災重創工業園區</span><span class="lang-en">Severe floods submerge industrial parks</span></p></div>
+                            <div class="decision-card glass-card"><h4>Wildfires</h4><p><span class="lang-zh">森林野火毀壞森林與供應鏈</span><span class="lang-en">Wildfires destroy timber & transit</span></p></div>
+                            <div class="decision-card glass-card"><h4>Sea Level</h4><p><span class="lang-zh">海平面上升威脅沿海港口</span><span class="lang-en">Sea level rise threatens coastal ports</span></p></div>
+                            <div class="decision-card glass-card"><h4>Weather</h4><p><span class="lang-zh">極端氣候常態化衝擊農工</span><span class="lang-en">Extreme weather shocks agriculture</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: 3 Corporate Climate Risks -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 企業三大氣候風險">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-shield-cat"></i> TCFD Risk Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">TCFD 企業三大氣候風險</span>
+                            <span class="lang-en">Three Corporate Climate Risks</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-3col gap-4 mt-3">
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-1"><i class="fa-solid fa-house-tsunami"></i></div>
+                            <h3>1. Physical Risk</h3>
+                            <p><span class="lang-zh">實體風險：極端天災造成廠房損毀、停電與物流中斷。</span><span class="lang-en">Physical damage to factories, power outages & logistics.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-2"><i class="fa-solid fa-gavel"></i></div>
+                            <h3>2. Transition Risk</h3>
+                            <p><span class="lang-zh">轉型風險：碳關稅法規加嚴、高碳設備報廢與技術轉型成本。</span><span class="lang-en">Carbon tax regulations, stranded assets & tech costs.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-3"><i class="fa-solid fa-face-frown"></i></div>
+                            <h3>3. Reputation Risk</h3>
+                            <p><span class="lang-zh">信譽風險：高碳排企業遭受消費者抵制與機構投資人撤資。</span><span class="lang-en">Consumer boycotts and institutional divestment.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Paris Agreement -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 巴黎協定 (2015)">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-handshake"></i> Part II • Paris & Net Zero</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">巴黎協定 (Paris Agreement 2015)</span>
+                            <span class="lang-en">The Paris Agreement Target</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-bullseye accent-icon"></i> <span class="lang-zh">控制全球升溫遠低於 2°C，力爭 1.5°C 以內</span><span class="lang-en">Limit Warming Below 2°C, Pursuing 1.5°C</span></h3>
+                            <p class="lead-p">
+                                <span class="lang-zh">2015 年 196 個締約國於 COP21 簽署具有法律約束力的全球氣候條約，為本世紀全球碳預算劃定防線。</span>
+                                <span class="lang-en">Legally binding international treaty adopted at COP21 in 2015 to set global carbon budgets.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: 1.5°C vs 2°C -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 1.5°C vs 2°C 衝擊差異">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-fire-flame-curved"></i> 1.5°C vs 2°C Impact</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">為什麼 0.5°C 的差距關係到生存？</span>
+                            <span class="lang-en">Why 0.5°C Difference Means Survival</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-2col gap-4 mt-3">
+                        <div class="theory-card glass-card">
+                            <div class="theory-header"><h3>1.5°C Scenario</h3></div>
+                            <ul class="bullet-list mt-2">
+                                <li><span class="lang-zh">極端熱浪受災人口減少 4.2 億人。</span><span class="lang-en">420M fewer people exposed to heatwaves.</span></li>
+                                <li><span class="lang-zh">珊瑚礁消失 70-90%（尚存一絲希望）。</span><span class="lang-en">Coral reefs decline by 70-90%.</span></li>
+                            </ul>
+                        </div>
+                        <div class="theory-card glass-card glow-red">
+                            <div class="theory-header"><h3 class="red-text">2°C Scenario</h3></div>
+                            <ul class="bullet-list mt-2">
+                                <li><span class="lang-zh">熱浪受災人口增加數倍，水資源極度匱乏。</span><span class="lang-en">Multiplied population facing water scarcity.</span></li>
+                                <li><span class="lang-zh">珊瑚礁摧毀高達 99%（生態完全崩潰）。</span><span class="lang-en">99% of coral reefs completely destroyed.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Net Zero Definition -->
+            <section class="slide" id="slide-8" data-title="Slide 8: Net Zero 淨零排放定義">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-scale-balanced"></i> Net Zero Concept</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 Net Zero (淨零排放)？</span>
+                            <span class="lang-en">What is Net Zero Emissions?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-leaf accent-icon"></i> <span class="lang-zh">人為排放 － 人為移除 ＝ 0</span><span class="lang-en">Human Emissions - Human Removals = Zero</span></h3>
+                            <p><span class="lang-zh">企業透過極致減碳，將溫室氣體排放降至接近零，無法消除的殘餘排放量則透過碳移除技術（植樹造林、CCUS 碳捕集）完全抵銷！</span>
+                            <span class="lang-en">Reducing emissions close to zero, with any residual emissions permanently sequestered through carbon removals (CCUS / afforestation).</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Carbon Neutral vs Net Zero -->
+            <section class="slide" id="slide-9" data-title="Slide 9: Carbon Neutral vs Net Zero">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-code-compare"></i> Carbon Neutral vs Net Zero</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Carbon Neutral vs. Net Zero 差別在哪？</span>
+                            <span class="lang-en">Carbon Neutral vs. Net Zero Matrix</span>
+                        </h2>
+                    </div>
+
+                    <div class="matrix-table-wrapper glass-card mt-3">
+                        <table class="custom-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th><span class="lang-zh">比較面向</span><span class="lang-en">Dimension</span></th>
+                                    <th>Carbon Neutral (碳中和)</th>
+                                    <th class="highlight-th">Net Zero (淨零排放)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><span class="lang-zh">氣體涵蓋</span><span class="lang-en">Gas Scope</span></strong></td>
+                                    <td><span class="lang-zh">通常僅涵蓋二氧化碳 (CO2)</span><span class="lang-en">Typically covers CO2 only</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">涵蓋所有 7 種溫室氣體 (GHGs)</span><span class="lang-en">Covers all 7 Greenhouse Gases</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="lang-zh">實質減碳要求</span><span class="lang-en">Decarbonization Mandate</span></strong></td>
+                                    <td><span class="lang-zh">無強制減碳比例，可大量購買碳權抵銷</span><span class="lang-en">No mandatory limit, offsets allowed</span></td>
+                                    <td><span class="badge warning-badge"><span class="lang-zh">強制範疇 1,2,3 進行 90-95% 深度實質減碳</span><span class="lang-en">Mandates 90-95% deep emission cuts</span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Corporate Net Zero & SBTi -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 2050 Net Zero 與 SBTi">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> SBTi Standard</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業 2050 Net Zero 與 SBTi 標準</span>
+                            <span class="lang-en">SBTi Science-Based Targets</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-microscope accent-icon"></i> <span class="lang-zh">SBTi 科學基礎減碳倡議</span><span class="lang-en">Science Based Targets initiative</span></h3>
+                            <p><span class="lang-zh">全球已有數千家企業加入 SBTi，要求企業減碳路徑必須符合巴黎協定 1.5°C 的氣候科學預算，禁止漂綠承諾！</span>
+                            <span class="lang-en">SBTi validates corporate decarbonization targets against 1.5°C climate science pathways to prevent greenwashing pledges.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Benchmark Net Zero Pledges -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 全球 7 大標竿企業減碳承諾">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-crown"></i> Global Corporate Leaders</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全球 7 大標竿企業 Net Zero 承諾與轉型</span>
+                            <span class="lang-en">7 Global Leaders' Net Zero Strategies</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-3x2 mt-3">
+                        <div class="news-company-card glass-card"><span class="company-badge">Apple</span><h4>2030 Carbon Neutral</h4><p><span class="lang-zh">全價值鏈 2030 碳中和，供應鏈 100% 綠電。</span><span class="lang-en">2030 carbon neutral supply chain.</span></p></div>
+                        <div class="news-company-card glass-card"><span class="company-badge">Microsoft</span><h4>Carbon Negative 2030</h4><p><span class="lang-zh">2030 負碳，2050 移除自 1975 成立以來所有累積碳排！</span><span class="lang-en">Remove all historical carbon by 2050.</span></p></div>
+                        <div class="news-company-card glass-card"><span class="company-badge">Ørsted 沃旭</span><h4>Fossil to Wind</h4><p><span class="lang-zh">10 年內從石油石化企業徹底轉型為全球離岸風電巨擘！</span><span class="lang-en">Complete transformation to offshore wind.</span></p></div>
+                        <div class="news-company-card glass-card"><span class="company-badge">TSMC 台積電</span><h4>RE100 2040</h4><p><span class="lang-zh">承諾 2040 全球營運 100% 綠電，2050 淨零。</span><span class="lang-en">100% RE100 by 2040, Net Zero by 2050.</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Activity 1 - Net Zero Challenge Quiz -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 活動一 - Net Zero Challenge">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-gamepad"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Net Zero Challenge Quiz</span>
+                            <span class="lang-en">Net Zero Challenge Quiz</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">10 題 True/False 觀念搶答</span><span class="lang-en">10 True/False Questions</span></h3>
+                            <p><span class="lang-zh">1. Carbon Neutral 等於 Net Zero？ (False)<br>2. 巴黎協定要求全球 2050 年強制零碳？ (False)<br>3. Scope 3 屬於供應鏈，企業可以完全忽視？ (False)</span>
+                            <span class="lang-en">1. Carbon Neutral equals Net Zero? (False)<br>2. Scope 3 can be ignored by corporations? (False)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Activity 1 - Debrief -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 活動一 - 答案與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">答案解析與迷思釐清</span>
+                            <span class="lang-en">Activity 1: Debrief & Myth Busting</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「Scope 3 雖然不在企業廠區內，但佔碳足跡 80%–95%！不管理 Scope 3 供應鏈，就無法達成真正的 Net Zero。」</span>
+                            <span class="lang-en">"Scope 3 accounts for 80-95% of corporate carbon footprints. Managing supply chain carbon is non-negotiable."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Carbon Footprint -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 什麼是 Carbon Footprint？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-shoe-prints"></i> Part III • Carbon Management</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 Carbon Footprint (碳足跡)？</span>
+                            <span class="lang-en">What is a Carbon Footprint?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-calculator accent-icon"></i> <span class="lang-zh">產品與營運全生命週期溫室氣體總和</span><span class="lang-en">Total Lifecycle GHG Emissions</span></h3>
+                            <p><span class="lang-zh">依據 GHG Protocol 溫室氣體盤查協定，衡量企業活動或單一商品從原料開採、製造、運輸到廢棄處理所產生的二氧化碳當量 (CO2e)。</span>
+                            <span class="lang-en">Measuring the total greenhouse gas emissions (CO2e) caused directly and indirectly by a product or business across its lifecycle.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Scope 1, Scope 2, Scope 3 -->
+            <section class="slide" id="slide-15" data-title="Slide 15: Scope 1, 2, 3 範疇拆解">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-layer-group"></i> GHG Protocol Scopes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Scope 1, Scope 2, Scope 3 範疇拆解</span>
+                            <span class="lang-en">Scope 1, 2, and 3 Breakdown</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-3col gap-4 mt-3">
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-1"><i class="fa-solid fa-smog"></i></div>
+                            <h3>Scope 1 (Direct)</h3>
+                            <p><span class="lang-zh">公司廠區直接排放：公務車、製程發酵、煙囪直排。</span><span class="lang-en">Direct emissions from owned/controlled sources.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-2"><i class="fa-solid fa-bolt"></i></div>
+                            <h3>Scope 2 (Indirect)</h3>
+                            <p><span class="lang-zh">外購能源間接排放：外購電力、蒸汽、冷氣。</span><span class="lang-en">Indirect emissions from purchased electricity/heating.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-3"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                            <h3>Scope 3 (Value Chain)</h3>
+                            <p><span class="lang-zh">價值鏈上下游間接排放：原料採購、物流、產品使用。</span><span class="lang-en">All other indirect supply chain emissions.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Scope 3 Difficulty -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 為什麼 Scope 3 最難？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> Scope 3 Challenge</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">為什麼 Scope 3 最難卻最關鍵？</span>
+                            <span class="lang-en">Why Scope 3 is Hardest Yet Critical</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-chart-line accent-icon"></i> <span class="lang-zh">佔企業總碳足跡高達 80%–95%！</span><span class="lang-en">Accounting for 80-95% of Corporate Footprint</span></h3>
+                            <p><span class="lang-zh">Scope 3 涵蓋海外數千家供應商與全球消費者使用階段，數據搜集困難且缺乏控制權。但沒有 Scope 3 減碳，就沒有真正的 Net Zero！</span>
+                            <span class="lang-en">Scope 3 covers thousands of global suppliers and user phases, where data is hard to track, yet it comprises 80-95% of total carbon footprint.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Case 1 - Apple Supply Chain -->
+            <section class="slide" id="slide-17" data-title="Slide 17: Apple 供應鏈減碳實務">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-brands fa-apple"></i> Case 1 • Apple Clean Energy</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Apple 供應鏈 Clean Energy 計畫</span>
+                            <span class="lang-en">Apple Clean Energy Supply Chain Program</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-solar-panel accent-icon"></i> <span class="lang-zh">輔導全球 200+ 供應商轉用 100% 綠電</span><span class="lang-en">Over 200 Suppliers Committed to 100% Clean Energy</span></h3>
+                            <p><span class="lang-zh">Apple 透過 Clean Energy Program，協助台積電、鴻海、日月光等供應商在代工生產 Apple 產品時全數使用綠電，帶動全球電子產業低碳轉型。</span>
+                            <span class="lang-en">Apple assists key suppliers in adopting renewable electricity for all Apple production, accelerating the decarbonization of global electronics.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Case 2 - TSMC & Delta -->
+            <section class="slide" id="slide-18" data-title="Slide 18: 台積電與台達電減碳標竿">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> Taiwan Decarbonization Leaders</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">台積電與台達電減碳實務標竿</span>
+                            <span class="lang-en">TSMC & Delta Electronics Benchmarks</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-2col gap-4 mt-3">
+                        <div class="theory-card glass-card">
+                            <div class="theory-header"><h3>台積電 (TSMC)</h3></div>
+                            <ul class="bullet-list mt-2">
+                                <li><span class="lang-zh">簽訂全球半導體最大離岸風電購電合約 (PPA)。</span><span class="lang-en">Largest semiconductor PPA for offshore wind.</span></li>
+                                <li><span class="lang-zh">承諾 2040 100% RE100 綠電。</span><span class="lang-en">100% RE100 target moved up to 2040.</span></li>
+                            </ul>
+                        </div>
+                        <div class="theory-card glass-card">
+                            <div class="theory-header"><h3>台達電 (Delta)</h3></div>
+                            <ul class="bullet-list mt-2">
+                                <li><span class="lang-zh">實施內部碳定價 (ICP, 每噸 $300 美元)。</span><span class="lang-en">Internal Carbon Pricing ($300/ton).</span></li>
+                                <li><span class="lang-zh">碳費收益直接轉為低碳創新研發基金。</span><span class="lang-en">Carbon fees fund internal low-carbon R&D.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Carbon Accounting -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 碳盤查與國際標準">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-clipboard-check"></i> ISO Standards</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">碳盤查國際標準：ISO 14064 & ISO 14067</span>
+                            <span class="lang-en">ISO Carbon Accounting Standards</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="grid-2col gap-3">
+                            <div class="info-box glass-card">
+                                <h4>ISO 14064</h4>
+                                <p><span class="lang-zh">組織層級溫室氣體盤查與查證標準。</span><span class="lang-en">Organizational GHG inventory & verification.</span></p>
+                            </div>
+                            <div class="info-box glass-card">
+                                <h4>ISO 14067</h4>
+                                <p><span class="lang-zh">單一產品全生命週期碳足跡核算標準。</span><span class="lang-en">Product lifecycle carbon footprint standard.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: CDP Disclosure -->
+            <section class="slide" id="slide-20" data-title="Slide 20: CDP 碳揭露專案">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chart-bar"></i> CDP Rating</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CDP (Carbon Disclosure Project) 評級</span>
+                            <span class="lang-en">CDP Carbon Disclosure Ratings</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-award accent-icon"></i> <span class="lang-zh">全球權威氣候揭露問卷評級 (A to D-)</span><span class="lang-en">Global Climate Rating (A to D-)</span></h3>
+                            <p><span class="lang-zh">每年全球超過 23,000 家企業參與 CDP 問卷填報。CDP A List 評級企業代表具備頂尖氣候治理與減碳透明度。</span>
+                            <span class="lang-en">Over 23,000 global companies report to CDP annually. CDP A List firms lead in climate governance transparency.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Carbon Tax -->
+            <section class="slide" id="slide-21" data-title="Slide 21: Carbon Tax 碳稅">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-receipt"></i> Part IV • Carbon Pricing</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">碳定價工具 1：Carbon Tax (碳稅)</span>
+                            <span class="lang-en">Carbon Pricing: Carbon Tax</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-hand-holding-dollar accent-icon"></i> <span class="lang-zh">政府直接依溫室氣體排放噸數徵稅</span><span class="lang-en">Government Direct Tax Per Ton CO2e</span></h3>
+                            <p><span class="lang-zh">政府設定固定碳價（如新加坡每噸 $25 美元，台灣碳費機制），排碳越多繳稅越多，以價格機制引導企業減碳。</span>
+                            <span class="lang-en">Governments fix a carbon price per ton emitted (e.g. Singapore $25/ton), penalizing pollution via direct taxation.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: ETS Emission Trading -->
+            <section class="slide" id="slide-22" data-title="Slide 22: ETS 總量管制碳交易">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-arrow-trend-up"></i> Carbon Market</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">碳定價工具 2：ETS (總量管制碳交易)</span>
+                            <span class="lang-en">Emissions Trading System (Cap & Trade)</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-right-left accent-icon"></i> <span class="lang-zh">設定排放上限，允許企業買賣碳權</span><span class="lang-en">Capping Total Emissions with Market Trading</span></h3>
+                            <p><span class="lang-zh">如歐盟 EU ETS：政府設定總排放上限並發放配額。減碳成功的企業可將剩餘配額賣給超排企業獲利！</span>
+                            <span class="lang-en">EU ETS sets overall emission caps; companies reducing emissions below quota can sell excess allowances on open markets.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: EU CBAM -->
+            <section class="slide" id="slide-23" data-title="Slide 23: 歐盟 CBAM 碳邊境調整機制">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-plane-lock"></i> EU CBAM Mechanism</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">歐盟 CBAM 碳邊境調整機制</span>
+                            <span class="lang-en">EU Carbon Border Adjustment Mechanism</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">01</div>
+                            <h4>2026 正式實施</h4>
+                            <p><span class="lang-zh">2026 年起正式對進口商品課徵 CBAM 碳關稅。</span><span class="lang-en">Formal implementation of border carbon tariffs in 2026.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">02</div>
+                            <h4>6 大管制產業</h4>
+                            <p><span class="lang-zh">鋼鐵、水泥、鋁、化肥、電力、氫氣。</span><span class="lang-en">Steel, cement, aluminum, fertilizer, power, hydrogen.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">03</div>
+                            <h4>憑證抵扣機制</h4>
+                            <p><span class="lang-zh">進口商需購買 CBAM 憑證，可抵扣原產國已繳碳費。</span><span class="lang-en">Importers buy certificates minus origin carbon paid.</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">04</div>
+                            <h4>防止碳洩漏</h4>
+                            <p><span class="lang-zh">防止高碳排產業搬離歐盟的「碳洩漏 (Carbon Leakage)」。</span><span class="lang-en">Prevents carbon leakage of factories leaving EU.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: CBAM Impact on Exporting Firms -->
+            <section class="slide" id="slide-24" data-title="Slide 24: CBAM 如何衝擊出口企業">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-ship"></i> Export Impact</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CBAM 如何衝擊台灣與全球出口供應鏈</span>
+                            <span class="lang-en">How CBAM Impacts Exporting Firms</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-triangle-exclamation red-text"></i> <span class="lang-zh">未做碳盤查與減碳 ＝ 出口面臨天價關稅！</span><span class="lang-en">No Carbon Accounting = Catastrophic Tariffs</span></h3>
+                            <p><span class="lang-zh">台灣鋼鐵、螺絲扣件、電子零部件大量出口歐盟。未建立 ISO 14064/14067 碳盤查與減碳策略的企業，產品將被課徵天價 CBAM 關稅而失去市場競爭力！</span>
+                            <span class="lang-en">Exporting firms without carbon accounting will face devastating CBAM tariffs at EU ports, pricing them out of global supply chains.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Activity 2 - Design Your Net Zero Company -->
+            <section class="slide" id="slide-25" data-title="Slide 25: 活動二 - 設計 Net Zero 企業">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-pen-to-square"></i> Activity 2 • 25 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Design Your Net Zero Company</span>
+                            <span class="lang-en">Design Your Net Zero Company</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">小組抽籤任務：設計 2050 Net Zero 轉型藍圖</span><span class="lang-en">Formulate a 2050 Net Zero Roadmap</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. Starbucks (餐飲門市/植物奶/杯具回收)</p></div>
+                                <div class="opt-choice"><p>2. Apple (供應鏈/綠電/消費電子回收)</p></div>
+                                <div class="opt-choice"><p>3. Uniqlo (快時尚有機棉/循環回收)</p></div>
+                                <div class="opt-choice"><p>4. TSMC / 7-Eleven (綠電PPA/物流車隊)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Activity 2 - Team Pitch -->
+            <section class="slide" id="slide-26" data-title="Slide 26: 活動二 - 各組發表與點評">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-microphone"></i> Team Pitch</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組 3 分鐘 Net Zero 藍圖 Pitch</span>
+                            <span class="lang-en">3-Min Net Zero Roadmap Pitches</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">教師點評：減碳優先順序要因地制宜</span><span class="lang-en">Decarbonization Priorities by Industry</span></h3>
+                            <p><span class="lang-zh">服務業重點在於物流車隊與門市能源；製造業重點在於製程綠電與原料低碳化。Net Zero 策略必須結合核心商業模式。</span>
+                            <span class="lang-en">Services focus on retail/logistics energy; manufacturing focuses on green power & low-carbon materials.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 27: Summary & Homework 5 -->
+            <section class="slide" id="slide-27" data-title="Slide 27: 重點總結與 Homework 5">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-bookmark"></i> Part V • Summary & HW5</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W5 重點總結與 Homework 5</span>
+                            <span class="lang-en">Summary & Homework 5 Guidelines</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-3">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 5：企業碳管理分析個案 (1,500字)</span><span class="lang-en">Homework 5: Carbon Strategy Case (1,500w)</span></h3>
+                            <p><span class="lang-zh">選擇一家企業，分析其 Net Zero 宣告與年份、Scope 1,2,3 減碳措施、是否符合巴黎協定 1.5°C 並提出個人管理建議。</span>
+                            <span class="lang-en">Select a firm, analyze Net Zero goals, Scope 1,2,3 actions, Paris alignment, and managerial challenges.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 20%;"><span class="lang-zh">資料蒐集 20%</span><span class="lang-en">Data 20%</span></div>
+                                <div class="r-seg seg-2" style="width: 30%;"><span class="lang-zh">Net Zero分析 30%</span><span class="lang-en">Net Zero 30%</span></div>
+                                <div class="r-seg seg-3" style="width: 25%;"><span class="lang-zh">碳策略 25%</span><span class="lang-en">Strategy 25%</span></div>
+                                <div class="r-seg seg-4" style="width: 15%;"><span class="lang-zh">個人建議 15%</span><span class="lang-en">Recommend 15%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">報告品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (27 Slides Overview)</span><span class="lang-en">27 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">27</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>"""
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\第5週_氣候變遷與淨零排放.html", "w", encoding="utf-8") as f:
+    f.write(html_week5)
+
+print("Successfully generated Week 5 HTML presentation file!")

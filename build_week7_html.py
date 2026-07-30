@@ -1,0 +1,744 @@
+import sys
+
+html_week7 = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7: Corporate Governance & Leadership | 公司治理與企業誠信</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 7: Corporate Governance, Ethics and Responsible Leadership</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第7週_公司治理與企業誠信.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 07 • Governance Pillar Presentation</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">公司治理、企業誠信與負責任領導</span>
+                            <span class="lang-en">Corporate Governance & Leadership</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">Corporate Governance, Ethics and Responsible Leadership</span>
+                            <span class="lang-en">Corporate Governance, Ethics and Responsible Leadership</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">代理人問題、董事會與獨董監督、COSO 內控、舞弊三角理論與 AACSB 負責任領導力</span>
+                            <span class="lang-en">Agency Problem, Board & Independent Director Oversight, Internal Control, Fraud Triangle, and AACSB Responsible Leadership</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week7_governance_cover.jpg" alt="Week 7 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-building-columns"></i> Governance • Integrity • Leadership
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Evolution Thread -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 課程邏輯主線">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-diagram-project"></i> Course Thread</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">課程邏輯主線：完成 ESG 的最後拼圖 (G 治理)</span>
+                            <span class="lang-en">Course Thread: Completing the ESG Puzzle with Governance (G)</span>
+                        </h2>
+                    </div>
+
+                    <div class="evolution-chain-card glass-card">
+                        <div class="chain-items">
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-heart"></i></div><h4>W1-3 Ethics</h4><p><span class="lang-zh">倫理與CSR</span><span class="lang-en">Ethics & CSR</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-leaf"></i></div><h4>W4-5 Climate</h4><p><span class="lang-zh">ESG與E淨零</span><span class="lang-en">ESG & Climate</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node"><div class="c-icon"><i class="fa-solid fa-users"></i></div><h4>W6 Social</h4><p><span class="lang-zh">S利害關係人</span><span class="lang-en">Social Pillar</span></p></div>
+                            <div class="c-connector"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="c-node highlight-node"><div class="c-icon"><i class="fa-solid fa-building-columns"></i></div><h4>W7 Today</h4><p><span class="lang-zh">Governance (G)<br>(公司治理與領導力)</span><span class="lang-en">Governance (G)<br>(Governance & Leadership)</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Warm-up Question -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 暖身問題 - CEO 無人監督">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-user-shield"></i> Governance Dilemma</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：如果 CEO 能力極強，但無人監督會如何？</span>
+                            <span class="lang-en">Warm-up: What Happens if a Star CEO is Unsupervised?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="dilemma-statement">
+                            <p class="quote-text">
+                                <span class="lang-zh">「再優秀的經理人，缺乏獨立董事監督與內部控制，終將陷入道德風險與舞弊誘惑！<strong>公司治理是保護企業、股東與全體利害關係人的安全氣囊。</strong>」</span>
+                                <span class="lang-en">"Even top CEOs collapse into moral hazard without independent oversight. Governance is the safety airbag."</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Agency Problem -->
+            <section class="slide" id="slide-4" data-title="Slide 4: 代理人問題 Agency Problem">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-handshake-angle"></i> Principal-Agent Dilemma</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">代理人問題 (Agency Problem)</span>
+                            <span class="lang-en">The Agency Problem</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-scale-unbalanced accent-icon"></i> <span class="lang-zh">所有權與經營權分離造成的利益衝突</span><span class="lang-en">Separation of Ownership and Control</span></h3>
+                            <p><span class="lang-zh">股東 (Principal 委託人) 將經營權交給 CEO (Agent 代理人)。當代理人追求個人短期獎金與權力，而非股東長遠利益時，即產生代理成本與道德風險！</span>
+                            <span class="lang-en">When managers (Agents) prioritize short-term personal bonuses over shareholders' (Principals) long-term value, agency costs arise.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: 4 Pillar Objectives -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 公司治理 4 大目的">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-shapes"></i> 4 Core Pillars</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">公司治理四大核心目的</span>
+                            <span class="lang-en">Four Objectives of Corporate Governance</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">01</div>
+                            <h4>Transparency</h4>
+                            <p><span class="lang-zh">資訊揭露與財報透明度</span><span class="lang-en">Financial & ESG disclosure</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">02</div>
+                            <h4>Accountability</h4>
+                            <p><span class="lang-zh">高階管理層權責問責性</span><span class="lang-en">Executive accountability</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">03</div>
+                            <h4>Responsibility</h4>
+                            <p><span class="lang-zh">對利害關係人之責任感</span><span class="lang-en">Duty to all stakeholders</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <div class="rc-num">04</div>
+                            <h4>Fairness</h4>
+                            <p><span class="lang-zh">保護中小股東公平權益</span><span class="lang-en">Fair treatment of investors</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Board of Directors -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 董事會架構">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-building-columns"></i> Part II • Governance Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">董事會 (Board of Directors)</span>
+                            <span class="lang-en">The Board of Directors</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-sitemap accent-icon"></i> <span class="lang-zh">企業經營與監督的最高權力核心</span><span class="lang-en">Supreme Oversight & Strategic Body</span></h3>
+                            <p><span class="lang-zh">董事會代表全體股東監督管理層，需具備專業多元化、性別平衡與客觀獨立性，防止管理層黑箱作業。</span>
+                            <span class="lang-en">The Board represents shareholders to supervise management, requiring expertise diversity and independence.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Board Duties -->
+            <section class="slide" id="slide-7" data-title="Slide 7: 董事會四大職責">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-list-check"></i> Core Board Mandates</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">董事會 4 大核心職責</span>
+                            <span class="lang-en">Four Core Mandates of the Board</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="decision-card glass-card"><h4>1. Strategy</h4><p><span class="lang-zh">審議長遠永續發展策略</span><span class="lang-en">Approving long-term strategy</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Supervision</h4><p><span class="lang-zh">嚴格監督高階管理團隊</span><span class="lang-en">Supervising C-suite team</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Risk</h4><p><span class="lang-zh">控管企業整體風控與ESG</span><span class="lang-en">Enterprise risk & ESG control</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Succession</h4><p><span class="lang-zh">評估 CEO 績效與接班人</span><span class="lang-en">Evaluating CEO & succession</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Independent Directors -->
+            <section class="slide" id="slide-8" data-title="Slide 8: 獨立董事制度">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-user-check"></i> Independent Oversight</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">獨立董事制度 (Independent Directors)</span>
+                            <span class="lang-en">Independent Directors System</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-halved accent-icon"></i> <span class="lang-zh">客觀獨立性與受託人責任 (Fiduciary Duty)</span><span class="lang-en">Objective Oversight & Fiduciary Duty</span></h3>
+                            <p><span class="lang-zh">獨立董事不受公司管理層控制，代表中小股東與大眾利害關係人，在董事會中提供獨立客觀監督並防範利益衝突。</span>
+                            <span class="lang-en">Independent directors act free of management control, fulfilling fiduciary duty to safeguard minority shareholders.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Audit Committee -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 審計委員會">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-magnifying-glass-dollar"></i> Board Committees</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">審計委員會 (Audit Committee)</span>
+                            <span class="lang-en">The Audit Committee</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-file-invoice-dollar accent-icon"></i> <span class="lang-zh">財務報告真實性與外部會計師監督</span><span class="lang-en">Ensuring Financial Truth & Auditor Independence</span></h3>
+                            <p><span class="lang-zh">由獨立董事組成，負責審查公司財報、監督內部稽核與評估外部獨立會計師，防範財務造假。</span>
+                            <span class="lang-en">Composed of independent directors to oversee financial reporting, internal audits, and external auditors.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Compensation Committee -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 薪酬委員會">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-coins"></i> Executive Remuneration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">薪酬委員會 (Compensation Committee)</span>
+                            <span class="lang-en">The Compensation Committee</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-scale-balanced accent-icon"></i> <span class="lang-zh">薪酬結構連結 ESG 與長期永續績效</span><span class="lang-en">Linking Executive Pay to Long-term ESG KPIs</span></h3>
+                            <p><span class="lang-zh">評估 C-suite 薪酬發放，防止過度追逐短期股價炒作，並將減碳成效與 ESG KPI 強制納入高階薪酬扣減機制！</span>
+                            <span class="lang-en">Designing C-suite incentive structures to tie executive compensation directly to decarbonization and ESG KPIs.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Internal Control -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 內部控制系統 (COSO)">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-shield-cat"></i> COSO Framework</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">內部控制系統 (Internal Control Framework)</span>
+                            <span class="lang-en">COSO Internal Control 5 Components</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Environment</h4><p><span class="lang-zh">控制環境與企業誠信</span><span class="lang-en">Control environment</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Assessment</h4><p><span class="lang-zh">風險評估與識別機制</span><span class="lang-en">Risk assessment</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Activities</h4><p><span class="lang-zh">控制活動與核決權限</span><span class="lang-en">Control activities</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Information</h4><p><span class="lang-zh">資訊溝通與透明報導</span><span class="lang-en">Info & communication</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. Monitoring</h4><p><span class="lang-zh">內部稽核與持續監督</span><span class="lang-en">Monitoring activities</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: ERM Enterprise Risk Management -->
+            <section class="slide" id="slide-12" data-title="Slide 12: ERM 企業風險管理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-chart-line"></i> ERM Integration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ERM (Enterprise Risk Management)</span>
+                            <span class="lang-en">Enterprise Risk Management</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-tower-observation accent-icon"></i> <span class="lang-zh">將 ESG、氣候與資安納入董事會風控儀表板</span><span class="lang-en">Integrating ESG, Climate, and Cyber Risks</span></h3>
+                            <p><span class="lang-zh">ERM 強調企業風險不限於財務，必須全盤控管氣候變遷、地緣政治、資安威脅與品牌信譽風險。</span>
+                            <span class="lang-en">ERM incorporates emerging ESG, cybersecurity, and geopolitical risks into the board's holistic dashboard.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Activity 1 - Board Simulation -->
+            <section class="slide" id="slide-13" data-title="Slide 13: 活動一 - 董事會模擬">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-handshake"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Board Meeting Simulation</span>
+                            <span class="lang-en">Board Meeting Simulation</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">危機情境：發現產品重大安全瑕疵，媒體尚未獲悉</span><span class="lang-en">Scenario: Uncovered Product Safety Flaw</span></h3>
+                            <div class="cards-grid-3x2 mt-2">
+                                <div class="opt-choice"><p>1. CEO (擔心股價崩盤與年度獎金)</p></div>
+                                <div class="opt-choice"><p>2. 獨立董事 (堅持透明與召回防範)</p></div>
+                                <div class="opt-choice"><p>3. CFO (評估召回損失與現金流)</p></div>
+                                <div class="opt-choice"><p>4. 法務長 (評估訴訟與監管罰則)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Activity 1 - Debrief -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 活動一 - 答案與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">治理不是追求一致，而是建立有效監督</span>
+                            <span class="lang-en">Activity 1: Oversight, Not Unanimity</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「好的公司治理絕非拍手部隊，而是獨立董事敢於提出質疑，在利益衝突時做出對企業永續最負責任的決策！」</span>
+                            <span class="lang-en">"Good governance is not a rubber stamp, but independent directors raising tough questions to protect long-term value."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Business Integrity -->
+            <section class="slide" id="slide-15" data-title="Slide 15: 企業誠信 Business Integrity">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> Part III • Business Integrity</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">企業誠信 (Business Integrity)</span>
+                            <span class="lang-en">Business Integrity & Ethics</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-gavel accent-icon"></i> <span class="lang-zh">超越合規清單的道德承諾與高層示範</span><span class="lang-en">Beyond Compliance Checklist to Culture</span></h3>
+                            <p><span class="lang-zh">誠信經營不是法規部門的合規清單，而是深植於企業基因的高層示範 (Tone at the Top)，零容忍貪腐與內線交易。</span>
+                            <span class="lang-en">Integrity is set by the Tone at the Top, enforcing zero-tolerance for corruption, bribery, and insider trading.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Code of Ethics -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 誠信行為守則">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-book-bookmark"></i> Code of Conduct</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">誠信行為守則 (Code of Ethics)</span>
+                            <span class="lang-en">Code of Ethics & Conduct</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-hand-holding-dollar accent-icon"></i> <span class="lang-zh">規範反賄賂、利益衝突與餽贈標準</span><span class="lang-en">Enforcing Anti-Bribery & Conflict Rules</span></h3>
+                            <p><span class="lang-zh">制定明確行為準則：嚴禁收受回扣、利益衝突揭露、防範商業間諜與保護公司資產等具體規範。</span>
+                            <span class="lang-en">Drafting explicit rules against kickbacks, conflict of interest, gift limits, and trade secret protection.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Whistleblowing -->
+            <section class="slide" id="slide-17" data-title="Slide 17: 吹哨者制度">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bullhorn"></i> Whistleblower System</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">吹哨者保護制度 (Whistleblowing)</span>
+                            <span class="lang-en">Whistleblower Protection System</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-cat accent-icon"></i> <span class="lang-zh">匿名舉報管道與法律免受打壓保護</span><span class="lang-en">Anonymous Channels & Anti-Retaliation</span></h3>
+                            <p><span class="lang-zh">建立直通審計委員會的獨立第三方匿名舉報熱線，確保吹哨者不遭受解僱或職場打壓。</span>
+                            <span class="lang-en">Providing independent anonymous hotlines directly to audit committees with strict anti-retaliation legal shields.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Fraud Triangle -->
+            <section class="slide" id="slide-18" data-title="Slide 18: 舞弊三角理論">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> Fraud Triangle</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">舞弊三角理論 (Cressey's Fraud Triangle)</span>
+                            <span class="lang-en">Cressey's Fraud Triangle Model</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid-3col gap-3 mt-3">
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-1"><i class="fa-solid fa-gauge-high"></i></div>
+                            <h3>1. Pressure (壓力)</h3>
+                            <p><span class="lang-zh">高壓業績指標、財報財測壓力。</span><span class="lang-en">High earnings targets & debt.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-2"><i class="fa-solid fa-key"></i></div>
+                            <h3>2. Opportunity (機會)</h3>
+                            <p><span class="lang-zh">內控嚴重的漏洞與權力集中。</span><span class="lang-en">Internal control flaws & power.</span></p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="v-icon color-3"><i class="fa-solid fa-comment-slash"></i></div>
+                            <h3>3. Rationalization (合理化)</h3>
+                            <p><span class="lang-zh">「大家都在做」、「我只是暫借」。</span><span class="lang-en">"Everyone does it" mindset.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Case 1 - Wirecard -->
+            <section class="slide" id="slide-19" data-title="Slide 19: Wirecard 倒閉案">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-bomb"></i> Case 1 • Wirecard</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Wirecard 19 億歐元假帳崩潰案</span>
+                            <span class="lang-en">Wirecard €1.9B Accounting Fraud</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-triangle-exclamation red-text"></i> <span class="lang-zh">會計師與監管盲目失靈導致倒閉</span><span class="lang-en">Auditor Failure & Regulatory Blindness</span></h3>
+                            <p><span class="lang-zh">德國 FinTech 明星 Wirecard 帳上 19 億歐元現金全屬捏造。獨董與審計失敗，導致歐洲史上最大的財務舞弊破產醜聞。</span>
+                            <span class="lang-en">German FinTech darling Wirecard fabricated €1.9B in non-existent cash, exposing massive audit failures.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Case 2 - Enron & Wells Fargo -->
+            <section class="slide" id="slide-20" data-title="Slide 20: Enron & Wells Fargo">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-ban"></i> Case 2 • Wells Fargo</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Wells Fargo 假帳戶事件與不當激勵</span>
+                            <span class="lang-en">Wells Fargo Scandal & Incentive Failure</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-triangle-exclamation red-text"></i> <span class="lang-zh">激勵機制錯誤引發高階系統性舞弊</span><span class="lang-en">Toxic Incentive Structures Driving Fraud</span></h3>
+                            <p><span class="lang-zh">員工因高壓開戶 KPI 無法達成，偷偷未經授權為顧客開立數百萬假帳戶。治理教訓：不良激勵制度直接摧毀企業誠信！</span>
+                            <span class="lang-en">Employees created millions of unauthorized accounts to hit aggressive sales quotas, proving that bad incentive systems fuel fraud.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: What is a Responsible Leader? -->
+            <section class="slide" id="slide-21" data-title="Slide 21: 負責任領導力 Responsible Leader">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-crown"></i> Part IV • Responsible Leadership</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 AACSB Responsible Leader？</span>
+                            <span class="lang-en">What is a Responsible Leader?</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="t-card glass-card"><h4>Profit</h4><p><span class="lang-zh">健全財務回報</span><span class="lang-en">Financial health</span></p></div>
+                        <div class="t-card glass-card"><h4>Planet</h4><p><span class="lang-zh">氣候與環境邊界</span><span class="lang-en">Environmental limits</span></p></div>
+                        <div class="t-card glass-card"><h4>People</h4><p><span class="lang-zh">利害關係人福祉</span><span class="lang-en">Stakeholder well-being</span></p></div>
+                        <div class="t-card glass-card"><h4>Purpose</h4><p><span class="lang-zh">企業長遠倫理使命</span><span class="lang-en">Long-term moral purpose</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Good CEO vs Great Leader -->
+            <section class="slide" id="slide-22" data-title="Slide 22: Good CEO vs Great Leader">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-award"></i> Leadership Spectrum</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Good CEO vs. Great Responsible Leader</span>
+                            <span class="lang-en">Good CEO vs. Great Responsible Leader</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-trophy accent-icon"></i> <span class="lang-zh">從追求單季 EPS 到建立百年誠信基因</span><span class="lang-en">From Quarterly EPS to Century-Long Trust</span></h3>
+                            <p><span class="lang-zh">Good CEO 能創造漂亮財報；Great Responsible Leader 則能打造高心理安全感、透明問責與能跨越危機的百年永續組織！</span>
+                            <span class="lang-en">A Good CEO hits short-term quarterly profit numbers; a Great Responsible Leader embeds psychological safety and enduring integrity.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: CEO Ultimate Responsibility -->
+            <section class="slide" id="slide-23" data-title="Slide 23: ESG 時代 CEO 的責任">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-user-astronaut"></i> Tone at the Top</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">ESG 時代 CEO 的最大責任</span>
+                            <span class="lang-en">The Ultimate CEO Duty in ESG Era</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-heart accent-icon"></i> <span class="lang-zh">做真實領導 (Authentic Leadership) 的表率</span><span class="lang-en">Setting an Authentic Leadership Example</span></h3>
+                            <p><span class="lang-zh">Tone at the Top 決定全公司基調。CEO 必須親自示範合規誠信、主動坦承過失，並支持吹哨者與獨立董事發聲。</span>
+                            <span class="lang-en">The Tone at the Top dictates company culture. CEOs must embody authentic leadership, welcome tough questions, and protect whistleblowers.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: Activity 2 - CEO Crisis Challenge -->
+            <section class="slide" id="slide-24" data-title="Slide 24: 活動二 - CEO 危機決策">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-volcano"></i> Activity 2 • 20 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CEO Crisis Challenge</span>
+                            <span class="lang-en">CEO Crisis Challenge</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">小組抽籤診斷：分析一則重大治理事件</span><span class="lang-en">Audit One Major Corporate Governance Crisis</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. Boeing 737 MAX (飛安與工程文化失靈)</p></div>
+                                <div class="opt-choice"><p>2. Wells Fargo (假帳戶與不當激勵)</p></div>
+                                <div class="opt-choice"><p>3. VW Dieselgate (排氣數據造假欺詐)</p></div>
+                                <div class="opt-choice"><p>4. Wirecard / Toshiba (會計舞弊)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Activity 2 - Team Presentations -->
+            <section class="slide" id="slide-25" data-title="Slide 25: 活動二 - 各組簡報">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-microphone"></i> Team Presentations</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組 5 分鐘簡報與董事會改革方案</span>
+                            <span class="lang-en">5-Min Pitches & Board Remediation</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-check-double accent-icon"></i> <span class="lang-zh">教師點評：負責任領導力的實務意涵</span><span class="lang-en">Practical Meaning of Responsible Leadership</span></h3>
+                            <p><span class="lang-zh">危機發生時，負責任的領導者選擇坦承錯誤並全面改革制度，而非掩蓋真相或尋找戰犯。董事會必須發揮實質問責制！</span>
+                            <span class="lang-en">When crisis strikes, responsible leaders take accountability and reform systems instead of scapegoating lower tiers.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Summary -->
+            <section class="slide" id="slide-26" data-title="Slide 26: 本週重點總結">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-bookmark"></i> Part V • Summary</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Week 7 核心重點總結</span>
+                            <span class="lang-en">Week 7 Key Takeaways</span>
+                        </h2>
+                    </div>
+
+                    <div class="takeaways-grid-4">
+                        <div class="t-card glass-card">
+                            <div class="t-number">01</div>
+                            <h3><span class="lang-zh">G 是 ESG 的靈魂底座</span><span class="lang-en">1. G is the Foundation</span></h3>
+                            <p><span class="lang-zh">沒有健全的公司治理，E 減碳與 S 社會責任皆流於公關包裝。</span><span class="lang-en">Without G, E & S initiatives revert to PR window dressing.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">02</div>
+                            <h3><span class="lang-zh">獨立監督防範舞弊</span><span class="lang-en">2. Independent Oversight</span></h3>
+                            <p><span class="lang-zh">透過獨立董事、審計委員會與 COSO 內控破除舞弊三角。</span><span class="lang-en">Breaks fraud triangles via independent boards and audits.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">03</div>
+                            <h3><span class="lang-zh">Tone at the Top 誠信</span><span class="lang-en">3. Tone at the Top</span></h3>
+                            <p><span class="lang-zh">高層誠信示範與匿名吹哨者保護是誠信文化的基石。</span><span class="lang-en">Executive role modeling and whistleblowing protect integrity.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">04</div>
+                            <h3><span class="lang-zh">Responsible Leader</span><span class="lang-en">4. Responsible Leadership</span></h3>
+                            <p><span class="lang-zh">經理人必須平衡 Profit, Planet, People, Purpose 永續價值。</span><span class="lang-en">Leaders balance Profit, Planet, People, and Purpose.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 27: W1-W7 Thread & Preview W8 -->
+            <section class="slide" id="slide-27" data-title="Slide 27: 全課程主線與 W8 預告">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-forward"></i> Thread & Preview W8</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">全課程主線與 Homework 7</span>
+                            <span class="lang-en">W1-W7 Master Thread & Homework 7</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-cloud-sun-rain accent-icon"></i> <span class="lang-zh">W8 預告：永續揭露與 ESG 報告書</span><span class="lang-en">W8 Preview: Sustainability Reporting & Disclosure</span></h3>
+                            <p class="mb-2"><span class="lang-zh">下一週我們將學習如何將治理成效轉化為透明揭露：GRI, SASB, TCFD, ISSB 永續報告書實務！</span><span class="lang-en">Next week we convert governance into transparent disclosure: GRI, SASB, TCFD, ISSB report practice!</span></p>
+                        </div>
+
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 7：公司治理案例分析 (1,500-2,000字)</span><span class="lang-en">Homework 7: Governance Case (1,500-2,000w)</span></h3>
+                            <p><span class="lang-zh">選擇一家企業，分析近 5 年公司治理事件：涉及機制、影響、董事會改善方案與 Responsible Leadership 建議。</span>
+                            <span class="lang-en">Analyze a firm's governance crisis: mechanisms involved, impacts, board actions, and leadership advice.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 30%;"><span class="lang-zh">治理分析 30%</span><span class="lang-en">Gov 30%</span></div>
+                                <div class="r-seg seg-2" style="width: 25%;"><span class="lang-zh">問題診斷 25%</span><span class="lang-en">Diagnosis 25%</span></div>
+                                <div class="r-seg seg-3" style="width: 20%;"><span class="lang-zh">改善方案 20%</span><span class="lang-en">Action 20%</span></div>
+                                <div class="r-seg seg-4" style="width: 15%;"><span class="lang-zh">領導力 15%</span><span class="lang-en">Leader 15%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">報告品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (27 Slides Overview)</span><span class="lang-en">27 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">27</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>"""
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\第7週_公司治理與企業誠信.html", "w", encoding="utf-8") as f:
+    f.write(html_week7)
+
+print("Successfully generated Week 7 HTML presentation file!")

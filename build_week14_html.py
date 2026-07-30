@@ -1,0 +1,792 @@
+import sys
+
+html_week14 = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 14: ESG Crisis Management & Resilience | ESG危機管理與企業韌性</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="canva-theme dark-mode lang-zh">
+
+    <!-- Canva Top Header Navigation Bar -->
+    <header class="canva-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap glow-icon"></i>
+                <span class="brand-title">AACSB / ESG Series</span>
+            </div>
+            <div class="deck-title-container">
+                <h1 class="deck-title">Week 14: ESG Crisis Management, Corporate Resilience and Reputation</h1>
+                <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> EMI Course</span>
+                <span class="badge esg-badge"><i class="fa-solid fa-leaf"></i> ESG Aligned</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
+                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            </button>
+            <button class="btn btn-secondary" id="timerBtn" title="Lecture Timer">
+                <i class="fa-regular fa-clock"></i> <span id="timerDisplay">110:00</span>
+            </button>
+            <a href="第14週_ESG危機管理與企業韌性.docx" download class="btn btn-secondary" title="Download Teaching Facilitation Guide (.docx)">
+                <i class="fa-regular fa-bookmark"></i> <span class="lang-zh">教學指引</span><span class="lang-en">Facilitation Guide</span>
+            </a>
+            <button class="btn btn-secondary" id="gridToggleBtn" title="Slide Overview (Press G)">
+                <i class="fa-solid fa-table-cells"></i> <span class="lang-zh">總覽</span><span class="lang-en">Overview</span>
+            </button>
+            <button class="btn btn-primary" id="presentBtn" title="Full Screen Presentation (Press F)">
+                <i class="fa-solid fa-play"></i> <span class="lang-zh">播放簡報</span><span class="lang-en">Present</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Workspace -->
+    <div class="canva-workspace">
+
+        <!-- Slide Stage Area -->
+        <main class="slide-stage" id="slideStage">
+            
+            <!-- SLIDE 1: Cover -->
+            <section class="slide active" id="slide-1" data-title="Slide 1: 課程封面">
+                <div class="slide-bg-overlay"></div>
+                <div class="slide-container cover-layout">
+                    <div class="cover-content">
+                        <div class="course-meta">
+                            <span class="meta-tag">Master of Business Administration / AACSB Standard</span>
+                            <span class="meta-tag alt">Week 14 • Module 4 Crisis & Resilience</span>
+                        </div>
+                        <h1 class="main-heading">
+                            <span class="lang-zh">ESG危機管理、企業韌性與聲譽管理</span>
+                            <span class="lang-en">ESG Crisis & Corporate Resilience</span>
+                        </h1>
+                        <h2 class="sub-heading">
+                            <span class="lang-zh">ESG Crisis Management, Corporate Resilience and Reputation</span>
+                            <span class="lang-en">ESG Crisis Management, Corporate Resilience and Reputation</span>
+                        </h2>
+                        <p class="lead-text">
+                            <span class="lang-zh">黃金 1 小時回應原則、J&J Tylenol 典範、VW/Boeing 失敗教訓與 CEO 危機模擬</span>
+                            <span class="lang-en">Golden Hour Response, J&J Tylenol Benchmark, VW/Boeing Lessons & CEO Simulation</span>
+                        </p>
+                        
+                        <div class="cover-footer">
+                            <div class="instructor-info">
+                                <i class="fa-solid fa-chalkboard-user"></i> 
+                                <span class="lang-zh">授課教授：商學院 企業管理學系 教授群</span>
+                                <span class="lang-en">Instructor: Department of Business Administration Faculty</span>
+                            </div>
+                            <div class="time-info">
+                                <i class="fa-regular fa-calendar-check"></i> 
+                                <span class="lang-zh">上課時間：2 小時 (120 分鐘)</span>
+                                <span class="lang-en">Lecture Duration: 2 Hours (120 Mins)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-visual">
+                        <div class="glass-card visual-card">
+                            <img src="week14_crisis_cover.jpg" alt="Week 14 Cover Visual" class="slide-img">
+                            <div class="visual-badge">
+                                <i class="fa-solid fa-shield-cat"></i> Crisis Management • Resilience
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Warm-up Dilemma -->
+            <section class="slide" id="slide-2" data-title="Slide 2: 暖身問題 - 第一小時危機處置">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-fire-extinguisher"></i> Crisis Dilemma</div>
+                        <h2 class="slide-heading giant-title">
+                            <span class="lang-zh">暖身問題：如果公司明天爆發食安或毒水外洩危機，第一小時怎麼辦？</span>
+                            <span class="lang-en">Warm-up: What is Your First 1-Hour Move in a Major ESG Crisis?</span>
+                        </h2>
+                    </div>
+
+                    <div class="dilemma-box glass-card glow-card">
+                        <div class="dilemma-statement">
+                            <p class="quote-text">
+                                <span class="lang-zh">「掩蓋真相是企業滅亡的催化劑；坦承錯誤與黃金 1 小時透明公開，才是重建誠信的起點！<strong>真正的 ESG 能力是 Corporate Resilience (企業韌性)！</strong>」</span>
+                                <span class="lang-en">"Cover-ups accelerate collapse; transparency in the Golden Hour is the start of rebuilding trust!"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: What is ESG Crisis -->
+            <section class="slide" id="slide-3" data-title="Slide 3: 什麼是 ESG Crisis？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> Crisis Definition</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 ESG Crisis (ESG 危機)？</span>
+                            <span class="lang-en">What is an ESG Crisis?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-skull-crossbones red-text"></i> <span class="lang-zh">嚴重違反倫理或法規導致商業生存危機</span><span class="lang-en">Severe Ethical or ESG Breach Threatening Survival</span></h3>
+                            <p><span class="lang-zh">因嚴重環境污染、過勞人權事件、財報舞弊、AI 偏誤或大規模資安外洩，引發公眾憤怒、股價崩盤與法規重罰之重大黑天鵝事件。</span>
+                            <span class="lang-en">Events triggering public outrage, valuation collapse, and regulatory fines from ESG or tech breaches.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: 5 Major Types of ESG Crises -->
+            <section class="slide" id="slide-4" data-title="Slide 4: 5 大 ESG 危機類型">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-list-check"></i> Crisis Spectrum</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">5 大 ESG & 科技危機類型</span>
+                            <span class="lang-en">5 Major Types of ESG & Tech Crises</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Environment</h4><p><span class="lang-zh">毒水/爆炸/氣候漂綠</span><span class="lang-en">Toxic leaks/Greenwashing</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Social</h4><p><span class="lang-zh">食安/過勞/歧視/童工</span><span class="lang-en">Food safety/Sweatshop</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Governance</h4><p><span class="lang-zh">舞弊/內線交易/收賄</span><span class="lang-en">Fraud/Insider trading</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. AI Ethics</h4><p><span class="lang-zh">演算法歧視/幻覺受害</span><span class="lang-en">AI bias/Hallucination</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. Cyber</h4><p><span class="lang-zh">個資外洩/系統崩潰</span><span class="lang-en">Data breach/IT outage</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Valuation & Stock Price Impact -->
+            <section class="slide" id="slide-5" data-title="Slide 5: 危機如何打擊企業估值？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-chart-line-down"></i> Financial Impact</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">危機如何打擊企業估值與聲譽？</span>
+                            <span class="lang-en">How Crises Destroy Valuation & Trust</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-arrow-trend-down red-text"></i> <span class="lang-zh">當週股價暴跌 20%-40% 與機構投資人撤資</span><span class="lang-en">20-40% Stock Plunge & Institutional Divestment</span></h3>
+                            <p><span class="lang-zh">數據顯示：爆發誠信或工安危機的企業，股價平均當週暴跌數十億美元，被評級機構降級，並面臨天價集體訴訟。</span>
+                            <span class="lang-en">Major ESG scandals result in massive market cap wipeouts and immediate ESG rating downgrades.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: What is Corporate Resilience -->
+            <section class="slide" id="slide-6" data-title="Slide 6: 什麼是 Corporate Resilience？">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-shield-cat"></i> Part II • Resilience</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">什麼是 Corporate Resilience (企業韌性)？</span>
+                            <span class="lang-en">What is Corporate Resilience?</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-hands-holding-circle accent-icon"></i> <span class="lang-zh">吸收震波、快速恢復並從危機中進化學習</span><span class="lang-en">Absorbing Shocks & Emerging Stronger</span></h3>
+                            <p><span class="lang-zh">企業韌性是指組織在遭遇極端黑天鵝衝擊時，迅速保護員工與客戶、維持核心營運持續，並將危機轉化為組織進化動能。</span>
+                            <span class="lang-en">The capacity to withstand shocks, maintain continuity, and adapt under crisis conditions.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Business Continuity Management (BCM) -->
+            <section class="slide" id="slide-7" data-title="Slide 7: BCM 營運持續管理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-arrows-rotate"></i> BCM System</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Business Continuity Management (BCM)</span>
+                            <span class="lang-en">Business Continuity Management</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-server accent-icon"></i> <span class="lang-zh">備援系統與極端情境演練</span><span class="lang-en">Backup Systems & Scenario Simulation</span></h3>
+                            <p><span class="lang-zh">建立 ISO 22301 BCM 營運持續體系，進行天災、網攻與供應鏈中斷演練，確保關鍵業務 24 小時內恢復。</span>
+                            <span class="lang-en">ISO 22301 BCM frameworks ensuring emergency backups and critical operation recovery within 24h.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Enterprise Risk Management (ERM) -->
+            <section class="slide" id="slide-8" data-title="Slide 8: ERM 企業風險管理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-eye"></i> ERM Early Warning</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Enterprise Risk Management (ERM 預警)</span>
+                            <span class="lang-en">Enterprise Risk Management (ERM)</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-radar accent-icon"></i> <span class="lang-zh">KRI 風險指標監測與吹哨者匿名舉報</span><span class="lang-en">KRI Monitoring & Whistleblower Protection</span></h3>
+                            <p><span class="lang-zh">建立 COSO ERM 架構，追蹤關鍵風險指標 (KRI)，並提供強大的吹哨者保護機制，在火苗釀成大災前撲滅。</span>
+                            <span class="lang-en">Monitoring Key Risk Indicators (KRIs) and protecting whistleblowers to catch risks before escalation.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Stakeholder Communication Strategy -->
+            <section class="slide" id="slide-9" data-title="Slide 9: 利害關係人危機溝通">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-comments"></i> 4 Communication Pillars</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">利害關係人危機溝通 4 大柱石</span>
+                            <span class="lang-en">4 Pillars of Crisis Communication</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <h4>1. Speed (速度)</h4>
+                            <p><span class="lang-zh">黃金 1 小時內第一時間對外說明。</span><span class="lang-en">First 1-hour statement</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>2. Transparency (透明)</h4>
+                            <p><span class="lang-zh">誠實交代事態與未知細節，不說謊。</span><span class="lang-en">Honest facts, no cover-up</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>3. Empathy (同理)</h4>
+                            <p><span class="lang-zh">向受害者展現真誠同理心與道歉。</span><span class="lang-en">Sincere apology & empathy</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>4. Action (行動)</h4>
+                            <p><span class="lang-zh">公佈賠償、召回與制度改造方案。</span><span class="lang-en">Concrete corrective action</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Traditional Media Management -->
+            <section class="slide" id="slide-10" data-title="Slide 10: 媒體與新聞發布會應對">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-bullhorn"></i> Media PR</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">媒體與新聞發布會應對技巧</span>
+                            <span class="lang-en">Media PR & Press Conference Control</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-microphone accent-icon"></i> <span class="lang-zh">單一發言人制度與事實掌握原則</span><span class="lang-en">Single Spokesperson Policy & Fact Rigor</span></h3>
+                            <p><span class="lang-zh">統一對外新聞口徑，避免內部說法矛盾；CEO 親自出席展現承擔態度，絕不可用「無可奉告」逃避。</span>
+                            <span class="lang-en">Designating a single trained spokesperson and avoiding speculation or "no comment" cop-outs.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Social Media Crisis -->
+            <section class="slide" id="slide-11" data-title="Slide 11: 社群媒體延燒與炎上處理">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-fire"></i> Social Firestorm</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">社群媒體延燒與網路炎上處置</span>
+                            <span class="lang-en">Managing Viral Social Media Crises</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-ban red-text"></i> <span class="lang-zh">禁止刪留言封口！用影音誠懇澄清回應</span><span class="lang-en">Never Delete Posts; Respond with Video</span></h3>
+                            <p><span class="lang-zh">刪除網友質疑只會火上澆油引發「史特萊森效應」。應拍攝 CEO 影音說明、成立專屬資訊頁面並持續回報處置進度。</span>
+                            <span class="lang-en">Deleting comments triggers the Streisand effect. Respond with direct video apologies and live tracking sites.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Reputation Capital -->
+            <section class="slide" id="slide-12" data-title="Slide 12: 聲譽資本與品牌修復">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-vault"></i> Reputation Equity</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Reputation Capital (聲譽資本與品牌修復)</span>
+                            <span class="lang-en">Reputation Capital & Brand Recovery</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-award accent-icon"></i> <span class="lang-zh">平時累積的 ESG 信譽是危機時的防護罩</span><span class="lang-en">Pre-crisis ESG Trust Acts as a Buffer</span></h3>
+                            <p><span class="lang-zh">聲譽如同銀行存款。長期貫充倫理價值的企業爆發意外危機時，能獲得利害關係人更高的給予自新機會的寬容度。</span>
+                            <span class="lang-en">High pre-crisis reputation capital grants companies stakeholder benefit-of-the-doubt during unexpected accidents.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: J&J Tylenol Case -->
+            <section class="slide" id="slide-13" data-title="Slide 13: J&J Tylenol 黃金典範">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-capsules"></i> Gold Standard</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">經典標竿：Johnson & Johnson Tylenol 1982</span>
+                            <span class="lang-en">Case 13: J&J Tylenol Crisis Benchmark</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-shield-cat accent-icon"></i> <span class="lang-zh">不計一億美元代價全面召回與發明三重防封口</span><span class="lang-en">Recalling 31M Bottles Driven by Credo Values</span></h3>
+                            <p><span class="lang-zh">遭投毒事件中，J&J 依據《Our Credo 信條》（患者與顧客高於股東），第一時間回收全美 3,100 萬瓶藥品並發明防封口包裝，信譽反而大增！</span>
+                            <span class="lang-en">Putting customer safety ahead of profits restored market share within 12 months.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Activity 1 - Crisis Timeline -->
+            <section class="slide" id="slide-14" data-title="Slide 14: 活動一 - 危機時間軸">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-timeline"></i> Activity 1 • 15 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Crisis Timeline Workshop</span>
+                            <span class="lang-en">Crisis Timeline Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">任務：繪製真實案例的 5 階段 Crisis Timeline</span><span class="lang-en">Draw 5-Step Timeline for Real Scandals</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. VW Dieselgate / Boeing 737 MAX</p></div>
+                                <div class="opt-choice"><p>2. Meta Analytica / Equifax Data Breach</p></div>
+                                <div class="opt-choice"><p>3. Starbucks 種族危機 / 統一食安事件</p></div>
+                                <div class="opt-choice"><p>4. TSMC 供應鏈中斷 / OpenAI 董事會政變</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Activity 1 - Debrief -->
+            <section class="slide" id="slide-15" data-title="Slide 15: 活動一 - 答案與點評">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-comments"></i> Class Debrief</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">掩蓋真相是企業加速滅亡的催化劑</span>
+                            <span class="lang-en">Activity 1: Lies Accelerate Collapse</span>
+                        </h2>
+                    </div>
+
+                    <div class="debrief-box glass-card glow-card">
+                        <i class="fa-solid fa-lightbulb debrief-icon"></i>
+                        <div class="debrief-content">
+                            <h4><span class="lang-zh">教師觀點帶出 (Key Takeaway)：</span><span class="lang-en">Faculty Debrief:</span></h4>
+                            <p><span class="lang-zh">「剖析 Timeline 發現：所有毀滅性企業危機，罪魁禍首往往不是初始的意外事件，而是事後謊報遮掩的第二波聲譽海嘯！」</span>
+                            <span class="lang-en">"The cover-up is almost always far more destructive to corporate value than the initial mistake."</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Modern Case 1: VW Dieselgate -->
+            <section class="slide" id="slide-16" data-title="Slide 16: 現代案例 - VW 柴油門">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-car"></i> Case 1 • VW</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Volkswagen Dieselgate 柴油門與欺詐漂綠</span>
+                            <span class="lang-en">Case 1: VW Dieselgate Fraud</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-ban red-text"></i> <span class="lang-zh">安裝作弊軟體欺騙驗車，賠償數百億美元</span><span class="lang-en">Defeat Device Fraud Costing $30B+ in Fines</span></h3>
+                            <p><span class="lang-zh">VW 為宣傳「清潔柴油」，安裝失效軟體在檢測時掩蓋 40 倍的氮氧化物排放，被 EPA 查獲後引發天價賠償、CEO 離職與治理解體。</span>
+                            <span class="lang-en">Systemic corporate deception ruined VW's clean-diesel reputation and cost $30B+ in penalties.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Modern Case 2: Meta Cambridge Analytica -->
+            <section class="slide" id="slide-17" data-title="Slide 17: 現代案例 - Meta 隱私危機">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-brands fa-facebook"></i> Case 2 • Meta</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Meta Cambridge Analytica 數據隱私危機</span>
+                            <span class="lang-en">Case 2: Meta Cambridge Analytica</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-user-shield red-text"></i> <span class="lang-zh">8,700 萬用戶個資遭不當濫用與國會質訊</span><span class="lang-en">87M Users' Data Harvested for Political Ads</span></h3>
+                            <p><span class="lang-zh">第三方軟體未經同意抓取個資並進行政治洗腦，引發全球 #DeleteFacebook 運動、FTC 50 億美元創紀錄罰款與數位信任瓦解。</span>
+                            <span class="lang-en">Systemic data exploitation led to FTC's historic $5B fine and ruined digital user trust.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Modern Case 3: Boeing 737 MAX -->
+            <section class="slide" id="slide-18" data-title="Slide 18: 現代案例 - Boeing 737 MAX">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-plane-slash"></i> Case 3 • Boeing</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Boeing 737 MAX 安全文化與治理崩壞</span>
+                            <span class="lang-en">Case 3: Boeing 737 MAX Safety Crisis</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-skull red-text"></i> <span class="lang-zh">利潤高於安全：隱瞞 MCAS 缺陷引發兩起空難</span><span class="lang-en">Putting Profit Ahead of Safety Led to 346 Deaths</span></h3>
+                            <p><span class="lang-zh">工程文化轉變為財務切割文化，隱瞞 MCAS 自動控制系統缺陷且未培訓機師，導致 346 人喪生、全球停飛與董事會治理名譽掃地。</span>
+                            <span class="lang-en">Suppressing internal engineering warnings led to tragic crashes, global groundings, and board failure.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Modern Case 4: Equifax Data Breach -->
+            <section class="slide" id="slide-19" data-title="Slide 19: 現代案例 - Equifax 資安洩漏">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-database"></i> Case 4 • Equifax</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Equifax 1.47 億個資洩漏與延遲披露</span>
+                            <span class="lang-en">Case 4: Equifax Data Breach & Cover-up</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-key red-text"></i> <span class="lang-zh">延遲 6 週才公告，高層消息曝光前賣股</span><span class="lang-en">Delayed Disclosure 6 Weeks & Insider Trading</span></h3>
+                            <p><span class="lang-zh">全美三大信用機構之一因未修補漏洞導致半數美國人個資外洩，且高層延遲披露並趁機內線交易賣股，引發全美怒火。</span>
+                            <span class="lang-en">Failure to patch known software bugs combined with executive insider trading ruined public trust.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Modern Case 5: OpenAI Governance -->
+            <section class="slide" id="slide-20" data-title="Slide 20: 現代案例 - OpenAI 董事會政變">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-brain"></i> Case 5 • OpenAI</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">OpenAI 董事會突發政變治理危機</span>
+                            <span class="lang-en">Case 5: OpenAI Board Coup</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-sitemap red-text"></i> <span class="lang-zh">安全派 vs. 商業化擴張派的劇烈治理衝突</span><span class="lang-en">Safety vs Commercial Expansion Governance Clash</span></h3>
+                            <p><span class="lang-zh">非營利董事會突發解僱 CEO Altman，引發員工連署集體離職威脅與微軟介入，凸顯 AI 前沿科技治理結構的複雜挑戰。</span>
+                            <span class="lang-en">Unilateral board firing triggered employee mutiny, exposing flaws in non-profit AGI board structures.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 21: Modern Case 6: CrowdStrike IT Outage -->
+            <section class="slide" id="slide-21" data-title="Slide 21: 現代案例 - CrowdStrike IT 中斷">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-laptop-code"></i> Case 6 • CrowdStrike</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CrowdStrike 全球 IT 中斷與科技韌性</span>
+                            <span class="lang-en">Case 6: CrowdStrike Global IT Outage</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-power-off red-text"></i> <span class="lang-zh">單一更新缺陷引發全球航空銀行系統藍屏</span><span class="lang-en">Single Flawed Sensor Update Causing Global Blue Screen</span></h3>
+                            <p><span class="lang-zh">資安巨頭一項更新邏輯缺陷導致全台與全球 850 萬台 Windows 設備癱瘓，凸顯數位單點故障對全球供應鏈的系統性衝擊。</span>
+                            <span class="lang-en">Flawed update crashed 8.5M devices globally, illustrating systemic single-point-of-failure risks.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 22: Failure Root Cause Synthesis -->
+            <section class="slide" id="slide-22" data-title="Slide 22: 危機處置失敗根因分析">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-bug"></i> Root Cause Analysis</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">危機處置失敗的 5 大共通根因</span>
+                            <span class="lang-en">5 Common Root Causes of Failure</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-5">
+                        <div class="decision-card glass-card"><h4>1. Arrogance</h4><p><span class="lang-zh">傲慢自滿無視警訊</span><span class="lang-en">Arrogance & denial</span></p></div>
+                        <div class="decision-card glass-card"><h4>2. Delay</h4><p><span class="lang-zh">延遲披露拖延時間</span><span class="lang-en">Delayed disclosure</span></p></div>
+                        <div class="decision-card glass-card"><h4>3. Blame</h4><p><span class="lang-zh">推卸責任指責基層</span><span class="lang-en">Blaming scapegoats</span></p></div>
+                        <div class="decision-card glass-card"><h4>4. Profit First</h4><p><span class="lang-zh">利潤置於安全之上</span><span class="lang-en">Profit over safety</span></p></div>
+                        <div class="decision-card glass-card"><h4>5. PR Lies</h4><p><span class="lang-zh">公關謊言敷衍大眾</span><span class="lang-en">PR spin & deception</span></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 23: Golden Hour Response Principles -->
+            <section class="slide" id="slide-23" data-title="Slide 23: 危機溝通黃金原則">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-regular fa-clock"></i> Golden Hour</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Golden Hour (黃金 1 小時回應原則)</span>
+                            <span class="lang-en">The Golden Hour Response Rule</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-hourglass-start accent-icon"></i> <span class="lang-zh">第一時間公開承諾調查，掌控資訊主導權</span><span class="lang-en">Public Statement Within 60 Mins to Control Narrative</span></h3>
+                            <p><span class="lang-zh">事件爆發 60 分鐘內，發表第一份對外聲明：「我們已意識到事態，已成立獨立調查小組，客戶安全第一，稍後公佈詳細處置」。</span>
+                            <span class="lang-en">Issuing a preliminary response within 60 minutes stating active investigation and customer priority.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 24: AACSB Upgrade: Global Disruptions -->
+            <section class="slide" id="slide-24" data-title="Slide 24: AACSB 升級：全方位企業韌性">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag warning-tag"><i class="fa-solid fa-earth-asia"></i> AACSB Upgrade Unit</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Corporate Resilience under Global Disruptions</span>
+                            <span class="lang-en">Corporate Resilience Under Global Disruptions</span>
+                        </h2>
+                    </div>
+
+                    <div class="cards-grid-4">
+                        <div class="rc-card glass-card">
+                            <h4>Climate Disasters</h4>
+                            <p><span class="lang-zh">極端天災與供應鏈備援</span><span class="lang-en">Climate disasters & backups</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Geopolitics</h4>
+                            <p><span class="lang-zh">地緣政治風險與脫鉤防禦</span><span class="lang-en">Geopolitical hedging</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Cyber & AI Failures</h4>
+                            <p><span class="lang-zh">網路攻擊與 AI 系統出包</span><span class="lang-en">Cyber attacks & AI glitches</span></p>
+                        </div>
+                        <div class="rc-card glass-card">
+                            <h4>Pandemics & Shocks</h4>
+                            <p><span class="lang-zh">全球疫情與經濟劇烈衝擊</span><span class="lang-en">Pandemics & systemic shocks</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 25: Long-term Trust Restoration -->
+            <section class="slide" id="slide-25" data-title="Slide 25: 長期聲譽修復 4 步驟">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag"><i class="fa-solid fa-heart-circle-check"></i> Trust Restoration</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">長期聲譽修復與信任重建 4 步驟</span>
+                            <span class="lang-en">4 Steps for Long-Term Trust Restoration</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-list-check accent-icon"></i> <span class="lang-zh">獨立調查 → 懲處失職 → 制度改造 → 定期回報</span><span class="lang-en">Investigation -> Accountability -> Reform -> Reports</span></h3>
+                            <p><span class="lang-zh">委託獨立第三方調查揭露真相、追究失職高層責任、徹底改造內部工安/資安流程，並定期公開改善報告直到信任恢復。</span>
+                            <span class="lang-en">Commissioning third-party investigations and implementing deep structural reforms.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 26: Activity 2 - CEO Crisis Simulation -->
+            <section class="slide" id="slide-26" data-title="Slide 26: 活動二 - CEO 危機實境模擬">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-user-ninja"></i> Activity 2 • 20 Minutes</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">CEO Crisis Simulation (實境模擬)</span>
+                            <span class="lang-en">CEO Crisis Simulation Workshop</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="scenario-card glass-card highlight-border">
+                            <h3><span class="lang-zh">情境：你是 CEO，公司今晨爆發重大黑天鵝危機！</span><span class="lang-en">Scenario: You are CEO in a Live Crisis!</span></h3>
+                            <div class="grid-2col mt-3 gap-2">
+                                <div class="opt-choice"><p>1. 撰寫黃金 1 小時對外公開聲明稿</p></div>
+                                <div class="opt-choice"><p>2. 制定第一週緊急危機處理應變計畫</p></div>
+                                <div class="opt-choice"><p>3. 提出 3 項立即採行的止血改善措施</p></div>
+                                <div class="opt-choice"><p>4. 提出長線修復品牌信任之策略</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 27: Activity 2 - CEO Pitches & Voting -->
+            <section class="slide" id="slide-27" data-title="Slide 27: 活動二 - CEO 提案與票選">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag activity-tag"><i class="fa-solid fa-vote-yea"></i> CEO Pitches & Vote</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">各組 5 分鐘 CEO Pitch 與票選</span>
+                            <span class="lang-en">5-Min CEO Pitches & Class Voting</span>
+                        </h2>
+                    </div>
+                    <div class="main-panel">
+                        <div class="glass-card feature-card">
+                            <h3><i class="fa-solid fa-trophy accent-icon"></i> <span class="lang-zh">票選全班最具同理心與決策力的 CEO 團隊</span><span class="lang-en">Voting for Most Empathetic & Decisive CEO Team</span></h3>
+                            <p><span class="lang-zh">各組進行 5 分鐘 CEO 危機記者會提案，全班根據同理心、透明度、決策速度與止血方案可行性票選最佳團隊！</span>
+                            <span class="lang-en">Class voting for the CEO team that displayed highest empathy, transparency, and action rigor.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 28: Summary -->
+            <section class="slide" id="slide-28" data-title="Slide 28: 本週重點總結">
+                <div class="slide-container center-header-layout">
+                    <div class="header-block center-text">
+                        <div class="section-tag"><i class="fa-solid fa-bookmark"></i> Part V • Summary</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">Week 14 核心重點總結</span>
+                            <span class="lang-en">Week 14 Key Takeaways</span>
+                        </h2>
+                    </div>
+
+                    <div class="takeaways-grid-4">
+                        <div class="t-card glass-card">
+                            <div class="t-number">01</div>
+                            <h3><span class="lang-zh">Golden Hour 誠實透明</span><span class="lang-en">1. Golden Hour Truth</span></h3>
+                            <p><span class="lang-zh">60 分鐘內公開說明，絕不隱瞞謊報。</span><span class="lang-en">Statements within 60 mins without cover-ups.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">02</div>
+                            <h3><span class="lang-zh">Corporate Resilience</span><span class="lang-en">2. Corporate Resilience</span></h3>
+                            <p><span class="lang-zh">建立 BCM 與 ERM，吸收震波並進化。</span><span class="lang-en">Embedding BCM & ERM to absorb shocks.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">03</div>
+                            <h3><span class="lang-zh">J&J Tylenol 倫理信條</span><span class="lang-en">3. J&J Credo Benchmark</span></h3>
+                            <p><span class="lang-zh">將客戶安全置於利潤之上能重建極致信譽。</span><span class="lang-en">Putting customer safety above short-term profit.</span></p>
+                        </div>
+                        <div class="t-card glass-card">
+                            <div class="t-number">04</div>
+                            <h3><span class="lang-zh">全方位抗變局韌性</span><span class="lang-en">4. Global Resilience</span></h3>
+                            <p><span class="lang-zh">抵禦氣候、地緣政治、資安與 AI 風險。</span><span class="lang-en">Hedging climate, geopolitics & tech risks.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 29: Preview W15 Capstone Project -->
+            <section class="slide" id="slide-29" data-title="Slide 29: Preview W15 專題簡報">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-forward"></i> Preview W15</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">W15 預告：Capstone 實務專題</span>
+                            <span class="lang-en">W15 Preview: Capstone Project</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-graduation-cap accent-icon"></i> <span class="lang-zh">W15 預告：永續策略實務專題與企劃提案</span><span class="lang-en">W15 Preview: Sustainable Strategy Proposal</span></h3>
+                            <p class="mb-2"><span class="lang-zh">下一週全班將進入學期總結精華：《永續策略實務專題與企劃 (Capstone Project Proposal)》，展示完整的企業永續轉型計畫！</span><span class="lang-en">Next week we enter our Capstone Project Presentations!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 30: Summary & Homework 14 -->
+            <section class="slide" id="slide-30" data-title="Slide 30: Summary & Homework 14">
+                <div class="slide-container split-layout">
+                    <div class="side-panel">
+                        <div class="section-tag homework-tag"><i class="fa-solid fa-flag-checkered"></i> Summary & HW14</div>
+                        <h2 class="slide-heading">
+                            <span class="lang-zh">本週總結與 Homework 14</span>
+                            <span class="lang-en">Week 14 Summary & Homework 14</span>
+                        </h2>
+                    </div>
+
+                    <div class="main-panel">
+                        <div class="glass-card feature-card mb-2">
+                            <h3><i class="fa-solid fa-file-invoice accent-icon"></i> <span class="lang-zh">Homework 14：ESG 危機管理分析報告 (約 2,500 字)</span><span class="lang-en">Homework 14: ESG Crisis Report (~2,500w)</span></h3>
+                            <p><span class="lang-zh">選擇一家曾爆發重大 ESG 危機的企業：分析背景原因、回應是否透明合規、信任恢復程度與三項長線改善建議。</span>
+                            <span class="lang-en">Audit a firm in crisis: breach causes, response transparency, trust recovery & 3 recommendations.</span></p>
+                        </div>
+
+                        <div class="glass-card rubrics-card">
+                            <h4><i class="fa-solid fa-chart-bar accent-icon"></i> AACSB <span class="lang-zh">評分標準</span><span class="lang-en">Rubrics Breakdown</span></h4>
+                            <div class="rubrics-bar">
+                                <div class="r-seg seg-1" style="width: 30%;"><span class="lang-zh">危機分析 30%</span><span class="lang-en">Crisis 30%</span></div>
+                                <div class="r-seg seg-2" style="width: 25%;"><span class="lang-zh">策略處置 25%</span><span class="lang-en">Strat 25%</span></div>
+                                <div class="r-seg seg-3" style="width: 20%;"><span class="lang-zh">利害關係人 20%</span><span class="lang-en">Impact 20%</span></div>
+                                <div class="r-seg seg-4" style="width: 15%;"><span class="lang-zh">改善建議 15%</span><span class="lang-en">Action 15%</span></div>
+                                <div class="r-seg seg-5" style="width: 10%;"><span class="lang-zh">報告品質 10%</span><span class="lang-en">Quality 10%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Slide Overview Grid Modal (Toggled by G or button) -->
+        <div class="grid-modal" id="gridModal">
+            <div class="grid-modal-header">
+                <h2><i class="fa-solid fa-table-cells"></i> <span class="lang-zh">投影片全覽 (30 Slides Overview)</span><span class="lang-en">30 Slides Overview</span></h2>
+                <button class="close-btn" id="closeGridBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid-modal-body" id="gridContainer">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Canva Bottom Control Dock Bar -->
+    <footer class="canva-footer">
+        <div class="footer-left">
+            <button class="icon-btn" id="prevSlideBtn" title="Previous (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="slide-counter"><span id="currentSlideNum">1</span> / <span id="totalSlideNum">30</span></span>
+            <button class="icon-btn" id="nextSlideBtn" title="Next (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="footer-center">
+            <div class="slide-progress-track">
+                <div class="slide-progress-bar" id="progressBar"></div>
+            </div>
+            <span class="slide-title-preview" id="currentSlideTitlePreview">Slide 1: 課程封面</span>
+        </div>
+
+        <div class="footer-right">
+            <button class="icon-btn" id="printDeckBtn" title="Print/Export Deck PDF"><i class="fa-solid fa-print"></i></button>
+            <button class="icon-btn" id="fullScreenToggleBtn" title="Toggle Fullscreen Mode"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>"""
+
+with open(r"C:\Users\User\Desktop\第1週_企業為何需要倫理\第14週_ESG危機管理與企業韌性.html", "w", encoding="utf-8") as f:
+    f.write(html_week14)
+
+print("Successfully generated Week 14 HTML presentation file!")
