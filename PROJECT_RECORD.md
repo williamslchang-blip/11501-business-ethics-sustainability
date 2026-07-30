@@ -16,9 +16,9 @@
 * **📦 GitHub 專案原始碼與手冊庫 (GitHub Repository):**  
   [https://github.com/wslchang-max/11501-business-ethics-sustainability](https://github.com/wslchang-max/11501-business-ethics-sustainability)
 * **📁 本地電腦桌面資料夾 (Local Folder):**  
-  `C:\Users\User\Desktop\11501企業倫理與永續經營\`
+  `C:\Users\User\Desktop\115學年度\11501企業倫理與永續經營\`
 * **💻 本地總覽入口網頁 (Local Portal):**  
-  [11501企業道德與永續經營總覽.html](file:///C:/Users/User/Desktop/11501企業倫理與永續經營/11501企業道德與永續經營總覽.html) 或 `index.html`
+  [11501企業道德與永續經營總覽.html](file:///C:/Users/User/Desktop/115%E5%AD%B8%E5%B9%B4%E5%BA%A6/11501%E4%BC%81%E6%A5%AD%E5%80%AB%E7%90%86%E8%88%87%E6%B0%B8%E7%BA%8C%E7%B6%93%E7%87%9F/11501%E4%BC%81%E6%A5%AD%E9%81%93%E5%BE%B7%E8%88%87%E6%B0%B8%E7%BA%8C%E7%B6%93%E7%87%9F%E7%B8%BD%E8%A6%BD.html) 或 `index.html`
 
 ---
 
