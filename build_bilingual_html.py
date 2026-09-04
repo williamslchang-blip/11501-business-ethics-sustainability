@@ -126,9 +126,9 @@ html_content = """<!DOCTYPE html>
                             </p>
                             <hr class="divider">
                             <ul class="contact-list">
-                                <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> ethics@university.edu.tw</li>
-                                <li><i class="fa-solid fa-building-user"></i> <strong>Office:</strong> <span class="lang-zh">商學院大樓 8F 802室</span><span class="lang-en">College of Business Bldg Room 802</span></li>
-                                <li><i class="fa-solid fa-clock"></i> <strong>Office Hour:</strong> <span class="lang-zh">週三 14:00 - 16:30 (需預約)</span><span class="lang-en">Wed 14:00 - 16:30 (By Appointment)</span></li>
+                                <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> wslchang@mail.mcu.edu.tw</li>
+                                <li><i class="fa-solid fa-building-user"></i> <strong>Office:</strong> <span class="lang-zh">財務金融學系系辦公室</span><span class="lang-en">Department of Finance Office</span></li>
+                                <li><i class="fa-solid fa-clock"></i> <strong>Office Hour:</strong> <span class="lang-zh">上網查詢</span><span class="lang-en">Check Online</span></li>
                             </ul>
                         </div>
                     </div>
