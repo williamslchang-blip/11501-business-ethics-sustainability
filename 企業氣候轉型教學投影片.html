@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業氣候轉型中的財務迷霧：「綠色投資」與「棕色資產」的策略抉擇 - 教學投影片</title>
+    <style>
+        :root {
+            --primary: #064e3b;
+            --primary-light: #047857;
+            --primary-dark: #022c22;
+            --accent: #10b981;
+            --accent-bg: #ecfdf5;
+            --gold: #b45309;
+            --gold-light: #fef3c7;
+            --danger: #b91c1c;
+            --danger-bg: #fef2f2;
+            --info: #0369a1;
+            --info-bg: #f0f9ff;
+            --bg-page: #0f172a;
+            --slide-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #f8fafc;
+            --border: #e2e8f0;
+            --border-dark: #cbd5e1;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            height: var(--header-height);
+            background: #091322;
+            border-bottom: 1px solid #1e293b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.25rem;
+            z-index: 50;
+            user-select: none;
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 480px;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-nav {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            background: #334155;
+            color: #38bdf8;
+            border-color: #475569;
+        }
+
+        .btn-nav.active {
+            background: #047857;
+            color: white;
+            border-color: #10b981;
+        }
+
+        .slide-counter {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #94a3b8;
+            padding: 0 8px;
+            min-width: 75px;
+            text-align: center;
+        }
+
+        /* Layout Container */
+        .app-container {
+            flex: 1;
+            display: flex;
+            height: calc(100vh - var(--header-height));
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide Stage */
+        .stage {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 100%);
+            transition: all 0.3s ease;
+        }
+
+        .slide-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            height: 100%;
+            max-height: 800px;
+            background: var(--slide-bg);
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.85; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Slide Header & Banner */
+        .slide-header {
+            padding: 1.25rem 2rem 0.8rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .slide-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--accent-bg);
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .slide-title {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.25;
+        }
+
+        .slide-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* Slide Body Content */
+        .slide-body {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        /* Slide Footer */
+        .slide-footer {
+            height: 40px;
+            border-top: 1px solid var(--border);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: #fafafa;
+            flex-shrink: 0;
+        }
+
+        /* Teacher's Notes Drawer (側欄筆記) */
+        .notes-drawer {
+            width: 440px;
+            background: #ffffff;
+            border-left: 2px solid #047857;
+            box-shadow: -10px 0 25px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 40;
+            position: relative;
+        }
+
+        .notes-drawer.collapsed {
+            transform: translateX(100%);
+            display: none;
+        }
+
+        .notes-header {
+            background: #064e3b;
+            color: white;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .notes-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .notes-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            background: #f8fafc;
+        }
+
+        .note-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 1rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .note-card h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .note-card.obj h4 { color: #047857; }
+        .note-card.timing h4 { color: #b45309; }
+        .note-card.prompts h4 { color: #0369a1; }
+        .note-card.pitfalls h4 { color: #b91c1c; }
+        .note-card.board h4 { color: #4338ca; }
+
+        .note-card p, .note-card li {
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: #334155;
+        }
+
+        .note-card ul {
+            padding-left: 1.2rem;
+            margin-top: 4px;
+        }
+
+        /* Generic Presentation Components */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card-header {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-header .badge {
+            font-size: 0.72rem;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .card-p {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #334155;
+        }
+
+        /* Visual Stat Callout Box */
+        .stat-banner {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .stat-box.danger::before { background: var(--danger); }
+        .stat-box.gold::before { background: var(--gold); }
+        .stat-box.info::before { background: var(--info); }
+
+        .stat-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .stat-box.danger .stat-num { color: var(--danger); }
+        .stat-box.gold .stat-num { color: var(--gold); }
+        .stat-box.success .stat-num { color: var(--primary-light); }
+
+        .stat-desc {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Data Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table.case-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+            text-align: left;
+        }
+
+        table.case-table th {
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+
+        table.case-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #1e293b;
+        }
+
+        table.case-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        table.case-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        table.case-table td.neg {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        table.case-table td.pos {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        table.case-table tr.total-row td {
+            font-weight: 700;
+            background: #f8fafc;
+            border-top: 1.5px solid var(--border);
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Tab Switcher for 3 Statements */
+        .tab-bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        .tab-btn {
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            color: #475569;
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .tab-btn.active {
+            background: #047857;
+            color: white;
+            border-color: #047857;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        /* Highlight Alerts */
+        .alert {
+            padding: 0.9rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .alert-info { background: var(--info-bg); border-left: 4px solid var(--info); color: #0c4a6e; }
+        .alert-warning { background: var(--gold-light); border-left: 4px solid var(--gold); color: #78350f; }
+        .alert-danger { background: var(--danger-bg); border-left: 4px solid var(--danger); color: #7f1d1d; }
+        .alert-success { background: var(--accent-bg); border-left: 4px solid var(--primary); color: #064e3b; }
+
+        /* Badge Pills */
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .badge-red { background: #fee2e2; color: #991b1b; }
+        .badge-amber { background: #fef3c7; color: #92400e; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-blue { background: #e0f2fe; color: #075985; }
+        .badge-purple { background: #f3e8ff; color: #6b21a8; }
+
+        /* Modal Overlays (Board Plan & Slide Overview) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 1080px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-close:hover { color: white; }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex: 1;
+            background: #f8fafc;
+        }
+
+        /* Overview Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .overview-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .overview-item:hover {
+            border-color: #10b981;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .overview-item.current {
+            border: 2px solid #047857;
+            background: #ecfdf5;
+        }
+
+        .overview-item .slide-num-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #047857;
+        }
+
+        .overview-item .slide-title-thumb {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        /* Harvard Board Plan 3-Column Layout */
+        .board-container {
+            background: #1e3a2f;
+            border: 8px solid #3d271d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: #f1f5f9;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            min-height: 520px;
+        }
+
+        .board-col {
+            border-right: 2px dashed rgba(255,255,255,0.25);
+            padding-right: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .board-col:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .board-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fef08a;
+            border-bottom: 2px solid #ca8a04;
+            padding-bottom: 0.4rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .board-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 3px solid #38bdf8;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .board-card.alert-b { border-left-color: #f87171; }
+        .board-card.gold-b { border-left-color: #fbbf24; }
+        .board-card.green-b { border-left-color: #4ade80; }
+
+        .board-card h5 {
+            font-size: 0.85rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        /* Interactive Sandbox Slide Controls */
+        .sandbox-panel {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .slider-val {
+            font-weight: 700;
+            color: #047857;
+        }
+
+        input[type=range] {
+            width: 100%;
+            accent-color: #047857;
+            cursor: pointer;
+        }
+
+        /* 2x2 Matrix Styling */
+        .matrix-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        .matrix-cell {
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .matrix-cell h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .matrix-cell ul {
+            padding-left: 1.1rem;
+            font-size: 0.83rem;
+            color: #334155;
+            line-height: 1.45;
+        }
+
+        /* Print Media Style */
+        @media print {
+            body {
+                overflow: visible !important;
+                height: auto !important;
+                background: white !important;
+            }
+            header, .notes-drawer, .modal-overlay, .slide-footer {
+                display: none !important;
+            }
+            .stage {
+                padding: 0 !important;
+                background: white !important;
+            }
+            .slide-wrapper {
+                page-break-after: always;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                height: 100vh !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                border: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-title-box">
+            <span class="brand-badge">Case Teaching Deck</span>
+            <div class="header-title" id="topHeaderTitle">企業氣候轉型中的財務迷霧：「綠色投資」與「棕色資產」的策略抉擇</div>
+        </div>
+
+        <div class="header-controls">
+            <button class="btn-nav" id="btnPrev" title="上一頁 (← / PageUp)">◀ 上一頁</button>
+            <span class="slide-counter" id="slideIndicator">1 / 24</span>
+            <button class="btn-nav" id="btnNext" title="下一頁 (→ / PageDown / Space)">下一頁 ▶</button>
+
+            <div style="width: 1px; height: 24px; background: #334155; margin: 0 4px;"></div>
+
+            <button class="btn-nav" id="btnOverview" title="投影片全覽 (O)">📑 目錄導航</button>
+            <button class="btn-nav" id="btnBoard" title="板書設計全貌 (B)">🖋️ 課堂板書</button>
+            <button class="btn-nav active" id="btnNotes" title="開啟/關閉教師指引講義 (N)">📋 備課講義</button>
+            <button class="btn-nav" id="btnFullscreen" title="全螢幕放映 (F)">⛶ 全螢幕</button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Slide Screen Stage -->
+        <main class="stage" id="stageArea">
+            <div class="slide-wrapper" id="slideFrame">
+                <div class="slide-header">
+                    <div>
+                        <span class="slide-tag" id="slideModuleTag">模組導讀</span>
+                        <h1 class="slide-title" id="slideMainTitle">投影片標題載入中...</h1>
+                        <p class="slide-subtitle" id="slideSubTitle">投影片副標題載入中...</p>
+                    </div>
+                </div>
+
+                <div class="slide-body" id="slideBodyContent">
+                    <!-- Dynamic Slide HTML Injected Here -->
+                </div>
+
+                <div class="slide-footer">
+                    <span>銘傳大學 114 學年度個案教學 · 企業氣候轉型與綠色財務戰略</span>
+                    <span>建議配合 En-ROADS 模擬器與 TCFD 氣候揭露框架</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Side: Teacher's Guide Drawer -->
+        <aside class="notes-drawer" id="notesDrawer">
+            <div class="notes-header">
+                <h3><span>📋</span> 教師備課講義與討論指引</h3>
+                <button class="btn-nav" id="btnCloseNotes" style="padding: 2px 8px; font-size: 0.75rem;">關閉 ✕</button>
+            </div>
+            <div class="notes-body" id="notesContent">
+                <!-- Dynamic Notes Content Injected Here -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal 1: Board Plan Modal (哈佛式三欄黑板設計) -->
+    <div class="modal-overlay" id="boardModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><span>🖋️</span> 課堂板書設計藍圖 (Harvard 3-Column Board Plan)</h3>
+                <button class="modal-close" id="btnCloseBoard">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1rem;">
+                    💡 <strong>板書使用提示：</strong>本黑板配置依循個案教學「外部衝擊 ➔ 內部抉擇 ➔ 價值重塑」三段式邏輯展開，建議教師依討論進度逐步板書於黑板或白板上。
+                </p>
+                <div class="board-container">
+                    <!-- Column 1 -->
+                    <div class="board-col">
+                        <div class="board-title">第一欄：外部衝擊與財務傳導</div>
+                        
+                        <div class="board-card alert-b">
+                            <h5>1. 實體風險 (極端氣候)</h5>
+                            • 東南亞世紀暴雨 ➔ 停工 3 個月<br>
+                            • 設備減值 -1 億、營收 -10 億<br>
+                            • 淨利：8.8 億 ➔ <strong style="color: #fca5a5;">-1.28 億 (巨虧)</strong><br>
+                            • 營業現金流腰斬 -6 億 (停發股利)
+                        </div>
+
+                        <div class="board-card gold-b">
+                            <h5>2. 轉型風險 (碳稅與客戶)</h5>
+                            • 歐盟碳稅 $50/噸 (每年 200 萬噸 = 1 億)<br>
+                            • 客戶砍單 5% (營收 -6 億)<br>
+                            • 淨利暴跌 64% 至 3.14 億<br>
+                            • 長期借款 +1.5 億，流動性告急
+                        </div>
+
+                        <div class="board-card">
+                            <h5>3. 責任風險 (環境公害)</h5>
+                            • 廢水排放醜聞、居民集體訴訟<br>
+                            • 營收 -3%、和解/罰款/修復共 1.2 億<br>
+                            • 淨利大減至 4.96 億、商譽重挫
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="board-col">
+                        <div class="board-title">第二欄：策略路徑與決策突破</div>
+
+                        <div class="board-card">
+                            <h5>三大方案關鍵抉擇 (PK)</h5>
+                            • <strong>方案甲 (保守)</strong>：CapEx $0，淨利 $3.14B，利率 +0.5% (擱淺淘汰)<br>
+                            • <strong>方案乙 (穩健)</strong>：CapEx $1.2B，淨利 $6.20B，平庸折衷<br>
+                            • <strong>方案丙 (積極)</strong>：CapEx $2.5B，淨利 $8.88B，利率 -0.5% (綠色領航)
+                        </div>
+
+                        <div class="board-card green-b">
+                            <h5>執行長說服心法：不做事的代價</h5>
+                            • <strong>Cost of Inaction！</strong><br>
+                            • 不轉型損失 = 8.8 億 - 3.14 億 = <strong>$5.66 億</strong><br>
+                            • <strong>5.66 億損失 ＞ 2.5 億投資額！</strong><br>
+                            • 方案丙看似花錢，實為「防禦性保命」
+                        </div>
+
+                        <div class="board-card gold-b">
+                            <h5>流動性風控與金融配套</h5>
+                            • 發行 1 億綠色債券 (享 -0.5% 利率)<br>
+                            • 設備供應商分期付款 (綁減碳進度)<br>
+                            • 鎖定 Apple/Samsung 3-5 年綠色產能合約
+                        </div>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="board-col">
+                        <div class="board-title">第三欄：評價工具與價值重塑</div>
+
+                        <div class="board-card green-b">
+                            <h5>NPV 評價雙重視角 (核心爆點)</h5>
+                            • <strong>專案獨立法 (傳統)</strong>：<br>
+                            &nbsp;&nbsp;年省 5,240 萬 ➔ 回收 4.77 年 ➔ <strong style="color: #fca5a5;">NPV -$40.8M</strong><br>
+                            • <strong>機會成本法 (戰略)</strong>：<br>
+                            &nbsp;&nbsp;增量現金流 $4.34 億 ➔ <strong style="color: #86efac;">回收期 0.58 年 (7個月)</strong><br>
+                            &nbsp;&nbsp;<strong style="color: #86efac;">NPV = +$14.83 億美元！</strong>
+                        </div>
+
+                        <div class="board-card">
+                            <h5>棕色資產 (60億設備) 治理</h5>
+                            1. <strong>碳資產審計</strong>：標記每產線碳強度<br>
+                            2. <strong>加速折舊</strong>：縮短年限，提早攤提風險<br>
+                            3. <strong>綠色化改造</strong>：變頻熱回收延長壽命
+                        </div>
+
+                        <div class="board-card">
+                            <h5>情境規劃矩陣終局</h5>
+                            • 嚴格碳稅 × 方案丙 ➔ <strong>綠色領航者</strong><br>
+                            • 嚴格碳稅 × 方案甲 ➔ <strong>擱淺與沒落</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Overview Navigation Grid -->
+    <div class="modal-overlay" id="overviewModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><span>📑</span> 投影片全目錄導航 (快速跳轉)</h3>
+                <button class="modal-close" id="btnCloseOverview">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="overview-grid" id="overviewGrid">
+                    <!-- Dynamic Overview Cards Injected Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SLIDES DATA DEFINITION
+        const slidesData = [{"id": 1, "module": "個案導讀", "title": "企業氣候轉型中的財務迷霧：「綠色投資」與「棕色資產」的策略抉擇", "subtitle": "銘傳大學 114 學年度個案教學 · 探索 EMS/ODM 代工巨頭在氣候政策與股東價值間的關鍵抉擇", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem; height: 100%; justify-content: center;\">\n            <div class=\"card\" style=\"background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); color: white; padding: 2rem; border-radius: 12px; border: none; box-shadow: 0 10px 25px rgba(6, 78, 59, 0.3);\">\n                <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;\">\n                    <span class=\"badge\" style=\"background: rgba(16, 185, 129, 0.25); color: #6ee7b7; border: 1px solid #10b981; padding: 4px 12px; font-size: 0.82rem;\">銘傳大學 114 學年度教學個案</span>\n                    <span style=\"font-size: 0.85rem; color: #a7f3d0;\">TCFD · En-ROADS · 綠色財務戰略</span>\n                </div>\n                <h2 style=\"font-size: 2rem; font-weight: 800; line-height: 1.3; margin-bottom: 1rem; color: #ffffff;\">\n                    企業氣候轉型中的財務迷霧：<br>\n                    <span style=\"color: #34d399;\">「綠色投資」</span>與<span style=\"color: #fbbf24;\">「棕色資產」</span>的策略抉擇\n                </h2>\n                <p style=\"font-size: 1.05rem; line-height: 1.6; color: #d1fae5; max-width: 900px;\">\n                    「在應對氣候變遷的過程中，企業的任務遠不止是符合法規。我們必須在不斷變化的政策環境中，找到既能貢獻永續發展又能維持甚至提升股東價值的路徑。這是一場關於創新、風險管理和長期財務韌性的策略博弈。」\n                </p>\n            </div>\n\n            <div class=\"grid-3\">\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div class=\"card-header\">\n                        <span>個案核心場景</span>\n                        <span class=\"badge badge-green\">全球模擬峰會</span>\n                    </div>\n                    <p class=\"card-p\">\n                        設定於 2023 全球氣候行動峰會與 En-ROADS 模擬器框架，跳脫單純形象宣傳，聚焦氣候政策對企業財務三表的深層連鎖衝擊。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div class=\"card-header\">\n                        <span>關鍵決策主角</span>\n                        <span class=\"badge badge-amber\">ABC 企業</span>\n                    </div>\n                    <p class=\"card-p\">\n                        年營收 120 億美元、創立 40 年的全球電子代工巨頭。面對歐盟碳稅與客戶砍單，高耗能的大規模生產優勢正迅速轉化為轉型負擔。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div class=\"card-header\">\n                        <span>教學模式導航</span>\n                        <span class=\"badge badge-blue\">快捷鍵支援</span>\n                    </div>\n                    <p class=\"card-p\">\n                        按 <kbd style=\"background:#f1f5f9; padding:2px 5px; border-radius:3px; border:1px solid #cbd5e1;\">N</kbd> 展開教師講義備課筆記，按 <kbd style=\"background:#f1f5f9; padding:2px 5px; border-radius:3px; border:1px solid #cbd5e1;\">B</kbd> 開啟哈佛式板書藍圖，按 <kbd style=\"background:#f1f5f9; padding:2px 5px; border-radius:3px; border:1px solid #cbd5e1;\">O</kbd> 全覽 24 頁目錄。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生進入個案情境，建立「氣候行動不只是公關或 CSR，而是資產負債表與獲利生存戰」的核心基調。", "timing": "建議 5 分鐘", "prompts": ["各位主管/同學，當大家談到 ESG 或減碳時，直覺認為這是成本中心還是獲利機會？", "如果你的核心大客戶告訴你：『明年不減碳 10%，就扣除 5% 訂單』，身為 CEO 或 CFO，你的第一反應是什麼？"], "pitfalls": ["學生容易停留在高談闊論的永續道德層次，教師需在一開始就將焦點收斂至『財務報表』與『現金流生存』。"], "board": "課堂暖身：於黑板頂部寫下核心主題：『企業氣候轉型：獲利 vs 生存的財務博弈』"}}, {"id": 2, "module": "個案導讀", "title": "個案三大核心學習目標與教學架構", "subtitle": "連結 TCFD 氣候財務揭露架構與 En-ROADS 系統動力學模擬", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.2rem;\">\n            <div class=\"alert alert-info\">\n                <span>💡</span>\n                <div>\n                    <strong>本個案宗旨：</strong>引導學習者深入探討企業在氣候與能源政策談判中所面臨的複雜財務與策略挑戰，突破傳統「會計歸會計、永續歸永續」的割裂思維，建立穿透三表的氣候財務決策力。\n                </div>\n            </div>\n\n            <div class=\"grid-3\" style=\"margin-top: 0.5rem;\">\n                <div class=\"card\" style=\"border-left: 5px solid #0284c7; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"font-size: 0.78rem; font-weight: 700; color: #0284c7; text-transform: uppercase; margin-bottom: 6px;\">目標一</div>\n                        <h3 style=\"font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;\">辨識並量化氣候財務傳導</h3>\n                        <p class=\"card-p\">\n                            清晰區分<strong>實體風險</strong>（極端氣候災損）、<strong>轉型風險</strong>（碳稅與供應鏈綠化）與<strong>責任風險</strong>（環境公害訴訟），並能具體計算其如何穿透衝擊<strong>資產負債表</strong>、<strong>損益表</strong>與<strong>現金流量表</strong>。\n                        </p>\n                    </div>\n                    <div style=\"margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-blue\">對應討論 Q1</span>\n                    </div>\n                </div>\n\n                <div class=\"card\" style=\"border-left: 5px solid #b45309; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"font-size: 0.78rem; font-weight: 700; color: #b45309; text-transform: uppercase; margin-bottom: 6px;\">目標二</div>\n                        <h3 style=\"font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;\">評估棕色資產之擱淺風險</h3>\n                        <p class=\"card-p\">\n                            深入評估 ABC 企業帳面 60 億美元高碳排、高能耗「棕色資產」的潛在<strong>擱淺風險 (Stranded Assets)</strong>，並掌握<strong>碳資產審計</strong>與<strong>加速折舊</strong>等前瞻性資產負債表管理工具。\n                        </p>\n                    </div>\n                    <div style=\"margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-amber\">對應討論 Q4</span>\n                    </div>\n                </div>\n\n                <div class=\"card\" style=\"border-left: 5px solid #047857; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"font-size: 0.78rem; font-weight: 700; color: #047857; text-transform: uppercase; margin-bottom: 6px;\">目標三</div>\n                        <h3 style=\"font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;\">識別綠色投資之財務潛力</h3>\n                        <p class=\"card-p\">\n                            擺脫單純專案節能視角，透過<strong>「不做事的代價」(Cost of Inaction)</strong> 與<strong>戰略機會成本 NPV 法</strong>，量化評估綠色資本支出對保住大客戶訂單與享有綠色融資溢價的巨大回報。\n                        </p>\n                    </div>\n                    <div style=\"margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-green\">對應討論 Q2 & Q3</span>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card\" style=\"background: #f8fafc; padding: 1rem 1.25rem;\">\n                <div style=\"font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 4px;\">教學方法與分析工具矩陣：</div>\n                <div style=\"display: flex; gap: 1.5rem; font-size: 0.82rem; color: #475569; flex-wrap: wrap;\">\n                    <span>🔹 <strong>分析工具一：</strong>利害關係人影響力矩陣</span>\n                    <span>🔹 <strong>分析工具二：</strong>NPV 與投資回收期雙重視角模型</span>\n                    <span>🔹 <strong>分析工具三：</strong>情境規劃 2x2 決策矩陣</span>\n                    <span>🔹 <strong>教學指引板書：</strong>哈佛式三欄進程黑板</span>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "向學生明確傳達本堂課要解決的 3 個具體財務決策問題，並建立學習地圖。", "timing": "建議 5 - 8 分鐘", "prompts": ["大家平時看財務報表，哪張表最容易隱藏環境風險？是資產負債表還是損益表？", "什麼叫『擱淺資產』？工廠機器明明運轉得好好的，為什麼會突然一文不值？"], "pitfalls": ["學生常誤以為氣候衝擊只會增加營業外支出（如被罰款），忽略了它會直接重創營業收入、毛利、信用評級甚至引發資產減記。"], "board": "左上角標記三大教學目標代碼：[量化三表]、[棕色擱淺]、[戰略NPV]"}}, {"id": 3, "module": "個案背景", "title": "主角企業剖析：ABC 企業的起源、核心能力與隱憂", "subtitle": "四十餘年「效率至上、成本領先」代工霸主的十字路口", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"grid-2\">\n                <div class=\"card\" style=\"border-left: 4px solid #047857;\">\n                    <div class=\"card-header\">\n                        <span>ABC 企業歷史軌跡與成長基因</span>\n                        <span class=\"badge badge-green\">40 年底蘊</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; color: #334155;\">\n                        <li><strong>發軔於 1980 年代：</strong>乘著個人電腦 PC 革命浪潮崛起，從組裝主機板、零組件起家。</li>\n                        <li><strong>版圖擴張：</strong>逐步躍升至筆記型電腦、智慧型手機、穿戴設備等全球電子製造服務 (EMS) 與原廠委託設計 (ODM) 領導巨頭。</li>\n                        <li><strong>頂級客戶群：</strong>為 Apple、Samsung 等全球頂級品牌代工，產品送達全球數十億消費者手中。</li>\n                        <li><strong>核心競爭力：</strong>大規模自動化產線佈建、極致供應鏈管理、快速反應能力與成本控制。</li>\n                    </ul>\n                </div>\n\n                <div class=\"card\" style=\"border-left: 4px solid #b91c1c;\">\n                    <div class=\"card-header\">\n                        <span>傳統製造模式的「阿基里斯之踵」</span>\n                        <span class=\"badge badge-red\">轉型焦慮</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; color: #334155;\">\n                        <li><strong>重資產高能耗：</strong>60 億美元固定資產中，大量為高耗能、依賴石化電力的精密加工設備與潔淨室。</li>\n                        <li><strong>低利潤率容錯低：</strong>代工製造淨利率通常低於 8%，對電費上漲、碳稅徵收與供應鏈中斷極度脆弱。</li>\n                        <li><strong>客戶施壓減碳：</strong>品牌客戶已訂定範疇三 (Scope 3) 減碳目標，代工廠成為最前線的受審對象。</li>\n                        <li><strong>文化慣性阻力：</strong>數十年「成本至上」文化，使跨部門綠色創新遭遇巨大摩擦。</li>\n                    </ul>\n                </div>\n            </div>\n\n            <div class=\"card\" style=\"background: #f8fafc;\">\n                <div style=\"font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; font-size: 0.95rem;\">\n                    📊 ABC 企業營運體質速覽 (2023 基準數據)\n                </div>\n                <div class=\"grid-4\" style=\"text-align: center;\">\n                    <div class=\"stat-box\">\n                        <div class=\"stat-num\">$120 億</div>\n                        <div class=\"stat-desc\">全年營業收入 (USD)</div>\n                    </div>\n                    <div class=\"stat-box\">\n                        <div class=\"stat-num\">$100 億</div>\n                        <div class=\"stat-desc\">總資產規模 (資產負債表)</div>\n                    </div>\n                    <div class=\"stat-box gold\">\n                        <div class=\"stat-num\">$60 億</div>\n                        <div class=\"stat-desc\">廠房設備淨值 (占 60%)</div>\n                    </div>\n                    <div class=\"stat-box success\">\n                        <div class=\"stat-num\">$8.8 億</div>\n                        <div class=\"stat-desc\">稅後本期淨利 (利潤率 7.3%)</div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "剖析 ABC 企業的商業模式本質：它是一家典型的台灣/亞洲頂級代工企業（類似鴻海、和碩、廣達），其優勢也是其最大的轉型阻力。", "timing": "建議 8 分鐘", "prompts": ["ABC 過去靠什麼賺大錢？為什麼這套方法在今天不管用了？", "當一家企業有 60% 的資產都壓在傳統廠房設備上，面對綠色法規時，它會像靈活的快艇還是轉向遲緩的航空母艦？"], "pitfalls": ["學生容易忽視代工製造業的微利特質。7.3% 的淨利率意味著只要營運成本上升幾個百分點，獲利就會被完全吃光！"], "board": "中欄記錄 ABC 基因：『40年效率至上 · 60億重資產 · 7.3%微利』"}}, {"id": 4, "module": "組織動態", "title": "領導層三人角力：轉型背後的組織政治與本位主義", "subtitle": "CEO 鍾建國 vs CFO 林雅婷 vs CSO 陳維明", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.2rem;\">\n            <div class=\"grid-3\">\n                <!-- CEO Card -->\n                <div class=\"card\" style=\"border-top: 5px solid #0f172a; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\">\n                            <span style=\"font-size: 1.5rem;\">👔</span>\n                            <div>\n                                <h3 style=\"font-size: 1.1rem; font-weight: 800; color: #0f172a;\">鍾建國 / CEO</h3>\n                                <span style=\"font-size: 0.75rem; color: #64748b;\">務實工程背景 · 效率至上派</span>\n                            </div>\n                        </div>\n                        <blockquote style=\"font-style: italic; font-size: 0.85rem; color: #334155; background: #f1f5f9; padding: 8px; border-radius: 6px; margin-bottom: 10px;\">\n                            「永續發展絕不能以犧牲核心獲利為代價！我們必須在保護地球的同時，增強股東價值。」\n                        </blockquote>\n                        <ul style=\"padding-left: 1.1rem; font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                            <li>崇尚規模經濟與及時交貨能力。</li>\n                            <li>要求轉型必須看到實質財務回報，拒絕空談綠色形象。</li>\n                            <li>夾在客戶減碳要求與股東 EPS 壓力之間。</li>\n                        </ul>\n                    </div>\n                    <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-amber\">決策關鍵：平衡生存與回報</span>\n                    </div>\n                </div>\n\n                <!-- CFO Card -->\n                <div class=\"card\" style=\"border-top: 5px solid #b45309; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\">\n                            <span style=\"font-size: 1.5rem;\">📊</span>\n                            <div>\n                                <h3 style=\"font-size: 1.1rem; font-weight: 800; color: #0f172a;\">林雅婷 / CFO</h3>\n                                <span style=\"font-size: 0.75rem; color: #64748b;\">資深財務專家 · 風險防禦派</span>\n                            </div>\n                        </div>\n                        <blockquote style=\"font-style: italic; font-size: 0.85rem; color: #334155; background: #fef3c7; padding: 8px; border-radius: 6px; margin-bottom: 10px;\">\n                            「確保公司的財務韌性是首要任務！我們必須清楚了解每項綠色投資將如何影響盈利與資本結構。」\n                        </blockquote>\n                        <ul style=\"padding-left: 1.1rem; font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                            <li>警惕 2.5 億大額資本支出對自由現金流的抽乾效應。</li>\n                            <li>高度關注棕色資產一次性減值對股價的致命打擊。</li>\n                            <li>以傳統 5 年投資回收期檢視專案，傾向保守把關。</li>\n                        </ul>\n                    </div>\n                    <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-red\">守門人：防範流動性危機</span>\n                    </div>\n                </div>\n\n                <!-- CSO Card -->\n                <div class=\"card\" style=\"border-top: 5px solid #047857; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\">\n                            <span style=\"font-size: 1.5rem;\">🌱</span>\n                            <div>\n                                <h3 style=\"font-size: 1.1rem; font-weight: 800; color: #0f172a;\">陳維明 / CSO</h3>\n                                <span style=\"font-size: 0.75rem; color: #64748b;\">環境科學與管理 · 理想前瞻派</span>\n                            </div>\n                        </div>\n                        <blockquote style=\"font-style: italic; font-size: 0.85rem; color: #334155; background: #ecfdf5; padding: 8px; border-radius: 6px; margin-bottom: 10px;\">\n                            「永續性是 ABC 未來成長的唯一途徑！它不僅是成本，更是破局創新與差異化競爭力的來源。」\n                        </blockquote>\n                        <ul style=\"padding-left: 1.1rem; font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                            <li>積極推動綠色材料、再生能源導入與循環經濟。</li>\n                            <li>深感採購部門「最低成本」本位主義的強大阻力。</li>\n                            <li>缺乏足夠財務話語權，難以量化轉型的商業價值。</li>\n                        </ul>\n                    </div>\n                    <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border);\">\n                        <span class=\"badge badge-green\">推動者：尋求商業語言賦能</span>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"alert alert-warning\">\n                <span>⚠️</span>\n                <div>\n                    <strong>組織文化阻力深層診斷：</strong>採購部門慣於執行「比價殺價」；研發部門有綠色創新構想卻缺乏跨部門經費；製造部門產線稼動率壓力高，不願停機改裝。這導致綠色倡議常流於公關口號，難以落地為策略投資。\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "帶領學生理解高層決策不是單純的計算題，而是涉及組織政治、部門本位與溝通語言的協調挑戰。", "timing": "建議 10 分鐘 (可進行角色扮演短演練)", "prompts": ["如果你是 CSO 陳維明，你走進 CFO 林雅婷的辦公室要 2.5 億美元，你第一句話該說什麼？", "為什麼 CFO 通常會是綠色轉型的最大『踩煞車者』？林雅婷在害怕什麼？"], "pitfalls": ["學生容易站在道德制高點批評 CFO 保守，教師應引導學生體會 CFO 的職責是守住現金流底線，唯有將減碳翻成財務語言才能說服她。"], "board": "中欄記下決策三角鐵：[CEO 追求獲利] vs [CFO 守衛現金] vs [CSO 呼籲生路]"}}, {"id": 5, "module": "產業競爭", "title": "EMS/ODM 永續競爭局勢與價值鏈綠色解析", "subtitle": "同業淨零軍備競賽與 ABC 價值鏈高碳排熱點剖析", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.2rem;\">\n            <div class=\"card\" style=\"background: #f8fafc;\">\n                <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;\">\n                    <div style=\"font-weight: 700; color: #0f172a; font-size: 0.95rem;\">\n                        🏆 EMS/ODM 產業的「綠色軍備競賽」\n                    </div>\n                    <span class=\"badge badge-purple\">同業對標：富士康 · 和碩 · 廣達</span>\n                </div>\n                <p class=\"card-p\">\n                    全球代工領導同業紛紛承諾加入 <strong>RE100 (100% 再生能源)</strong>，導入製程節能技術，並協助品牌客戶進行供應鏈減碳。永續性已從單純的 CSR 報告書，躍升為爭取 Apple、Samsung、Dell 等品牌大單的核心採購門檻！未能及時跟進的企業，將在下一輪代工招標中直接被剔除資格。\n                </p>\n            </div>\n\n            <div class=\"grid-2\">\n                <div class=\"card\" style=\"border-top: 4px solid #b91c1c;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #b91c1c;\">🔥 高碳排放與高風險環節 (熱點)</span>\n                        <span class=\"badge badge-red\">棕色暴露</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.85rem; line-height: 1.55; color: #334155;\">\n                        <li><strong>製造與精密組裝：</strong>高溫回焊爐、潔淨室全天候空調與大量自動化產線，極度耗電，是範圍二 (Scope 2) 碳排主要來源。</li>\n                        <li><strong>全球物流與運輸：</strong>零組件跨國採購與成品緊急空運交付，產生巨額航運碳足跡與脆弱度。</li>\n                        <li><strong>關鍵原物料開採：</strong>金、銅、稀土等金屬開採提煉，涉及高碳排與潛在供應鏈人權環境風險。</li>\n                    </ul>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #047857;\">🌱 綠色創新與高槓桿槓桿點</span>\n                        <span class=\"badge badge-green\">轉型機會</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.85rem; line-height: 1.55; color: #334155;\">\n                        <li><strong>生命週期評估 (LCA) 與模組化設計：</strong>在研發源頭導入易拆卸、可回收設計，從根本降低 80% 碳排。</li>\n                        <li><strong>製程節能與廠區綠電：</strong>改裝變頻設備、加裝工廠屋頂太陽能光電與餘熱回收系統。</li>\n                        <li><strong>閉環循環經濟：</strong>建立電子廢棄物貴金屬回收機制，探索「產品即服務」(PaaS) 商業模式。</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "建立產業競爭格局與價值鏈分析能力，幫助學生看清哪些環節是高碳炸彈，哪些環節是高回報的綠色槓桿。", "timing": "建議 8 分鐘", "prompts": ["如果 ABC 不轉型，品牌客戶（如蘋果）會繼續下單嗎？客戶有哪些替代選擇？", "在代工產業中，減碳的責任到底該由品牌商承擔，還是由代工廠買單？"], "pitfalls": ["學生容易誤以為代工廠沒有品牌就沒有減碳壓力。實際上，品牌客戶把自身減碳目標的 70%~80% 轉嫁給了供應鏈！"], "board": "左欄補充產業背景：『同業 RE100 競賽 · 品牌客戶範疇三施壓』"}}, {"id": 6, "module": "財務基線", "title": "ABC 企業 2023 年度財務基線檢視 (單位：百萬美元)", "subtitle": "總資產 100 億、營收 120 億、淨利 8.8 億之健康但脆弱的製造業體質", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 0.8rem;\">\n            <div class=\"tab-bar\">\n                <button class=\"tab-btn active\" data-target=\"tab-bs-base\">資產負債表 (Balance Sheet)</button>\n                <button class=\"tab-btn\" data-target=\"tab-is-base\">損益表 (Income Statement)</button>\n                <button class=\"tab-btn\" data-target=\"tab-cf-base\">現金流量表 (Cash Flow)</button>\n            </div>\n\n            <!-- Tab 1: BS -->\n            <div class=\"tab-content active\" id=\"tab-bs-base\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr>\n                                <th style=\"width: 50%;\">資產項目 (Assets)</th>\n                                <th style=\"width: 50%;\">負債與股東權益項目 (Liabilities & Equity)</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td><strong>流動資產：</strong>現金及約當現金 $800 | 應收帳款 $1,500 | 存貨 $1,200</td>\n                                <td><strong>流動負債：</strong>應付帳款 $1,000 | 短期借款 $700</td>\n                            </tr>\n                            <tr>\n                                <td><strong>流動資產合計：</strong>$3,500 百萬美元</td>\n                                <td><strong>流動負債合計：</strong>$1,700 百萬美元</td>\n                            </tr>\n                            <tr>\n                                <td><strong>非流動資產：</strong>廠房設備淨值 $6,000 | 無形資產 $500</td>\n                                <td><strong>非流動負債：</strong>長期借款 $2,500 百萬美元</td>\n                            </tr>\n                            <tr>\n                                <td><strong>非流動資產合計：</strong>$6,500 百萬美元</td>\n                                <td><strong>負債總計：</strong>$4,200 百萬美元 (負債比率 42%)</td>\n                            </tr>\n                            <tr class=\"total-row\">\n                                <td style=\"color: #047857;\"><strong>總資產合計：$10,000 百萬美元</strong></td>\n                                <td><strong>股東權益：</strong>股本 $3,000 | 保留盈餘 $2,800 ➔ <strong>權益合計：$5,800</strong></td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n                <p style=\"font-size: 0.78rem; color: #64748b; margin-top: 6px;\">\n                    📌 <strong>關鍵看點：</strong>廠房設備及不動產高達 60 億美元（占總資產 60%），大多為高耗能產線，是潛在「棕色資產」暴險核心！\n                </p>\n            </div>\n\n            <!-- Tab 2: IS -->\n            <div class=\"tab-content\" id=\"tab-is-base\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr>\n                                <th>項目 (Item)</th>\n                                <th style=\"text-align: right;\">金額 (百萬美元)</th>\n                                <th>占營收比例 / 財務註記</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr><td><strong>營業收入 (Revenue)</strong></td><td class=\"num\">12,000</td><td>100.0% (大規模代工)</td></tr>\n                            <tr><td>營業成本 (COGS)</td><td class=\"num neg\">(9,000)</td><td>75.0% (毛利率 25.0%)</td></tr>\n                            <tr class=\"total-row\"><td><strong>營業毛利 (Gross Profit)</strong></td><td class=\"num\"><strong>3,000</strong></td><td><strong>25.0%</strong></td></tr>\n                            <tr><td>銷售費用 / 管理費用 / 研發費用</td><td class=\"num neg\">(800) / (600) / (400)</td><td>營業費用合計 (1,800)</td></tr>\n                            <tr class=\"total-row\"><td><strong>營業利益 (Operating Income / EBIT)</strong></td><td class=\"num\"><strong>1,200</strong></td><td><strong>營業利益率 10.0%</strong></td></tr>\n                            <tr><td>利息費用</td><td class=\"num neg\">(100)</td><td>長期借款利息</td></tr>\n                            <tr><td>稅前淨利 (EBT)</td><td class=\"num\">1,100</td><td>稅前淨利率 9.17%</td></tr>\n                            <tr><td>所得稅費用 (20%)</td><td class=\"num neg\">(220)</td><td>法定所得稅率 20%</td></tr>\n                            <tr class=\"total-row\"><td style=\"color: #047857;\"><strong>本期淨利 (Net Income)</strong></td><td class=\"num pos\"><strong>880</strong></td><td><strong>淨利率 7.33%</strong></td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <!-- Tab 3: CF -->\n            <div class=\"tab-content\" id=\"tab-cf-base\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr>\n                                <th>現金流量活動 (Cash Flow Activity)</th>\n                                <th style=\"text-align: right;\">金額 (百萬美元)</th>\n                                <th>關鍵明細</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr><td><strong>營業活動淨現金流量 (Operating CF)</strong></td><td class=\"num pos\"><strong>+1,300</strong></td><td>淨利 880 + 折舊 500 - 營運資金變動 80</td></tr>\n                            <tr><td><strong>投資活動淨現金流量 (Investing CF)</strong></td><td class=\"num neg\"><strong>(700)</strong></td><td>常態資本支出購置固定資產 (700)</td></tr>\n                            <tr><td><strong>融資活動淨現金流量 (Financing CF)</strong></td><td class=\"num neg\"><strong>(300)</strong></td><td>發放股東現金股利 (300)，借款無變動</td></tr>\n                            <tr class=\"total-row\"><td>現金淨增加額 (Net Change in Cash)</td><td class=\"num pos\">+300</td><td>1,300 - 700 - 300 = +300</td></tr>\n                            <tr class=\"total-row\"><td style=\"color: #047857;\"><strong>期末現金及約當現金</strong></td><td class=\"num pos\"><strong>800</strong></td><td>期初 500 + 本期增加 300 = 800</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"stat-banner\" style=\"margin-top: 0.5rem;\">\n                <div class=\"stat-box success\"><div class=\"stat-num\">$800M</div><div class=\"stat-desc\">期末儲備現金</div></div>\n                <div class=\"stat-box\"><div class=\"stat-num\">42.0%</div><div class=\"stat-desc\">負債比率 (健康)</div></div>\n                <div class=\"stat-box gold\"><div class=\"stat-num\">$6,000M</div><div class=\"stat-desc\">廠房設備 (棕色暴險)</div></div>\n                <div class=\"stat-box success\"><div class=\"stat-num\">$1,300M</div><div class=\"stat-desc\">營業現金流入</div></div>\n            </div>\n        </div>\n    ", "notes": {"objective": "帶領學生熟悉 2023 年 ABC 企業的財務健康體質，建立後續情境衝擊的對照基線 (Baseline)。", "timing": "建議 8 分鐘", "prompts": ["單看這三張報表，這家公司財務狀況如何？是否有立即的財務危機？", "資產負債表上哪一個數字最大？這暗示了未來什麼風險？"], "pitfalls": ["學生容易覺得這家公司營運很穩（賺 8.8 億、現金流 13 億），但未察覺 60 億固定資產在碳轉型下的巨大脆弱性。"], "board": "左欄記錄 2023 基線：『Rev 120億 · NI 8.8億 · OCF 13億 · PP&E 60億 · Cash 8億』"}}, {"id": 7, "module": "財務傳導", "title": "氣候風險如何穿透財務三表？三大風險傳導機制架構", "subtitle": "課堂討論問題 Q1：實體、轉型與責任風險的具體財務路徑", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: linear-gradient(90deg, #f0fdf4 0%, #ecfdf5 100%); border-left: 5px solid #047857;\">\n                <div style=\"font-weight: 700; color: #064e3b; font-size: 1rem; margin-bottom: 4px;\">\n                    【問題一引導】氣候風險的「一刀穿透三表」傳導機制\n                </div>\n                <p class=\"card-p\" style=\"color: #064e3b;\">\n                    氣候變遷絕非抽象的環保名詞。透過 TCFD 架構，氣候因素沿著三條路徑，精確而殘酷地打擊企業的<strong>資產負債表</strong>（資產減值、負債攀升）、<strong>損益表</strong>（成本上升、營收縮減）與<strong>現金流量表</strong>（營運現金流枯竭、融資受限）。\n                </p>\n            </div>\n\n            <div class=\"grid-3\">\n                <div class=\"card\" style=\"border-top: 4px solid #b91c1c;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #b91c1c;\">🌪️ 實體風險 (Physical)</span>\n                        <span class=\"badge badge-red\">突發極端衝擊</span>\n                    </div>\n                    <p style=\"font-size: 0.84rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">東南亞百年洪災廠房停工</p>\n                    <ul style=\"padding-left: 1.1rem; font-size: 0.8rem; color: #475569; line-height: 1.55;\">\n                        <li><strong>損益表：</strong>停工營收 -10 億、緊急空運成本 +2 億、認列減值 -1 億 ➔ <span style=\"color: #b91c1c; font-weight: 700;\">由盈轉虧 (-1.28 億)</span></li>\n                        <li><strong>資產表：</strong>固定資產減值 -1 億、短借 +2 億應急、保留盈餘暴減 -11.5 億</li>\n                        <li><strong>現金表：</strong>營業現金流腰斬 -6 億、暫停股利 3 億</li>\n                    </ul>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #b45309;\">⚖️ 轉型風險 (Transition)</span>\n                        <span class=\"badge badge-amber\">政策與市場擠壓</span>\n                    </div>\n                    <p style=\"font-size: 0.84rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">歐盟碳稅 $50/噸 + 客戶砍單</p>\n                    <ul style=\"padding-left: 1.1rem; font-size: 0.8rem; color: #475569; line-height: 1.55;\">\n                        <li><strong>損益表：</strong>碳稅支出 1 億、客戶砍單 5% (營收 -6 億) ➔ <span style=\"color: #b45309; font-weight: 700;\">淨利暴跌 64% 至 3.14 億</span></li>\n                        <li><strong>資產表：</strong>投入 2 億設備升級、長借增加 1.5 億、現金減少 3 億</li>\n                        <li><strong>現金表：</strong>營運現金流減少 4.36 億、綠色 CapEx 增加 2 億</li>\n                    </ul>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #0284c7;\">📢 責任風險 (Liability)</span>\n                        <span class=\"badge badge-blue\">公害與聲譽重創</span>\n                    </div>\n                    <p style=\"font-size: 0.84rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">廢水污染醜聞 + 集體訴訟</p>\n                    <ul style=\"padding-left: 1.1rem; font-size: 0.8rem; color: #475569; line-height: 1.55;\">\n                        <li><strong>損益表：</strong>消費者抵制營收 -3% (-3.6 億)、和解罰款修復公關共 1.2 億 ➔ <span style=\"color: #0284c7; font-weight: 700;\">淨利跌至 4.96 億</span></li>\n                        <li><strong>資產表：</strong>現金支付賠償減少 3.5 億、保留盈餘減少 4.5 億</li>\n                        <li><strong>現金表：</strong>營業現金流大減 3.24 億、期末現金淨減少</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "統整討論問題一 (Q1) 的核心概念架構，為接下來的三個具體財務報表情境鋪路。", "timing": "建議 8 分鐘", "prompts": ["請同學試著用一句話總結：極端氣候（實體風險）如何一步步讓一家原本賺 8.8 億的公司變成虧損 1.28 億？", "責任風險（被抓到排廢水）和轉型風險（被課碳稅），哪一個對企業的破壞性更不可逆？"], "pitfalls": ["學生容易忘記現金流量表的連鎖反應。例如實體風險發生時，營業現金流枯竭會逼迫公司暫停發放股利或向銀行借高利短貸。"], "board": "左欄建立三叉架構：[實體風險：災損減值] / [轉型風險：碳稅砍單] / [責任風險：訴訟罰款]"}}, {"id": 8, "module": "風險實證", "title": "【情境一】實體風險：東南亞百年洪災對財務報表的衝擊", "subtitle": "停工三個月、供應鏈中斷、百億訂單交付受阻之財務浩劫", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 0.8rem;\">\n            <div class=\"stat-banner\">\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-10 億</div><div class=\"stat-desc\">營業收入損失 (降至 110億)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-1.28 億</div><div class=\"stat-desc\">本期淨利 (轉盈為虧！減少 10.08億)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-6 億</div><div class=\"stat-desc\">營業現金流流失 (降至 6.72億)</div></div>\n                <div class=\"stat-box gold\"><div class=\"stat-num\">+2 億</div><div class=\"stat-desc\">短期應急借款增加</div></div>\n            </div>\n\n            <div class=\"tab-bar\">\n                <button class=\"tab-btn active\" data-target=\"tab-is-p1\">損益表衝擊 (IS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-bs-p1\">資產負債表衝擊 (BS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-cf-p1\">現金流量表衝擊 (CF)</button>\n            </div>\n\n            <div class=\"tab-content active\" id=\"tab-is-p1\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 洪災情境</th><th>變動額</th><th>衝擊本質分析</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>營業收入 (Revenue)</td><td class=\"num\">12,000</td><td class=\"num\">11,000</td><td class=\"num neg\">(1,000)</td><td>關鍵產線停工 3 個月，客戶訂單遞延或取消</td></tr>\n                            <tr><td>營業成本 (COGS)</td><td class=\"num\">(9,000)</td><td class=\"num\">(9,200)</td><td class=\"num neg\">(200)</td><td>為防違約付出巨額緊急空運費與設備清淤恢復費</td></tr>\n                            <tr><td><strong>營業利益 (Operating Income)</strong></td><td class=\"num\"><strong>1,200</strong></td><td class=\"num\"><strong>0</strong></td><td class=\"num neg\"><strong>(1,200)</strong></td><td>營業利潤歸零，營業槓桿逆向懲罰</td></tr>\n                            <tr><td>非經常性損失 (設備減值)</td><td class=\"num\">0</td><td class=\"num neg\">(100)</td><td class=\"num neg\">(100)</td><td>精密晶片組裝設備浸水報廢減記</td></tr>\n                            <tr><td>其他收入 (保險理賠)</td><td class=\"num\">0</td><td class=\"num pos\">+50</td><td class=\"num pos\">+50</td><td>保險理賠僅能覆蓋部分損失，存在巨額缺口</td></tr>\n                            <tr><td>稅前淨利 (EBT)</td><td class=\"num\">1,100</td><td class=\"num neg\">(160)</td><td class=\"num neg\">(1,260)</td><td>由賺 11 億逆轉為虧損 1.6 億</td></tr>\n                            <tr class=\"total-row\"><td style=\"color: #b91c1c;\"><strong>本期淨利 (Net Income)</strong></td><td class=\"num\"><strong>880</strong></td><td class=\"num neg\"><strong>(128)</strong></td><td class=\"num neg\"><strong>(1,008)</strong></td><td><strong>慘虧 1.28 億！股東權益大幅受損</strong></td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-bs-p1\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>資產負債表傳導說明</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>現金及約當現金</td><td class=\"num\">800</td><td class=\"num\">250</td><td class=\"num neg\">(550)</td><td>動用大量營運現金支應救災與重建</td></tr>\n                            <tr><td>廠房設備及不動產 (淨值)</td><td class=\"num\">6,000</td><td class=\"num\">5,900</td><td class=\"num neg\">(100)</td><td>認列洪災損毀資產減值 100 百萬美元</td></tr>\n                            <tr><td>短期借款 (Short-term Debt)</td><td class=\"num\">700</td><td class=\"num\">900</td><td class=\"num pos\">+200</td><td>流動性告急，向銀行緊急增貸 2 億支應營運</td></tr>\n                            <tr class=\"total-row\"><td>保留盈餘 (Retained Earnings)</td><td class=\"num\">2,800</td><td class=\"num\">1,650</td><td class=\"num neg\">(1,150)</td><td>淨利虧損導致保留盈餘劇減 11.5 億美元</td></tr>\n                            <tr class=\"total-row\"><td><strong>資產 / 負債權益總額</strong></td><td class=\"num\"><strong>10,000</strong></td><td class=\"num\"><strong>8,850</strong></td><td class=\"num neg\"><strong>(1,150)</strong></td><td><strong>公司整體資產規模縮水 11.5%</strong></td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-cf-p1\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>活動 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>現金流關鍵傳導</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td><strong>營業活動淨現金流量</strong></td><td class=\"num\">1,300</td><td class=\"num\">672</td><td class=\"num neg\">(628)</td><td>淨利重虧 + 災損支出，營業現金流直接腰斬</td></tr>\n                            <tr><td>融資活動：短期借款淨變動</td><td class=\"num\">0</td><td class=\"num pos\">+200</td><td class=\"num pos\">+200</td><td>銀行緊急融資注入 2 億現金</td></tr>\n                            <tr><td>融資活動：支付現金股利</td><td class=\"num neg\">(300)</td><td class=\"num\">0</td><td class=\"num pos\">+300</td><td>為保命<strong>暫停發放股東股利</strong> (保留 3 億現金)</td></tr>\n                            <tr class=\"total-row\"><td>期末現金餘額</td><td class=\"num\">800</td><td class=\"num\">972</td><td class=\"num pos\">+172</td><td>因借款及停發股利，期末帳面現金暫時持平</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "帶領學生透視實體極端氣候災難如何同時在三張報表上引發核彈級破壞。", "timing": "建議 10 分鐘", "prompts": ["保險理賠了 5,000 萬，為什麼淨利還是虧損 1.28 億？保險為什麼無法救命？", "期末現金餘額看似有 9.72 億，甚至比去年 8 億多，這是為什麼？這家公司真的安全嗎？"], "pitfalls": ["學生容易被期末現金 9.72 億蒙蔽，誤以為現金增加了就沒事。教師需點出：這是靠『借 2 億短貸』和『扣下股東 3 億股利』換來的苟延殘喘！"], "board": "左欄詳細板書實體數據：『營收-10億 ➔ 淨利-1.28億 (虧損) ➔ 停發股利3億』"}}, {"id": 9, "module": "風險實證", "title": "【情境二】轉型風險：歐盟碳稅與客戶綠色洗牌", "subtitle": "每噸 $50 碳稅開徵、Apple/Samsung 砍單 5% 之財務擠壓", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 0.8rem;\">\n            <div class=\"stat-banner\">\n                <div class=\"stat-box danger\"><div class=\"stat-num\">$100M</div><div class=\"stat-desc\">歐盟碳稅支出 (200萬噸 × $50)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-6 億</div><div class=\"stat-desc\">客戶砍單營收損失 (降至 114億)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">$314M</div><div class=\"stat-desc\">本期淨利 (暴跌 64%！減少 5.66億)</div></div>\n                <div class=\"stat-box gold\"><div class=\"stat-num\">+$150M</div><div class=\"stat-desc\">長期借款增加 (用於綠色設備)</div></div>\n            </div>\n\n            <div class=\"tab-bar\">\n                <button class=\"tab-btn active\" data-target=\"tab-is-p2\">損益表衝擊 (IS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-bs-p2\">資產負債表衝擊 (BS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-cf-p2\">現金流量表衝擊 (CF)</button>\n            </div>\n\n            <div class=\"tab-content active\" id=\"tab-is-p2\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 轉型情境</th><th>變動額</th><th>轉型風險機理解析</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>營業收入 (Revenue)</td><td class=\"num\">12,000</td><td class=\"num\">11,400</td><td class=\"num neg\">(600)</td><td>因轉型遲緩未達綠色標準，客戶砍單 5%</td></tr>\n                            <tr><td>營業成本 (含碳稅)</td><td class=\"num\">(9,000)</td><td class=\"num\">(9,100)</td><td class=\"num neg\">(100)</td><td>營收下降成本本應減少，但新增 1 億碳稅抵消節省</td></tr>\n                            <tr><td>&nbsp;&nbsp;↳ 其中：碳稅費用</td><td class=\"num\">0</td><td class=\"num neg\">(100)</td><td class=\"num neg\">(100)</td><td>200 萬噸排放量 × 每噸 $50 美元</td></tr>\n                            <tr><td>營業毛利 (Gross Margin)</td><td class=\"num\">3,000</td><td class=\"num\">2,300</td><td class=\"num neg\">(700)</td><td>毛利率由 25% 驟降至 20.1%</td></tr>\n                            <tr><td>營業利益 (EBIT)</td><td class=\"num\">1,200</td><td class=\"num\">500</td><td class=\"num neg\">(700)</td><td>營業利益崩跌 58.3%</td></tr>\n                            <tr><td>利息費用</td><td class=\"num neg\">(100)</td><td class=\"num neg\">(107.5)</td><td class=\"num neg\">(7.5)</td><td>為籌措轉型資金增發借款，利息增加</td></tr>\n                            <tr class=\"total-row\"><td style=\"color: #b45309;\"><strong>本期淨利 (Net Income)</strong></td><td class=\"num\"><strong>880</strong></td><td class=\"num\"><strong>314</strong></td><td class=\"num neg\"><strong>(566)</strong></td><td><strong>淨利暴跌 64%！這就是不轉型的代價</strong></td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-bs-p2\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>資產負債表傳導說明</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>現金及約當現金</td><td class=\"num\">800</td><td class=\"num\">500</td><td class=\"num neg\">(300)</td><td>支付碳稅與前期部分設備款，現金流失</td></tr>\n                            <tr><td>廠房設備及不動產 (淨值)</td><td class=\"num\">6,000</td><td class=\"num\">6,200</td><td class=\"num pos\">+200</td><td>購置 2 億美元綠色節能新產線設備</td></tr>\n                            <tr><td>長期借款 (Long-term Debt)</td><td class=\"num\">2,500</td><td class=\"num\">2,650</td><td class=\"num pos\">+150</td><td>發行債務以資助綠色資本支出</td></tr>\n                            <tr class=\"total-row\"><td>保留盈餘 (Retained Earnings)</td><td class=\"num\">2,800</td><td class=\"num\">2,400</td><td class=\"num neg\">(400)</td><td>淨利腰斬導致保留盈餘增長動能熄火</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-cf-p2\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>活動 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>現金流關鍵傳導</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td><strong>營業活動淨現金流量</strong></td><td class=\"num\">1,300</td><td class=\"num\">864</td><td class=\"num neg\">(436)</td><td>營收下跌 6 億 + 支付碳稅 1 億，現金流重挫</td></tr>\n                            <tr><td><strong>投資活動：購置固定資產</strong></td><td class=\"num neg\">(700)</td><td class=\"num neg\">(900)</td><td class=\"num neg\">(200)</td><td>常態資本支出 7 億 + 綠色設備投資 2 億</td></tr>\n                            <tr><td>融資活動：長期借款淨增加</td><td class=\"num\">0</td><td class=\"num pos\">+150</td><td class=\"num pos\">+150</td><td>新增借款填補現金缺口</td></tr>\n                            <tr class=\"total-row\"><td>期末現金餘額</td><td class=\"num\">800</td><td class=\"num\">614</td><td class=\"num neg\">(186)</td><td>自由現金流受到雙重擠壓，降至 6.14 億</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生關注轉型風險的常態性特徵：碳稅不是一次性災損，而是每年都會發生的剛性營運成本，疊加客戶砍單，利潤將遭永久侵蝕。", "timing": "建議 10 分鐘", "prompts": ["請注意：淨利從 8.8 億跌到 3.14 億，損失了整整 5.66 億！這 5.66 億中，碳稅貢獻了多少？客戶砍單貢獻了多少？", "如果 ABC 繼續拖延轉型，明後年會發生什麼事？"], "pitfalls": ["學生常以為碳稅只有 1 億元，ABC 還負擔得起。卻忽略了『客戶砍單 5% 帶來的 6 億營收流失與利潤暴跌』才是最致命的毒藥！"], "board": "左欄轉型風險關鍵對比：『碳稅 1億 + 客戶砍單 6億 ➔ 淨利蒸發 5.66億 (暴跌64%)』"}}, {"id": 10, "module": "風險實證", "title": "【情境三】責任風險：環境公害醜聞與訴訟風暴", "subtitle": "未達標廢水排入河川、居民集體訴訟、國際媒體頭條與商譽崩盤", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 0.8rem;\">\n            <div class=\"stat-banner\">\n                <div class=\"stat-box danger\"><div class=\"stat-num\">$120M</div><div class=\"stat-desc\">訴訟/罰款/修復/公關支出合計</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-3.6 億</div><div class=\"stat-desc\">消費者抵制營收流失 (-3%)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">$496M</div><div class=\"stat-desc\">本期淨利 (大減 44%！減少 3.84億)</div></div>\n                <div class=\"stat-box danger\"><div class=\"stat-num\">-3.24 億</div><div class=\"stat-desc\">營業活動淨現金流流失</div></div>\n            </div>\n\n            <div class=\"tab-bar\">\n                <button class=\"tab-btn active\" data-target=\"tab-is-p3\">損益表衝擊 (IS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-bs-p3\">資產負債表衝擊 (BS)</button>\n                <button class=\"tab-btn\" data-target=\"tab-cf-p3\">現金流量表衝擊 (CF)</button>\n            </div>\n\n            <div class=\"tab-content active\" id=\"tab-is-p3\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 訴訟情境</th><th>變動額</th><th>責任風險費用明細</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>營業收入 (Revenue)</td><td class=\"num\">12,000</td><td class=\"num\">11,640</td><td class=\"num neg\">(360)</td><td>排廢醜聞引發消費者抵制，營收流失 3%</td></tr>\n                            <tr><td>營業成本 (COGS)</td><td class=\"num\">(9,000)</td><td class=\"num\">(9,000)</td><td class=\"num\">0</td><td>生產剛性支出維持</td></tr>\n                            <tr><td>銷售費用 (公關危機)</td><td class=\"num\">(800)</td><td class=\"num neg\">(820)</td><td class=\"num neg\">(20)</td><td>緊急聘請國際公關顧問處理聲譽危機</td></tr>\n                            <tr><td>管理費用 (訴訟與罰款)</td><td class=\"num\">(600)</td><td class=\"num neg\">(700)</td><td class=\"num neg\">(100)</td><td>和解金 5,000萬 + 環保罰款 2,000萬 + 河川修復 3,000萬</td></tr>\n                            <tr><td>營業利益 (Operating Income)</td><td class=\"num\">1,200</td><td class=\"num\">720</td><td class=\"num neg\">(480)</td><td>營業利潤腰斬 40%</td></tr>\n                            <tr class=\"total-row\"><td style=\"color: #0284c7;\"><strong>本期淨利 (Net Income)</strong></td><td class=\"num\"><strong>880</strong></td><td class=\"num\"><strong>496</strong></td><td class=\"num neg\"><strong>(384)</strong></td><td><strong>淨利暴減 3.84 億美元 (降幅 44%)</strong></td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-bs-p3\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>項目 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>資產負債表傳導說明</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td>現金及約當現金</td><td class=\"num\">800</td><td class=\"num\">450</td><td class=\"num neg\">(350)</td><td>支付巨額罰金、訴訟和解款與修復費，現金流失</td></tr>\n                            <tr><td>應收帳款與存貨</td><td class=\"num\">2,700</td><td class=\"num\">2,550</td><td class=\"num neg\">(150)</td><td>營收規模萎縮導致營運資金下修</td></tr>\n                            <tr><td>或有負債 (Contingent Liab.)</td><td class=\"num\">0</td><td class=\"num neg\">揭露</td><td class=\"num neg\">附註</td><td>若後續訴訟懸而未決，需提列鉅額賠償準備負債</td></tr>\n                            <tr class=\"total-row\"><td>保留盈餘 (Retained Earnings)</td><td class=\"num\">2,800</td><td class=\"num\">2,350</td><td class=\"num neg\">(450)</td><td>獲利銳減導致權益儲備受損</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n\n            <div class=\"tab-content\" id=\"tab-cf-p3\">\n                <div class=\"table-responsive\">\n                    <table class=\"case-table\">\n                        <thead>\n                            <tr><th>活動 (單位：百萬美元)</th><th>2023 基礎</th><th>2024 估算</th><th>變動額</th><th>現金流關鍵傳導</th></tr>\n                        </thead>\n                        <tbody>\n                            <tr><td><strong>營業活動淨現金流量</strong></td><td class=\"num\">1,300</td><td class=\"num\">976</td><td class=\"num neg\">(324)</td><td>淨利大減 + 1.2 億現金非經常性費用支付</td></tr>\n                            <tr><td>投資與融資活動</td><td class=\"num neg\">(1,000)</td><td class=\"num neg\">(1,000)</td><td class=\"num\">0</td><td>資本支出 7 億，發放股利 3 億</td></tr>\n                            <tr class=\"total-row\"><td>期末現金淨變動</td><td class=\"num pos\">+300</td><td class=\"num neg\">(24)</td><td class=\"num neg\">(324)</td><td>由原本淨流入 3 億轉為淨流失 2,400 萬</td></tr>\n                            <tr class=\"total-row\"><td>期末現金餘額</td><td class=\"num\">800</td><td class=\"num\">776</td><td class=\"num neg\">(24)</td><td>現金水位跌破 8 億大關</td></tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "說明責任風險（環境合規公害）的特點：具有突發性、法律強制性，且往往伴隨難以挽回的品牌聲譽重創與客戶抵制。", "timing": "建議 8 分鐘", "prompts": ["罰款只有 2,000 萬美元，為什麼總體損失高達 3.84 億？", "如果調查顯示有 80% 的消費者表示將抵制污染企業的產品，這對 Apple 或 Samsung 會產生什麼連鎖效應？"], "pitfalls": ["學生容易忽視合規成本省下的微薄小錢，一旦東窗事發，將付出數十倍的和解金、修復費與公關代價。"], "board": "左欄責任風險數據：『廢水公害 ➔ 和解罰款修復公關 1.2億 + 抵制減收 3.6億 ➔ 淨利-3.84億』"}}, {"id": 11, "module": "風險綜整", "title": "基準 vs 三大氣候風險情境財務綜合對比儀表板", "subtitle": "一覽無遺：氣候風險對營收、毛利、淨利與現金流之劇烈摧毀", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div class=\"table-responsive\">\n                <table class=\"case-table\">\n                    <thead>\n                        <tr style=\"background: #0f172a; color: white;\">\n                            <th style=\"color: white;\">核心財務指標 (百萬美元)</th>\n                            <th style=\"color: white; text-align: right;\">2023 基準基線</th>\n                            <th style=\"color: #fca5a5; text-align: right;\">情境一：實體風險</th>\n                            <th style=\"color: #fcd34d; text-align: right;\">情境二：轉型風險</th>\n                            <th style=\"color: #7dd3fc; text-align: right;\">情境三：責任風險</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><strong>營業收入 (Revenue)</strong></td>\n                            <td class=\"num\">12,000</td>\n                            <td class=\"num neg\">11,000 (-1,000)</td>\n                            <td class=\"num neg\">11,400 (-600)</td>\n                            <td class=\"num neg\">11,640 (-360)</td>\n                        </tr>\n                        <tr>\n                            <td>營業毛利 (Gross Profit)</td>\n                            <td class=\"num\">3,000</td>\n                            <td class=\"num neg\">1,800 (-1,200)</td>\n                            <td class=\"num neg\">2,300 (-700)</td>\n                            <td class=\"num neg\">2,640 (-360)</td>\n                        </tr>\n                        <tr>\n                            <td>營業利益 (EBIT)</td>\n                            <td class=\"num\">1,200</td>\n                            <td class=\"num neg\">0 (-1,200)</td>\n                            <td class=\"num neg\">500 (-700)</td>\n                            <td class=\"num neg\">720 (-480)</td>\n                        </tr>\n                        <tr class=\"total-row\" style=\"background: #fef2f2;\">\n                            <td style=\"font-weight: 800; color: #991b1b;\">本期淨利 (Net Income)</td>\n                            <td class=\"num pos\"><strong>880</strong></td>\n                            <td class=\"num neg\"><strong>(128) [轉盈為虧]</strong></td>\n                            <td class=\"num neg\"><strong>314 [-64.3%]</strong></td>\n                            <td class=\"num neg\"><strong>496 [-43.6%]</strong></td>\n                        </tr>\n                        <tr>\n                            <td>營業活動淨現金流量 (OCF)</td>\n                            <td class=\"num\">1,300</td>\n                            <td class=\"num neg\">672 (-628)</td>\n                            <td class=\"num neg\">864 (-436)</td>\n                            <td class=\"num neg\">976 (-324)</td>\n                        </tr>\n                        <tr>\n                            <td>期末保留盈餘 (Equity)</td>\n                            <td class=\"num\">2,800</td>\n                            <td class=\"num neg\">1,650 (-1,150)</td>\n                            <td class=\"num neg\">2,400 (-400)</td>\n                            <td class=\"num neg\">2,350 (-450)</td>\n                        </tr>\n                        <tr class=\"total-row\">\n                            <td>期末現金及約當現金</td>\n                            <td class=\"num\">800</td>\n                            <td class=\"num\">972 (借款支應)</td>\n                            <td class=\"num neg\">614 (-186)</td>\n                            <td class=\"num neg\">776 (-24)</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <div class=\"grid-3\" style=\"margin-top: 0.5rem;\">\n                <div class=\"card\" style=\"border-left: 4px solid #b91c1c;\">\n                    <div style=\"font-size: 0.85rem; font-weight: 700; color: #b91c1c; margin-bottom: 4px;\">實體風險啟示</div>\n                    <p style=\"font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                        破壞力最猛烈且非線性，直接導致獲利「斷崖式清零」轉為巨虧 1.28 億，徹底摧毀供應鏈信用與及時交貨神話。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-left: 4px solid #b45309;\">\n                    <div style=\"font-size: 0.85rem; font-weight: 700; color: #b45309; margin-bottom: 4px;\">轉型風險啟示</div>\n                    <p style=\"font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                        最具持續性與窒息感。碳稅與客戶砍單每年常態性侵蝕 5.66 億利潤，是傳統高碳代工廠最大的「灰犀牛危機」。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-left: 4px solid #0284c7;\">\n                    <div style=\"font-size: 0.85rem; font-weight: 700; color: #0284c7; margin-bottom: 4px;\">責任風險啟示</div>\n                    <p style=\"font-size: 0.82rem; color: #475569; line-height: 1.5;\">\n                        直接摧毀商業信譽。高達 1.2 億的非經常性支出與 80% 消費者抵制，讓企業陷入公關泥淖與融資降等懲罰。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "完成討論問題 Q1 的收斂，帶領學生進行橫向對比，深刻建立『不做事/不管理氣候風險的代價極其高昂』的共識。", "timing": "建議 8 分鐘", "prompts": ["大家看這張總表：三種風險中，哪一種最可能讓 ABC 立即倒閉？哪一種最可能讓 ABC 慢性死亡？", "現在我們確信『不改變不行了』，那麼 ABC 究竟該怎麼走？"], "pitfalls": ["學生討論常發散在批評企業沒有做好防洪或環保，教師應將焦點迅速切換至下一單元：『三大策略轉型方案 PK』。"], "board": "第一欄板書總結：『無論哪種風險，獲利皆暴減 44%~114% ➔ 氣候轉型是生死存亡戰！』"}}, {"id": 12, "module": "策略抉擇", "title": "策略抉擇：三大轉型路徑正面交鋒 (教學指引 表 1)", "subtitle": "課堂討論問題 Q2：方案甲 (保守) vs 方案乙 (漸進) vs 方案丙 (積極)", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 0.8rem;\">\n            <div class=\"alert alert-info\" style=\"padding: 0.6rem 1rem;\">\n                <span>🎯</span>\n                <div style=\"font-size: 0.84rem;\">\n                    <strong>討論問題二 (Q2) 核心任務：</strong>ABC 企業面臨 2024 年底的關鍵戰略分水嶺，高層提出三大轉型路徑。請引導學生從資本支出、淨利潤、負債水準與大客戶維繫等多維度進行權衡取捨 (Trade-offs)。\n                </div>\n            </div>\n\n            <div class=\"table-responsive\">\n                <table class=\"case-table\">\n                    <thead>\n                        <tr style=\"background: #0f172a; color: white;\">\n                            <th style=\"color: white; width: 22%;\">策略指標 (Strategic Metrics)</th>\n                            <th style=\"color: #fca5a5; width: 26%;\">方案甲 (保守防禦型)</th>\n                            <th style=\"color: #fcd34d; width: 26%;\">方案乙 (穩健漸進型)</th>\n                            <th style=\"color: #86efac; width: 26%;\">方案丙 (積極前瞻型)</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><strong>綠色資本投入 (CapEx)</strong></td>\n                            <td class=\"num\"><strong>0 美元</strong></td>\n                            <td class=\"num\"><strong>1.2 億美元</strong></td>\n                            <td class=\"num\"><strong>2.5 億美元</strong></td>\n                        </tr>\n                        <tr>\n                            <td>2024 年預估營業收入</td>\n                            <td class=\"num neg\">114.0 億美元 (-5.0%)</td>\n                            <td class=\"num neg\">117.6 億美元 (-2.0%)</td>\n                            <td class=\"num pos\">120.0 億美元 (0.0% 保住)</td>\n                        </tr>\n                        <tr class=\"total-row\">\n                            <td><strong>2024 年預估本期淨利</strong></td>\n                            <td class=\"num neg\"><strong>3.14 億美元 (-64.3%)</strong></td>\n                            <td class=\"num neg\"><strong>6.20 億美元 (-29.5%)</strong></td>\n                            <td class=\"num pos\"><strong>8.88 億美元 (+0.9%)</strong></td>\n                        </tr>\n                        <tr>\n                            <td>長期借款總額 (LT Debt)</td>\n                            <td class=\"num\">25.0 億美元</td>\n                            <td class=\"num\">25.5 億美元</td>\n                            <td class=\"num neg\">26.0 億美元 (負債升)</td>\n                        </tr>\n                        <tr>\n                            <td>聯貸融資利率待遇</td>\n                            <td class=\"num neg\"><strong>懲罰性調升 0.5%</strong></td>\n                            <td class=\"num\">維持基準利率</td>\n                            <td class=\"num pos\"><strong>調降 0.5% (綠色溢價)</strong></td>\n                        </tr>\n                        <tr>\n                            <td>年度碳稅支出負擔</td>\n                            <td class=\"num neg\">1.0 億美元 (200萬噸)</td>\n                            <td class=\"num\">9,500 萬美元</td>\n                            <td class=\"num pos\">9,000 萬美元 (-10% 排放)</td>\n                        </tr>\n                        <tr>\n                            <td>能源電費成本省減</td>\n                            <td class=\"num\">0 美元</td>\n                            <td class=\"num pos\">2,000 萬美元</td>\n                            <td class=\"num pos\"><strong>5,000 萬美元</strong></td>\n                        </tr>\n                        <tr style=\"background: #f8fafc;\">\n                            <td><strong>核心優勢 (Pros)</strong></td>\n                            <td style=\"color: #047857; font-size: 0.8rem;\">短期完全無資金支出壓力，現金流最充裕</td>\n                            <td style=\"color: #047857; font-size: 0.8rem;\">投資在承受範圍內，債務與進度相對平衡</td>\n                            <td style=\"color: #047857; font-size: 0.8rem; font-weight: 700;\">牢固鎖定大客戶、優化利潤、徹底免除擱淺</td>\n                        </tr>\n                        <tr style=\"background: #f8fafc;\">\n                            <td><strong>主要風險 (Cons)</strong></td>\n                            <td style=\"color: #b91c1c; font-size: 0.8rem; font-weight: 700;\">大客戶撤單、融資被加息、產線全面擱淺</td>\n                            <td style=\"color: #b91c1c; font-size: 0.8rem;\">碳稅依然沉重，定位平庸兩頭落空</td>\n                            <td style=\"color: #b91c1c; font-size: 0.8rem;\">短期借款攀升、折舊增加、自由現金緊繃</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生對表 1 進行多維度深度比對，打破『零投資最省錢』的直覺迷思。", "timing": "建議 12 分鐘", "prompts": ["請各組代表分別為甲、乙、丙辯護：如果你是即將退休的 CEO，你會選哪一個？如果你是年輕新任的 CEO，你會選哪一個？", "方案乙看似中庸穩健，但為什麼很多管理學者認為方案乙才是『最危險的陷阱』？"], "pitfalls": ["學生常陷入折衷主義傾向選擇方案乙。教師應點出：方案乙花了 1.2 億卻依然要繳 9,500 萬碳稅，且無法享有綠色融資利率優惠，很難形成核心壁壘。"], "board": "中欄繪製三方案 PK 表：[甲：投0/利3.14/加息] vs [乙：投1.2/利6.2/中庸] vs [丙：投2.5/利8.88/減息]"}}, {"id": 13, "module": "策略抉擇", "title": "方案深度剖析：三種未來的命運天平", "subtitle": "保守的溫水煮青蛙 vs 漸進的平庸妥協 vs 積極的涅槃重生", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.2rem;\">\n            <div class=\"grid-3\">\n                <!-- Plan A -->\n                <div class=\"card\" style=\"border-top: 5px solid #b91c1c; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #b91c1c;\">方案甲：溫水煮青蛙</span>\n                            <span class=\"badge badge-red\">保守防禦</span>\n                        </div>\n                        <p style=\"font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px;\">短期最安全，中長期迎來滅頂之災</p>\n                        <p class=\"card-p\">\n                            雖然 2024 年完全不花一毛錢資本支出，帳面保留 8 億現金。但一旦歐盟碳稅與客戶減碳標準生效，大客戶 Apple/Samsung 立即扣減 5% 訂單。\n                        </p>\n                        <div class=\"alert alert-danger\" style=\"margin-top: 8px; padding: 6px 10px; font-size: 0.78rem;\">\n                            <strong>連鎖惡果：</strong>淨利崩跌至 3.14 億；銀行聯貸利率懲罰性調升 0.5%；60 億廠房設備隨時面臨大額減記，企業走向邊緣化。\n                        </div>\n                    </div>\n                    <div style=\"margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: #b91c1c;\">\n                        💀 戰略評價：偽裝成謹慎的自殺策略\n                    </div>\n                </div>\n\n                <!-- Plan B -->\n                <div class=\"card\" style=\"border-top: 5px solid #b45309; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #b45309;\">方案乙：平庸的折衷</span>\n                            <span class=\"badge badge-amber\">穩健漸進</span>\n                        </div>\n                        <p style=\"font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px;\">試圖討好所有人，最終兩頭落空</p>\n                        <p class=\"card-p\">\n                            投入 1.2 億美元升級部分核心產線，保住大部分訂單（營收僅少 2%）。但減碳幅度僅杯水車薪，依然需繳納 9,500 萬美元高額碳稅。\n                        </p>\n                        <div class=\"alert alert-warning\" style=\"margin-top: 8px; padding: 6px 10px; font-size: 0.78rem;\">\n                            <strong>尷尬瓶頸：</strong>無法跨過國際綠色金融標準門檻，融資利率無優惠；且面對競爭對手全綠產線，仍難逃後續被砍單命運。\n                        </div>\n                    </div>\n                    <div style=\"margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: #b45309;\">\n                        ⚖️ 戰略評價：浪費彈藥的中庸陷阱\n                    </div>\n                </div>\n\n                <!-- Plan C -->\n                <div class=\"card\" style=\"border-top: 5px solid #047857; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #047857;\">方案丙：前瞻破局者</span>\n                            <span class=\"badge badge-green\">積極重塑</span>\n                        </div>\n                        <p style=\"font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px;\">短期財務承壓，長期重塑核心競爭力</p>\n                        <p class=\"card-p\">\n                            大膽投入 2.5 億美元（設備 2 億 + 研發 5,000 萬）。徹底消除法規風險，每年省下 5,000 萬電費與 1,000 萬碳稅，發行低息綠債，保住 100% 訂單。\n                        </p>\n                        <div class=\"alert alert-success\" style=\"margin-top: 8px; padding: 6px 10px; font-size: 0.78rem;\">\n                            <strong>卓越戰果：</strong>本期淨利逆勢提升至 8.88 億美元！成功將 60 億潛在擱淺「棕色資產」翻轉為「綠色競爭壁壘」。\n                        </div>\n                    </div>\n                    <div style=\"margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: #047857;\">\n                        🚀 戰略評價：化被動合規為主動進攻\n                    </div>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生洞悉不同戰略方案背後的長期動態後果，特別是點破『漸進方案』的平庸陷阱。", "timing": "建議 8 分鐘", "prompts": ["為什麼在氣候轉型的劇烈變革期，『漸進式改良』往往比『大膽重塑』更危險？", "方案丙的 8.88 億淨利是怎麼來的？它比基準年的 8.8 億還多了 800 萬，這 800 萬的組成是什麼？"], "pitfalls": ["學生容易忽視方案丙帶來的『節電 5,000 萬』與『綠債省息 50 萬』，正是這些細緻的增量效益讓 ABC 在承擔巨額折舊與碳稅下依然能交出創紀錄獲利！"], "board": "中欄補充各方案評語：『甲：溫水煮青蛙 · 乙：平庸妥協 · 丙：涅槃破局』"}}, {"id": 14, "module": "領導決策", "title": "執行長決策心法：以「不做事的代價」破解董事會阻力", "subtitle": "課堂討論問題 Q3：鍾建國如何說服注重短期 EPS 的保守股東？", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 1.5rem; border-radius: 10px;\">\n                <div style=\"font-size: 0.82rem; color: #38bdf8; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;\">\n                    【問題三引導】董事會上的靈魂拷問與認知反轉\n                </div>\n                <h3 style=\"font-size: 1.35rem; font-weight: 800; line-height: 1.3; color: #f8fafc; margin-bottom: 0.75rem;\">\n                    「林財務長與各位董事，你們認為投資 2.5 億很貴嗎？<br>\n                    <span style=\"color: #f87171;\">但我告訴大家：不做事的代價是 5.66 億美元！</span>」\n                </h3>\n                <p style=\"font-size: 0.95rem; color: #cbd5e1; line-height: 1.6;\">\n                    鍾建國必須向注重短期每股盈餘 (EPS) 的董事會強力推薦<strong>「方案丙（積極前瞻型策略）」</strong>。他的核心說服策略不是大談拯救地球，而是直接攤開數字，揭露「不作為」將帶來的毀滅性財務後果！\n                </p>\n            </div>\n\n            <div class=\"grid-3\">\n                <div class=\"card\" style=\"border-top: 4px solid #b91c1c;\">\n                    <div style=\"font-size: 0.8rem; font-weight: 700; color: #b91c1c; margin-bottom: 4px;\">第一步：量化不做事的代價</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">Cost of Inaction</h4>\n                    <p class=\"card-p\">\n                        若選擇不投資 (方案甲)，淨利將從原本 8.8 億暴跌至 3.14 億，<strong>直接蒸發 5.66 億美元獲利！</strong><br>\n                        <span style=\"color: #b91c1c; font-weight: 700;\">5.66 億的損失，遠遠大於 2.5 億的投資總額！</span>\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div style=\"font-size: 0.8rem; font-weight: 700; color: #047857; margin-bottom: 4px;\">第二步：重定義投資屬性</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">防禦性保命符</h4>\n                    <p class=\"card-p\">\n                        方案丙的 2.5 億美元不是額外增加的奢侈開銷，而是一筆<strong>「防禦性保命投資」</strong>。它守住了 120 億營收基盤，使淨利維持在 8.88 億健康水位，徹底保護股東的 EPS。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div style=\"font-size: 0.8rem; font-weight: 700; color: #0284c7; margin-bottom: 4px;\">第三步：破除會計存量迷思</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">資產負債表保衛戰</h4>\n                    <p class=\"card-p\">\n                        省下 2.5 億現金，換來的卻是 60 億固定資產面臨大額減記，以及銀行聯貸利息調升 0.5%。不投資表面上看似保守，實質上是在拿整家公司的命脈進行賭博！\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "傳授商業說服的最強武器：『Cost of Inaction』(不做事的代價)。讓學生學會如何向高層提案。", "timing": "建議 10 分鐘", "prompts": ["如果你是鐘建國，董事會裡有一位老股東拍桌子說：『景氣這麼差，憑什麼要拿 2.5 億去買什麼綠色設備？』你怎麼回擊他？", "為什麼拿『5.66 億損失 > 2.5 億投資』這個對比，可以瞬間秒殺所有反對意見？"], "pitfalls": ["學生常陷入『倡議型溝通』，一直講綠色多好、永續多偉大。董事會只看風險、現金與 EPS，必須用『不做的代價更慘』進行恐懼訴求與理性計算！"], "board": "中欄震撼核心公式：『Cost of Inaction ($5.66億損失) ＞ 投資額 ($2.5億) ➔ 防禦性保命！』"}}, {"id": 15, "module": "金融風控", "title": "綠色金融故事與兩大流動性風險控管配套", "subtitle": "化解 CFO 林雅婷對 2.5 億債務與現金流失的擔憂", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: #f8fafc; border-left: 5px solid #047857;\">\n                <div class=\"card-header\">\n                    <span style=\"color: #047857;\">💚 綠色融資故事的精妙包裝 (Green Financing)</span>\n                    <span class=\"badge badge-green\">發行 1 億綠色債券</span>\n                </div>\n                <p class=\"card-p\">\n                    執行長鍾建國結合永續長陳維明的減碳量化數據，向聯貸銀行團與外資長線基金宣布發行 <strong>1 億美元「綠色債券」(Green Bond)</strong>：\n                </p>\n                <div style=\"display: flex; gap: 1rem; margin-top: 8px; flex-wrap: wrap;\">\n                    <div style=\"flex: 1; min-width: 240px; background: white; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);\">\n                        <strong>優化利息支出：</strong>鎖定比市場平均低 0.5% 的優惠利率，每年為公司直接省下 50 萬美元利息。\n                    </div>\n                    <div style=\"flex: 1; min-width: 240px; background: white; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);\">\n                        <strong>吸引外資長線資金：</strong>向貝萊德 (BlackRock) 等機構傳遞正面轉型訊號，穩固公司股價估值與資本市場評級。\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"grid-2\">\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #b45309;\">🛡️ 配套一：設備供應商分期付款協議</span>\n                        <span class=\"badge badge-amber\">現金流防火牆</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.85rem; line-height: 1.6; color: #334155;\">\n                        <li><strong>分期付款與改建進度掛鉤：</strong>將 2 億美元設備資本支出拆解為多期，嚴格依據工廠安裝與調試進度撥款。</li>\n                        <li><strong>績效對賭與減碳 KPI 連動：</strong>尾款保留款與設備實測節能減碳達成率綁定，確保節電效益如期兌現。</li>\n                        <li><strong>守護流動性底線：</strong>防止 8 億美元現金儲備一次性失血過快，確保日常營運資金充裕無虞。</li>\n                    </ul>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #0284c7;\">🔒 配套二：鎖定大客戶 3-5 年長期綠色採購協定</span>\n                        <span class=\"badge badge-blue\">產能利用率保證</span>\n                    </div>\n                    <ul style=\"padding-left: 1.2rem; font-size: 0.85rem; line-height: 1.6; color: #334155;\">\n                        <li><strong>以轉型為議價籌碼：</strong>以 ABC 率先打造業界領先低碳產線為條件，要求 Apple 與 Samsung 簽訂「綠色產能保障合約」。</li>\n                        <li><strong>鎖定採購配額：</strong>確保未來 3 至 5 年內每年最低代工採購量，徹底消除客戶砍單與轉單疑慮。</li>\n                        <li><strong>保障投資回收安全：</strong>產能利用率鎖定在 85% 以上，確保 2.5 億投資能穩定藉由營收流入回收。</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "說明策略落地的配套工具：好策略必須有『融資機制』與『風控機制』保駕護航，才能徹底解除 CFO 的疑慮。", "timing": "建議 8 分鐘", "prompts": ["為什麼綠色債券能拿到比一般借款低 0.5% 的利率？銀行圖什麼？", "設備採購為什麼一定要『分期且綁減碳 KPI』？如果一次付清會面臨什麼風險？"], "pitfalls": ["學生常以為策略通過就結束了，忽略了方案落地的具體條款談判（如與蘋果簽長約、與設備商談分期）才是勝敗關鍵。"], "board": "中欄下方記錄兩大護航配套：『1. 設備分期付款綁KPI』+『2. 鎖定客戶3~5年綠色包量長約』"}}, {"id": 16, "module": "財務評價", "title": "突破傳統思維：NPV 與投資回收期震撼對比 (教學工具二)", "subtitle": "專案獨立評估法 (Standalone) vs 戰略機會成本法 (Strategic Cost)", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.2rem;\">\n            <div class=\"alert alert-info\" style=\"padding: 0.6rem 1rem;\">\n                <span>🔥</span>\n                <div style=\"font-size: 0.84rem;\">\n                    <strong>教學工具二核心亮點：</strong>兩種評估視角，呈現出完全相反的結論！這深刻揭示了傳統財務評估模型在面對氣候戰略轉型時的致命盲點。\n                </div>\n            </div>\n\n            <div class=\"grid-2\">\n                <!-- Approach 1 -->\n                <div class=\"card\" style=\"border-top: 5px solid #b91c1c; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #b91c1c;\">視角一：專案獨立評估法 (傳統思維)</span>\n                            <span class=\"badge badge-red\">財務長會否決</span>\n                        </div>\n                        <p style=\"font-size: 0.82rem; color: #64748b; margin-bottom: 8px;\">僅計算設備帶來的「直接成本省減」</p>\n                        <div style=\"background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.82rem; line-height: 1.6; margin-bottom: 8px;\">\n                            • 每年省電：$5,000 萬<br>\n                            • 碳稅節省 (少10%)：$1,000 萬<br>\n                            • 綠債省息 (低0.5%)：$50 萬<br>\n                            ➔ <strong>增量 EBITDA = $6,050 萬美元</strong><br>\n                            • 扣除折舊 ($200M/10年 = $2,000萬) ➔ EBIT = $4,050 萬<br>\n                            • 扣除所得稅 (20%) ➔ 稅後增量淨利 = $3,240 萬<br>\n                            • 加回折舊 ➔ <strong>年度營運現金流 = $5,240 萬美元</strong>\n                        </div>\n                        <div class=\"stat-banner\" style=\"margin-top: 4px;\">\n                            <div class=\"stat-box danger\" style=\"padding: 6px;\"><div class=\"stat-num\" style=\"font-size: 1.2rem;\">4.77 年</div><div class=\"stat-desc\">投資回收期 (偏長)</div></div>\n                            <div class=\"stat-box danger\" style=\"padding: 6px;\"><div class=\"stat-num\" style=\"font-size: 1.2rem;\">-$40.8M</div><div class=\"stat-desc\">5年期 NPV (負值虧損！)</div></div>\n                        </div>\n                    </div>\n                    <p style=\"font-size: 0.76rem; color: #b91c1c; margin-top: 6px;\">註：折現率 8%，5年年金折現因子 3.9927。NPV = 52.4 × 3.9927 - 250 = -$40.8 百萬美元。</p>\n                </div>\n\n                <!-- Approach 2 -->\n                <div class=\"card\" style=\"border-top: 5px solid #047857; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #047857;\">視角二：戰略機會成本法 (戰略思維)</span>\n                            <span class=\"badge badge-green\">執行長必推</span>\n                        </div>\n                        <p style=\"font-size: 0.82rem; color: #64748b; margin-bottom: 8px;\">納入「不做事會被客戶砍單 5%」的生存代價</p>\n                        <div style=\"background: #ecfdf5; padding: 10px; border-radius: 6px; font-size: 0.82rem; line-height: 1.6; margin-bottom: 8px;\">\n                            • 方案丙 (積極) 營業現金流：$12.98 億美元<br>\n                            • 方案甲 (不轉型) 營業現金流：$8.64 億美元<br>\n                            ➔ <strong>真實增量營業現金流 = 12.98 - 8.64 = <span style=\"color: #047857; font-weight: 800;\">$4.34 億美元 / 年！</span></strong><br>\n                            • 真實投資回收期：<br>\n                            &nbsp;&nbsp;初始投資 2.5 億 / 4.34 億 = <strong>0.58 年 (不到 7 個月即回本！)</strong><br>\n                            • 5 年期戰略淨現值 (NPV @ 8%)：<br>\n                            &nbsp;&nbsp;NPV = 4.34 億 × 3.9927 − 2.5 億 = 17.33 億 − 2.5 億<br>\n                            &nbsp;&nbsp;➔ <strong><span style=\"color: #047857; font-weight: 800; font-size: 0.95rem;\">NPV = +$14.83 億美元 (約 450 億台幣！)</span></strong>\n                        </div>\n                        <div class=\"stat-banner\" style=\"margin-top: 4px;\">\n                            <div class=\"stat-box success\" style=\"padding: 6px;\"><div class=\"stat-num\" style=\"font-size: 1.2rem;\">0.58 年</div><div class=\"stat-desc\">真實回本期 (約7個月)</div></div>\n                            <div class=\"stat-box success\" style=\"padding: 6px;\"><div class=\"stat-num\" style=\"font-size: 1.2rem;\">+$14.83 億</div><div class=\"stat-desc\">5年戰略 NPV (極具價值)</div></div>\n                        </div>\n                    </div>\n                    <p style=\"font-size: 0.76rem; color: #047857; margin-top: 6px;\">💡 核心結論：氣候轉型是保命防禦性投資，絕不能僅以單純專案節流來計算其價值！</p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生掌握兩種 NPV 計算方法。這是本個案教學指引中最具學術深度與實務震撼力的精髓！", "timing": "建議 12 分鐘", "prompts": ["大家看視角一：NPV 是負的 4,000 萬，如果照傳統商學院教的資本預算決策，這案子該不該過？", "為什麼加入『不做事的機會成本』後，回收期從接近 5 年暴跌到只有 7 個月？差在哪裡？"], "pitfalls": ["學生容易搞混折現因子計算。教師需在黑板上把『52.4M vs 434M』這兩個年度現金流的來源算清楚給學生看！"], "board": "右欄書寫 NPV 雙重視角對比：『專案法：NPV -$40.8M (否決) vs 機會法：NPV +$14.83億 (7個月回本)』"}}, {"id": 17, "module": "課堂互動", "title": "現場互動演練：氣候轉型投資戰略 NPV 動態試算沙盒", "subtitle": "調整折現率、客戶砍單比例與碳稅價格，即時驗證決策敏感度", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div class=\"grid-2\">\n                <!-- Sandbox Controls -->\n                <div class=\"sandbox-panel\">\n                    <div style=\"font-size: 0.95rem; font-weight: 700; color: #0f172a; border-bottom: 1px solid var(--border); padding-bottom: 6px;\">\n                        🎛️ 參數調節控制台 (現場即時模擬)\n                    </div>\n\n                    <div class=\"slider-group\">\n                        <div class=\"slider-header\">\n                            <span>資本成本 / 折現率 (Discount Rate, r)</span>\n                            <span class=\"slider-val\" id=\"valDiscount\">8.0%</span>\n                        </div>\n                        <input type=\"range\" id=\"npvDiscountSlider\" min=\"5\" max=\"15\" step=\"0.5\" value=\"8.0\">\n                    </div>\n\n                    <div class=\"slider-group\">\n                        <div class=\"slider-header\">\n                            <span>不轉型時大客戶砍單比例 (Order Loss %)</span>\n                            <span class=\"slider-val\" id=\"valOrderLoss\">5%</span>\n                        </div>\n                        <input type=\"range\" id=\"npvOrderLossSlider\" min=\"0\" max=\"15\" step=\"1\" value=\"5\">\n                    </div>\n\n                    <div class=\"slider-group\">\n                        <div class=\"slider-header\">\n                            <span>歐盟碳稅基準單價 (Carbon Tax $/ton)</span>\n                            <span class=\"slider-val\" id=\"valCarbonTax\">$50/噸</span>\n                        </div>\n                        <input type=\"range\" id=\"npvCarbonTaxSlider\" min=\"20\" max=\"120\" step=\"5\" value=\"50\">\n                    </div>\n\n                    <p style=\"font-size: 0.78rem; color: #64748b; line-height: 1.4;\">\n                        💡 <strong>操作說明：</strong>滑動滑桿改變假設條件，右側將即時動態重算方案丙的戰略淨現值 (NPV) 與投資回收期。\n                    </p>\n                </div>\n\n                <!-- Live Dynamic Results -->\n                <div class=\"card\" style=\"background: #ffffff; border-top: 4px solid #047857; display: flex; flex-direction: column; justify-content: space-between;\">\n                    <div>\n                        <div class=\"card-header\">\n                            <span style=\"color: #047857;\">📈 戰略動態評價運算結果</span>\n                            <span class=\"badge badge-green\">即時更新</span>\n                        </div>\n                        \n                        <div class=\"grid-2\" style=\"margin-top: 8px;\">\n                            <div class=\"stat-box success\">\n                                <div class=\"stat-num\" id=\"resOcfDiff\">$434.0 M</div>\n                                <div class=\"stat-desc\">真實年度增量現金流</div>\n                            </div>\n                            <div class=\"stat-box success\">\n                                <div class=\"stat-num\" id=\"resPayback\">0.58 年 (7.0 個月)</div>\n                                <div class=\"stat-desc\">戰略投資回收期</div>\n                            </div>\n                        </div>\n\n                        <div style=\"margin-top: 1rem; padding: 1rem; background: #ecfdf5; border-radius: 8px; text-align: center; border: 1px solid #a7f3d0;\">\n                            <div style=\"font-size: 0.8rem; font-weight: 700; color: #065f46; text-transform: uppercase;\">5年期戰略淨現值 (Strategic NPV)</div>\n                            <div style=\"font-size: 2rem; font-weight: 900; color: #047857; margin: 4px 0;\" id=\"resNpvStrategic\">$1482.8 M</div>\n                            <div style=\"font-size: 0.75rem; color: #047857;\">相較於傳統獨立法 NPV: <span id=\"resNpvStandalone\" style=\"font-weight: 700; color: #b91c1c;\">-$40.8 M</span> (回收期 <span id=\"resStandalonePayback\">4.77 年</span>)</div>\n                        </div>\n                    </div>\n\n                    <div class=\"alert alert-success\" style=\"margin-top: 10px; padding: 6px 10px; font-size: 0.78rem;\">\n                        <strong>穩健性測試 (Stress Test)：</strong>即使折現率調升至 12%，只要大客戶砍單超過 2%，方案丙的戰略 NPV 依然高達 6 億美元以上！\n                    </div>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "透過可互動調節的 Sandbox，讓學生親手驗證不同情境下的財務穩健度，活躍課堂氣氛。", "timing": "建議 8 分鐘", "prompts": ["請一位同學上來調整砍單比例：如果客戶只砍單 1%，這項投資還划得來嗎？如果砍單 10% 呢？", "如果未來歐盟碳稅漲到每噸 $100 美元，會發生什麼事？"], "pitfalls": ["讓學生理解敏感度分析 (Sensitivity Analysis) 的意義：方案丙在各種悲觀情境下都展現出極強的抗風險能力。"], "board": "右欄記錄敏感度心得：『砍單風險越高，戰略 NPV 越大，轉型越具急迫性！』"}}, {"id": 18, "module": "資產負債", "title": "「棕色資產」價值管理三部曲：防範 60 億設備全面擱淺", "subtitle": "課堂討論問題 Q4：前瞻性資產負債表管理工具與實務應用", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: #f8fafc; border-left: 5px solid #b45309;\">\n                <div class=\"card-header\">\n                    <span style=\"color: #b45309;\">【問題四引導】什麼是「棕色資產」與「擱淺風險」？</span>\n                    <span class=\"badge badge-amber\">60 億固定資產盤點</span>\n                </div>\n                <p class=\"card-p\">\n                    ABC 企業帳面高達 <strong>60 億美元的廠房設備淨值</strong>中，高耗能高排碳的傳統組裝線、舊式鍋爐與不符新法規的排污設備皆為典型「棕色資產」。在碳稅提高與客戶 ESG 審計下，這些資產將提前喪失經濟壽命，產生巨額<strong>資產減值損失 (Impairment Loss)</strong>，重創淨資產與股價！\n                </p>\n            </div>\n\n            <div class=\"grid-3\">\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div style=\"font-size: 0.78rem; font-weight: 700; color: #0284c7; margin-bottom: 4px;\">管理工具一</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">碳資產審計 (Carbon Audit)</h4>\n                    <p class=\"card-p\">\n                        建立內部數位化碳盤查追蹤系統，為每條生產線、每台重型設備標記<strong>「碳排放強度」</strong>（噸碳 / 每百萬美元產值）。精確繪製出全廠區的「資產碳風險熱力圖」，作為資本支出的篩選依據。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div style=\"font-size: 0.78rem; font-weight: 700; color: #b45309; margin-bottom: 4px;\">管理工具二</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">加速折舊策略 (Accelerated Depr.)</h4>\n                    <p class=\"card-p\">\n                        針對預計 3-5 年內將被綠色法規淘汰的高碳產線，主動縮短法定折舊年限。雖然短期內會增加帳面折舊費用，但能<strong>分攤一次性暴跌風險</strong>，避免政策突然收緊時面臨猝不及防的資產崩盤減值！\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div style=\"font-size: 0.78rem; font-weight: 700; color: #047857; margin-bottom: 4px;\">管理工具三</div>\n                    <h4 style=\"font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;\">綠色化改造升級 (Green Retrofit)</h4>\n                    <p class=\"card-p\">\n                        利用方案丙的部分資金對現有老舊產線進行<strong>變頻節能改裝與工業餘熱回收</strong>。以最低的資本支出將原本瀕臨淘汰的「棕色資產」就地升級為「綠色資產」，大幅延長其有效經濟壽命。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "帶領學生探討討論問題 Q4，了解會計政策（如折舊與資產減值）如何作為管理階層的主動戰略防禦工具。", "timing": "建議 8 分鐘", "prompts": ["如果我們不主動加速折舊，等到會計師要求我們一口氣認列 5 億美元減值時，股價會發生什麼事？", "改造現有老產線（Retrofit）和直接全部報廢買新的，哪一個更符合製造業的財務現實？"], "pitfalls": ["學生常誤以為資產減記只是『帳面數字遊戲』，不影響現金。教師應提醒：大額減值會打擊保留盈餘、觸發銀行借款違約條款 (Debt Covenants) 並摧毀市值！"], "board": "右欄記錄棕色資產治理三部曲：『1. 碳審計盤點 ➔ 2. 加速折舊攤提 ➔ 3. 綠色改造延長壽命』"}}, {"id": 19, "module": "戰略分析", "title": "戰略工具一：利害關係人影響力矩陣 (教學指引 工具一)", "subtitle": "權力 (Power) vs 關注度 (Interest) 的精準動態博弈", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem; height: 100%;\">\n            <div class=\"alert alert-info\" style=\"padding: 0.5rem 1rem;\">\n                <span>📌</span>\n                <div style=\"font-size: 0.82rem;\">\n                    <strong>工具一分析核心：</strong>評估五大利害關係人在 ABC 氣候轉型談判中的權力大小與關注維度，制定相應的溝通與化解策略。\n                </div>\n            </div>\n\n            <div class=\"matrix-2x2\">\n                <!-- Cell 1: High Power, High Interest -->\n                <div class=\"matrix-cell\" style=\"background: #fef2f2; border-color: #fca5a5;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #991b1b; text-transform: uppercase;\">核心主宰者 (Key Players)</div>\n                    <h4 style=\"color: #991b1b;\">【極高權力 / 高關注】品牌客戶與銀行團</h4>\n                    <ul>\n                        <li><strong>品牌客戶 (Apple / Samsung)：</strong>代工生命線。要求供應商每年減碳 5% 與 100% 綠電，否則直接轉單。<strong>策略：必須採方案丙保住配額。</strong></li>\n                        <li><strong>聯貸銀行團：</strong>將融資利率與 ESG 績效掛鉤，不轉型加息 0.5%，轉型發綠債降息 0.5%。</li>\n                    </ul>\n                </div>\n\n                <!-- Cell 2: High Power, Low/Medium Interest -->\n                <div class=\"matrix-cell\" style=\"background: #fef3c7; border-color: #fcd34d;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #92400e; text-transform: uppercase;\">強勢監管與資本 (Keep Satisfied)</div>\n                    <h4 style=\"color: #92400e;\">【高權力 / 中關注】外資長線基金與歐盟</h4>\n                    <ul>\n                        <li><strong>外資機構投資人 (BlackRock)：</strong>關注長期股東價值與棕色資產擱淺風險，發函警告並威脅重組董事會。<strong>策略：落實 TCFD 揭露。</strong></li>\n                        <li><strong>歐盟監管機構 (碳稅)：</strong>制定每噸 $50 碳稅紅線，不參與日常營運但具法律剛性強制力。</li>\n                    </ul>\n                </div>\n\n                <!-- Cell 3: Low Power, High Interest -->\n                <div class=\"matrix-cell\" style=\"background: #f0fdf4; border-color: #86efac;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #166534; text-transform: uppercase;\">高度敏感群體 (Keep Informed)</div>\n                    <h4 style=\"color: #166534;\">【中權力 / 高關注】一般股東與基層員工</h4>\n                    <ul>\n                        <li><strong>一般散戶股東：</strong>只緊盯短期 EPS，極度反對大額資本支出。<strong>策略：以「不做事的代價 (5.66億)」說服之。</strong></li>\n                        <li><strong>工廠員工：</strong>擔憂產線改建導致裁員或技能脫節。<strong>策略：推動綠色技能轉型培訓。</strong></li>\n                    </ul>\n                </div>\n\n                <!-- Cell 4: External Stakeholders -->\n                <div class=\"matrix-cell\" style=\"background: #f0f9ff; border-color: #7dd3fc;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #075985; text-transform: uppercase;\">社會監督力量 (Monitor & Dialogue)</div>\n                    <h4 style=\"color: #075985;\">【中低權力 / 突發爆發力】環保 NGO 與社群</h4>\n                    <ul>\n                        <li><strong>環保組織 (綠色和平等)：</strong>持續監督排污與碳足跡，具備引發責任風險 (集體訴訟、公關風暴) 的強大輿論破壞力。</li>\n                        <li><strong>溝通策略：</strong>提高排污資訊透明度，建立社區對話管道。</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "引導學生運用利害關係人矩陣（工具一），理解為什麼滿足 Apple/Samsung 與銀行團的需求是 ABC 唯一的活路。", "timing": "建議 8 分鐘", "prompts": ["矩陣右上角的兩個角色（品牌客戶與銀行團）想要什麼？這兩者之間有沒有共通點？", "對於左下角只在乎短期 EPS 的散戶股東，我們該如何安撫？"], "pitfalls": ["學生容易誤將所有利害關係人視為同等重要。在商業現實中，握有訂單與金脈的群體具有絕對決定權！"], "board": "右欄繪製 2x2 矩陣：右上角標註『Apple/Samsung + 聯貸銀行團 ➔ 決定方案丙的必然性』"}}, {"id": 20, "module": "戰略分析", "title": "戰略工具三：情境規劃矩陣 (教學指引 工具三)", "subtitle": "法規監管強度 × 企業轉型策略的四種終局命運", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem; height: 100%;\">\n            <div class=\"alert alert-info\" style=\"padding: 0.5rem 1rem;\">\n                <span>🌐</span>\n                <div style=\"font-size: 0.82rem;\">\n                    <strong>工具三情境規劃核心：</strong>面對未來氣候政策的不確定性，以「外部法規強度」與「內部轉型選擇」交叉對比四種未來的終局景象。\n                </div>\n            </div>\n\n            <div class=\"matrix-2x2\">\n                <!-- Quadrant 1 -->\n                <div class=\"matrix-cell\" style=\"background: #ecfdf5; border: 2px solid #047857;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #047857; text-transform: uppercase;\">最理想終局</div>\n                    <h4 style=\"color: #047857;\">【嚴格法規 × 方案丙】綠色領航者</h4>\n                    <p style=\"font-size: 0.82rem; color: #334155; line-height: 1.45;\">\n                        • <strong>財務表現：極佳。</strong>碳稅大減、節電省 5,000 萬、利率享優惠，大客戶訂單不減反增。<br>\n                        • <strong>競爭壁壘：</strong>獲取產業綠色溢價，築起極高的代工護城河，牢固鎖定品牌客戶 3-5 年長約。\n                    </p>\n                </div>\n\n                <!-- Quadrant 2 -->\n                <div class=\"matrix-cell\" style=\"background: #fef2f2; border: 2px solid #b91c1c;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #b91c1c; text-transform: uppercase;\">最慘烈終局</div>\n                    <h4 style=\"color: #b91c1c;\">【嚴格法規 × 方案甲】擱淺與沒落</h4>\n                    <p style=\"font-size: 0.82rem; color: #334155; line-height: 1.45;\">\n                        • <strong>財務表現：崩潰。</strong>面臨 1 億美元碳稅，大客戶砍單 5-10%，產能利用率暴跌，資產巨額減值。<br>\n                        • <strong>競爭地位：</strong>被主流綠色供應鏈邊緣化與淘汰，淪為無利可圖的二線代工廠。\n                    </p>\n                </div>\n\n                <!-- Quadrant 3 -->\n                <div class=\"matrix-cell\" style=\"background: #fffbeb; border: 2px solid #d97706;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #b45309; text-transform: uppercase;\">防禦性承受</div>\n                    <h4 style=\"color: #b45309;\">【寬鬆法規 × 方案丙】超前投資的財務負擔</h4>\n                    <p style=\"font-size: 0.82rem; color: #334155; line-height: 1.45;\">\n                        • <strong>財務表現：中等偏弱。</strong>2.5 億投資折舊與債務利息負擔較重，短期利潤率低於保守競爭者。<br>\n                        • <strong>戰略價值：</strong>具備完備綠色技術門檻，等待未來政策收緊時爆發，具備高度戰略期權價值。\n                    </p>\n                </div>\n\n                <!-- Quadrant 4 -->\n                <div class=\"matrix-cell\" style=\"background: #f8fafc; border: 2px solid #94a3b8;\">\n                    <div style=\"font-size: 0.72rem; font-weight: 700; color: #475569; text-transform: uppercase;\">短視陷阱</div>\n                    <h4 style=\"color: #475569;\">【寬鬆法規 × 方案甲】短視的黃金期</h4>\n                    <p style=\"font-size: 0.82rem; color: #334155; line-height: 1.45;\">\n                        • <strong>財務表現：短期良好。</strong>無額外折舊與利息負擔，碳稅極低，維持高自由現金流與低成本優勢。<br>\n                        • <strong>致命隱憂：</strong>長期技術空洞化，一旦未來政策突然收緊，將毫無還手之力瞬間覆滅。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "帶領學生探討工具三（情境規劃矩陣），理解為什麼方案丙是『最大最小值悔恨原則』下的最佳策略。", "timing": "建議 8 分鐘", "prompts": ["如果未來全球氣候政策放緩了（右上角變到左下角），方案丙會不會害死公司？", "在【嚴格法規】必然到來的大趨勢下，方案甲存活的機率有多大？"], "pitfalls": ["引導學生看清：氣候政策可能延遲，但絕不可能倒退。因此方案丙即使在寬鬆情境下只是利潤略低，但在嚴格情境下卻能救命！"], "board": "右欄板書情境結論：『方案丙擁有極高戰略期權價值，能立於不敗之地！』"}}, {"id": 21, "module": "未來展望", "title": "超越代工：ABC 企業的長遠展望與第二成長曲線", "subtitle": "從傳統代工製造商邁向低碳智慧製造生態領航者", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: linear-gradient(135deg, #047857 0%, #064e3b 100%); color: white; padding: 1.25rem 1.5rem;\">\n                <h3 style=\"font-size: 1.2rem; font-weight: 800; color: #f8fafc; margin-bottom: 6px;\">\n                    轉型不只是為了防禦，更是開啟「第二成長曲線」的契機\n                </h3>\n                <p style=\"font-size: 0.88rem; color: #d1fae5; line-height: 1.6;\">\n                    當 ABC 跨過 2.5 億美元綠色轉型門檻後，它將不再只是一家聽任品牌客戶殺價的傳統代工廠，而是擁有了定義下世代電子製造標準的戰略主導權！\n                </p>\n            </div>\n\n            <div class=\"grid-4\">\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div style=\"font-size: 0.75rem; font-weight: 700; color: #047857; margin-bottom: 4px;\">第一支柱</div>\n                    <h4 style=\"font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">綠色技術與材料創新</h4>\n                    <p class=\"card-p\" style=\"font-size: 0.8rem;\">\n                        研發全生物降解外殼材料、再生低碳鋁合金製程與極致節能封裝技術，打造自主綠色技術專利池。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #0284c7;\">\n                    <div style=\"font-size: 0.75rem; font-weight: 700; color: #0284c7; margin-bottom: 4px;\">第二支柱</div>\n                    <h4 style=\"font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">跨界新興綠色賽道</h4>\n                    <p class=\"card-p\" style=\"font-size: 0.8rem;\">\n                        將大規模精密製造優勢延伸至電動車 (EV) 電子電控模組、儲能微電網系統與智慧能源基礎設施。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div style=\"font-size: 0.75rem; font-weight: 700; color: #b45309; margin-bottom: 4px;\">第三支柱</div>\n                    <h4 style=\"font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">供應鏈低碳生態共創</h4>\n                    <p class=\"card-p\" style=\"font-size: 0.8rem;\">\n                        以龍頭代工廠地位協助中小供應商進行碳盤查與減碳改造，共建電子業閉環回收循環經濟聯盟。\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #7c3aed;\">\n                    <div style=\"font-size: 0.75rem; font-weight: 700; color: #7c3aed; margin-bottom: 4px;\">第四支柱</div>\n                    <h4 style=\"font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;\">AI 智慧綠色製造</h4>\n                    <p class=\"card-p\" style=\"font-size: 0.8rem;\">\n                        結合工業 4.0，導入 AI 演算法即時優化產線用電、排程預測與物料零浪費，將極致效率與永續完美融合。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "將討論視野提升至企業長期戰略藍圖，幫助學生跳脫代工微利思維，看見第二成長曲線。", "timing": "建議 6 分鐘", "prompts": ["當代工廠具備了連品牌商都不具備的綠色製造專利時，雙方的權力關係會發生什麼改變？", "電子代工廠進軍電動車 (EV) 零組件或儲能，具備哪些既有優勢？"], "pitfalls": ["避免流於天馬行空的幻想，引導學生結合 ABC 既有的『精密組裝與全球供應鏈』核心優勢來推動新業務。"], "board": "右下角勾勒第二曲線：『從 EMS 代工 ➔ 躍升為綠色智慧製造解決方案服務商』"}}, {"id": 22, "module": "教學設計", "title": "教學法設計與 120~180 分鐘課堂時間配置表", "subtitle": "依循哈佛個案教學法之引導進程與節奏把控指南", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div class=\"table-responsive\">\n                <table class=\"case-table\">\n                    <thead>\n                        <tr style=\"background: #0f172a; color: white;\">\n                            <th style=\"color: white; width: 18%;\">教學模組</th>\n                            <th style=\"color: white; width: 14%;\">建議時間</th>\n                            <th style=\"color: white; width: 38%;\">課堂研討活動與核心問題</th>\n                            <th style=\"color: white; width: 30%;\">對應產出與板書規劃</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr>\n                            <td><strong>模組一：個案導讀</strong></td>\n                            <td>15 - 20 分鐘</td>\n                            <td>個案時空背景交代、ABC 四十年模式優勢與隱憂、高層決策三角角力分析。</td>\n                            <td>破冰暖身、啟動討論氛圍、記錄決策角色張力。</td>\n                        </tr>\n                        <tr>\n                            <td><strong>模組二：風險穿透</strong></td>\n                            <td>35 - 45 分鐘</td>\n                            <td><strong>討論問題一 (Q1)：</strong>實體、轉型與責任風險如何具體反映在三張報表上？深度對比財務數據。</td>\n                            <td><strong>板書第一欄：</strong>外部衝擊與財務傳導三路徑，寫下核心財務破壞數字。</td>\n                        </tr>\n                        <tr>\n                            <td><strong>模組三：方案抉擇</strong></td>\n                            <td>35 - 45 分鐘</td>\n                            <td><strong>討論問題二 & 三 (Q2, Q3)：</strong>三大轉型方案權衡 PK，分組辯論，執行長以「不做事的代價」說服董事會。</td>\n                            <td><strong>板書第二欄：</strong>三方案關鍵指標對比表，推導 Cost of Inaction 核心公式。</td>\n                        </tr>\n                        <tr>\n                            <td><strong>模組四：價值評價</strong></td>\n                            <td>25 - 35 分鐘</td>\n                            <td><strong>討論問題四 (Q4) 與工具二：</strong>NPV 雙重視角對比、棕色資產 60 億管理三部曲、現場動態沙盒試算。</td>\n                            <td><strong>板書第三欄：</strong>NPV 獨立法 vs 機會成本法對比，棕色資產治理三部曲。</td>\n                        </tr>\n                        <tr>\n                            <td><strong>模組五：戰略收斂</strong></td>\n                            <td>15 - 20 分鐘</td>\n                            <td><strong>工具一 & 工具三：</strong>利害關係人影響力矩陣、情境規劃 2x2 矩陣收斂終局。</td>\n                            <td>完成板書矩陣繪製，確認方案丙在各種情境下的穩健性。</td>\n                        </tr>\n                        <tr class=\"total-row\" style=\"background: #ecfdf5;\">\n                            <td><strong>模組六：總結昇華</strong></td>\n                            <td>10 - 15 分鐘</td>\n                            <td>教師講評、三大管理啟示總結、發布課後反思作業。</td>\n                            <td>擦拭黑板留存三大核心金句，激發課後延伸思考。</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <div class=\"alert alert-info\" style=\"font-size: 0.82rem;\">\n                💡 <strong>彈性調整建議：</strong>若是 2 小時 (120分鐘) 課程，可將模組四的現場沙盒演練與模組五合併為教師快速講授；若是 3 小時 (180分鐘) 課程，可大幅增加模組三各組代表方案甲、乙、丙的實體攻防辯論！\n            </div>\n        </div>\n    ", "notes": {"objective": "為授課教師提供清晰的時間控管藍圖，確保能在時間內完成所有教學目標與板書推進。", "timing": "建議 5 分鐘", "prompts": ["本頁為教師備課專用參考指引，教師授課時可依學生背景（大學部、MBA 或高階 EMBA）動態微調討論比重。"], "pitfalls": ["學生最容易在『責任風險排污醜聞』道德批評上拖延太久，教師應嚴格控管前兩模組時間，確保後半段 NPV 評價與方案 PK 擁有充沛時間！"], "board": "課堂時間控管提醒：前 60 分鐘務必完成外部衝擊與財務傳導！"}}, {"id": 23, "module": "教學設計", "title": "課堂黑板板書設計精要 (Harvard 3-Column Blueprint)", "subtitle": "左欄：外部衝擊 | 中欄：決策突破 | 右欄：價值重塑", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div class=\"board-container\" style=\"min-height: 480px; padding: 1.2rem;\">\n                <!-- Column 1 -->\n                <div class=\"board-col\">\n                    <div class=\"board-title\">第一欄：外部衝擊與財務傳導</div>\n                    \n                    <div class=\"board-card alert-b\">\n                        <h5>1. 實體風險 (極端氣候)</h5>\n                        • 東南亞世紀暴雨 ➔ 停工 3 個月<br>\n                        • 設備減值 -1 億、營收 -10 億<br>\n                        • 淨利：8.8 億 ➔ <strong style=\"color: #fca5a5;\">-1.28 億 (巨虧)</strong><br>\n                        • 營業現金流腰斬 -6 億 (停發股利)\n                    </div>\n\n                    <div class=\"board-card gold-b\">\n                        <h5>2. 轉型風險 (碳稅與客戶)</h5>\n                        • 歐盟碳稅 $50/噸 (每年 200 萬噸 = 1 億)<br>\n                        • 客戶砍單 5% (營收 -6 億)<br>\n                        • 淨利暴跌 64% 至 3.14 億<br>\n                        • 長期借款 +1.5 億，流動性告急\n                    </div>\n\n                    <div class=\"board-card\">\n                        <h5>3. 責任風險 (環境公害)</h5>\n                        • 廢水排放醜聞、居民集體訴訟<br>\n                        • 營收 -3%、和解/罰款/修復共 1.2 億<br>\n                        • 淨利大減至 4.96 億、商譽重挫\n                    </div>\n                </div>\n\n                <!-- Column 2 -->\n                <div class=\"board-col\">\n                    <div class=\"board-title\">第二欄：策略路徑與決策突破</div>\n\n                    <div class=\"board-card\">\n                        <h5>三大方案關鍵抉擇 (PK)</h5>\n                        • <strong>方案甲 (保守)</strong>：CapEx $0，淨利 $3.14B，利率 +0.5% (擱淺淘汰)<br>\n                        • <strong>方案乙 (穩健)</strong>：CapEx $1.2B，淨利 $6.20B，平庸折衷<br>\n                        • <strong>方案丙 (積極)</strong>：CapEx $2.5B，淨利 $8.88B，利率 -0.5% (綠色領航)\n                    </div>\n\n                    <div class=\"board-card green-b\">\n                        <h5>執行長說服心法：不做事的代價</h5>\n                        • <strong>Cost of Inaction！</strong><br>\n                        • 不轉型損失 = 8.8 億 - 3.14 億 = <strong>$5.66 億</strong><br>\n                        • <strong>5.66 億損失 ＞ 2.5 億投資額！</strong><br>\n                        • 方案丙看似花錢，實為「防禦性保命」\n                    </div>\n\n                    <div class=\"board-card gold-b\">\n                        <h5>流動性風控與金融配套</h5>\n                        • 發行 1 億綠色債券 (享 -0.5% 利率)<br>\n                        • 設備供應商分期付款 (綁減碳進度)<br>\n                        • 鎖定 Apple/Samsung 3-5 年綠色產能合約\n                    </div>\n                </div>\n\n                <!-- Column 3 -->\n                <div class=\"board-col\">\n                    <div class=\"board-title\">第三欄：評價工具與價值重塑</div>\n\n                    <div class=\"board-card green-b\">\n                        <h5>NPV 評價雙重視角 (核心爆點)</h5>\n                        • <strong>專案獨立法 (傳統)</strong>：<br>\n                        &nbsp;&nbsp;年省 5,240 萬 ➔ 回收 4.77 年 ➔ <strong style=\"color: #fca5a5;\">NPV -$40.8M</strong><br>\n                        • <strong>機會成本法 (戰略)</strong>：<br>\n                        &nbsp;&nbsp;增量現金流 $4.34 億 ➔ <strong style=\"color: #86efac;\">回收期 0.58 年 (7個月)</strong><br>\n                        &nbsp;&nbsp;<strong style=\"color: #86efac;\">NPV = +$14.83 億美元！</strong>\n                    </div>\n\n                    <div class=\"board-card\">\n                        <h5>棕色資產 (60億設備) 治理</h5>\n                        1. <strong>碳資產審計</strong>：標記每產線碳強度<br>\n                        2. <strong>加速折舊</strong>：縮短年限，提早攤提風險<br>\n                        3. <strong>綠色化改造</strong>：變頻熱回收延長壽命\n                    </div>\n\n                    <div class=\"board-card\">\n                        <h5>情境規劃矩陣終局</h5>\n                        • 嚴格碳稅 × 方案丙 ➔ <strong>綠色領航者</strong><br>\n                        • 嚴格碳稅 × 方案甲 ➔ <strong>擱淺與沒落</strong>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "展示經典哈佛三欄式板書結構。好的板書是課堂討論的視覺中樞，能將零散發言沉澱為深刻的管理架構。", "timing": "建議 5 分鐘 (或作為課堂結尾拍照留存頁面)", "prompts": ["教師可點擊頂部按鈕『🖋️ 課堂板書』或按快捷鍵 B，在任何一張投影片上隨時彈出此板書全貌。"], "pitfalls": ["黑板板書切忌一次性寫滿。應當隨著學生的討論進展，循序漸進地在左、中、右三欄展開。"], "board": "本頁即為黑板板書的終局全貌！"}}, {"id": 24, "module": "總結反思", "title": "課程核心洞察總結與課後反思思考題", "subtitle": "從 ABC 企業的抉擇，洞察全球低碳經濟轉型大趨勢", "html": "\n        <div style=\"display: flex; flex-direction: column; gap: 1.25rem;\">\n            <div class=\"card\" style=\"background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); color: white; padding: 1.5rem; border-radius: 10px;\">\n                <h3 style=\"font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.75rem;\">\n                    🎓 課堂三大核心結語 (Executive Takeaways)\n                </h3>\n                <div class=\"grid-3\" style=\"margin-top: 0.5rem;\">\n                    <div style=\"background: rgba(255,255,255,0.08); padding: 12px; border-radius: 6px; border-left: 3px solid #34d399;\">\n                        <strong style=\"color: #6ee7b7; font-size: 0.9rem;\">1. 氣候是生死存亡戰</strong>\n                        <p style=\"font-size: 0.82rem; color: #e2e8f0; line-height: 1.5; margin-top: 4px;\">\n                            氣候變遷不再只是 CSR 公關議題，它已經深深烙印在企業的資產負債表、損益表與現金流量表中。\n                        </p>\n                    </div>\n\n                    <div style=\"background: rgba(255,255,255,0.08); padding: 12px; border-radius: 6px; border-left: 3px solid #fbbf24;\">\n                        <strong style=\"color: #fde68a; font-size: 0.9rem;\">2. 轉型是防禦必備品</strong>\n                        <p style=\"font-size: 0.82rem; color: #e2e8f0; line-height: 1.5; margin-top: 4px;\">\n                            評估綠色投資必須計算「不做事的代價」(Cost of Inaction)。防禦大客戶砍單的戰略價值遠大於單純專案節流！\n                        </p>\n                    </div>\n\n                    <div style=\"background: rgba(255,255,255,0.08); padding: 12px; border-radius: 6px; border-left: 3px solid #38bdf8;\">\n                        <strong style=\"color: #bae6fd; font-size: 0.9rem;\">3. 主動治理棕色資產</strong>\n                        <p style=\"font-size: 0.82rem; color: #e2e8f0; line-height: 1.5; margin-top: 4px;\">\n                            面對潛在擱淺資產，善用碳審計、加速折舊與改造升級，方能在綠色金融浪潮中將劣勢轉化為溢價。\n                        </p>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"grid-2\">\n                <div class=\"card\" style=\"border-top: 4px solid #b45309;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #b45309;\">📝 課後延伸思考題 (一)</span>\n                        <span class=\"badge badge-amber\">資產盤點</span>\n                    </div>\n                    <p class=\"card-p\">\n                        請檢視你所熟悉或目前任職的企業／產業，盤點帳面上是否存在類似 ABC 企業的<strong>「棕色資產」</strong>？面對未來 3-5 年內可能實施的台灣碳費、歐盟 CBAM 或客戶綠色要求，這些資產將面臨怎樣的擱淺風險？\n                    </p>\n                </div>\n\n                <div class=\"card\" style=\"border-top: 4px solid #047857;\">\n                    <div class=\"card-header\">\n                        <span style=\"color: #047857;\">📝 課後延伸思考題 (二)</span>\n                        <span class=\"badge badge-green\">說服演練</span>\n                    </div>\n                    <p class=\"card-p\">\n                        如果你是該企業的永續長 (CSO)，你需要向董事會爭取一筆佔年營收 2% 的綠色轉型預算。請仿效鍾建國執行長的<strong>「戰略機會成本法」</strong>，撰寫一份 500 字的董事會說服提案大綱。\n                    </p>\n                </div>\n            </div>\n        </div>\n    ", "notes": {"objective": "激發學生將課堂所學遷移並應用至真實工作場景中，完成學習閉環。", "timing": "建議 8 分鐘", "prompts": ["今天下課走出教室後，大家看到企業的財報時，會多看哪幾個維度？", "如果你的老闆問你：『我們公司到底要不要投錢做 ESG？』你會怎麼回答他？"], "pitfalls": ["鼓勵學生將個案方法論靈活運用於不同產業（如鋼鐵、水泥、石化、金融、航運）。"], "board": "黑板最後保留金句：『不做事的代價永遠大於轉型的投資！』"}}];
+
+        let currentSlide = 0;
+
+        // DOM Elements
+        const stageArea = document.getElementById('stageArea');
+        const slideModuleTag = document.getElementById('slideModuleTag');
+        const slideMainTitle = document.getElementById('slideMainTitle');
+        const slideSubTitle = document.getElementById('slideSubTitle');
+        const slideBodyContent = document.getElementById('slideBodyContent');
+        const slideIndicator = document.getElementById('slideIndicator');
+        const notesContent = document.getElementById('notesContent');
+        const notesDrawer = document.getElementById('notesDrawer');
+        const topHeaderTitle = document.getElementById('topHeaderTitle');
+
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const btnNotes = document.getElementById('btnNotes');
+        const btnCloseNotes = document.getElementById('btnCloseNotes');
+        const btnOverview = document.getElementById('btnOverview');
+        const btnCloseOverview = document.getElementById('btnCloseOverview');
+        const overviewModal = document.getElementById('overviewModal');
+        const overviewGrid = document.getElementById('overviewGrid');
+        const btnBoard = document.getElementById('btnBoard');
+        const btnCloseBoard = document.getElementById('btnCloseBoard');
+        const boardModal = document.getElementById('boardModal');
+        const btnFullscreen = document.getElementById('btnFullscreen');
+
+        // Render Current Slide
+        function renderSlide(index) {
+            if (index < 0 || index >= slidesData.length) return;
+            currentSlide = index;
+
+            const slide = slidesData[currentSlide];
+
+            slideModuleTag.textContent = slide.module;
+            slideMainTitle.textContent = slide.title;
+            slideSubTitle.textContent = slide.subtitle;
+            slideBodyContent.innerHTML = slide.html;
+            slideIndicator.textContent = `${currentSlide + 1} / ${slidesData.length}`;
+
+            // Render Notes
+            renderNotes(slide.notes);
+
+            // Re-bind interactive tabs or widgets if present
+            bindSlideInteractiveElements();
+        }
+
+        // Render Notes Drawer
+        function renderNotes(notes) {
+            if (!notes) {
+                notesContent.innerHTML = '<p style="color: #94a3b8; font-size: 0.9rem;">本頁暫無額外指引。</p>';
+                return;
+            }
+
+            notesContent.innerHTML = `
+                <div class="note-card obj">
+                    <h4><span>🎯</span> 本頁核心教學目標</h4>
+                    <p>${notes.objective || ''}</p>
+                </div>
+                <div class="note-card timing">
+                    <h4><span>⏱️</span> 建議時間配置</h4>
+                    <p><strong>${notes.timing || '5 - 8 分鐘'}</strong></p>
+                </div>
+                <div class="note-card prompts">
+                    <h4><span>🗣️</span> 課堂提問與引導話術</h4>
+                    <ul>${(notes.prompts || []).map(p => `<li>${p}</li>`).join('')}</ul>
+                </div>
+                <div class="note-card pitfalls">
+                    <h4><span>💡</span> 學生易犯盲點與關鍵破局點</h4>
+                    <ul>${(notes.pitfalls || []).map(p => `<li>${p}</li>`).join('')}</ul>
+                </div>
+                <div class="note-card board">
+                    <h4><span>📝</span> 課堂板書對應位置</h4>
+                    <p>${notes.board || '請參考「課堂板書」總表'}</p>
+                </div>
+            `;
+        }
+
+        // Render Overview Grid
+        function buildOverviewGrid() {
+            overviewGrid.innerHTML = '';
+            slidesData.forEach((s, idx) => {
+                const item = document.createElement('div');
+                item.className = `overview-item ${idx === currentSlide ? 'current' : ''}`;
+                item.innerHTML = `
+                    <div class="slide-num-badge">P.${idx + 1} · ${s.module}</div>
+                    <div class="slide-title-thumb">${s.title}</div>
+                `;
+                item.addEventListener('click', () => {
+                    overviewModal.classList.remove('active');
+                    renderSlide(idx);
+                });
+                overviewGrid.appendChild(item);
+            });
+        }
+
+        // Bind in-slide interactions (Tabs, Calculator Sliders)
+        function bindSlideInteractiveElements() {
+            // Tab Buttons
+            const tabBtns = slideBodyContent.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = e.target.getAttribute('data-target');
+                    const parent = e.target.closest('.slide-body');
+                    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                    e.target.classList.add('active');
+                    const targetContent = parent.querySelector(`#${targetId}`);
+                    if (targetContent) targetContent.classList.add('active');
+                });
+            });
+
+            // Interactive NPV Sandbox
+            const discountSlider = document.getElementById('npvDiscountSlider');
+            const orderLossSlider = document.getElementById('npvOrderLossSlider');
+            const carbonTaxSlider = document.getElementById('npvCarbonTaxSlider');
+
+            if (discountSlider && orderLossSlider && carbonTaxSlider) {
+                const updateCalc = () => {
+                    const r = parseFloat(discountSlider.value) / 100;
+                    const lossPct = parseFloat(orderLossSlider.value) / 100;
+                    const taxRate = parseFloat(carbonTaxSlider.value);
+
+                    document.getElementById('valDiscount').textContent = `${(r * 100).toFixed(1)}%`;
+                    document.getElementById('valOrderLoss').textContent = `${(lossPct * 100).toFixed(0)}%`;
+                    document.getElementById('valCarbonTax').textContent = `$${taxRate}/噸`;
+
+                    // Dynamic calculation
+                    // Base Plan A Revenue loss = 12000 * lossPct
+                    const revLoss = 12000 * lossPct;
+                    // Plan A Carbon Tax = 200 * taxRate / 100 (in Millions)
+                    const taxA = 2.0 * taxRate; // 2M tons * taxRate
+                    const taxC = 1.8 * taxRate; // 1.8M tons * taxRate (10% reduction)
+
+                    // Baseline NI = 880
+                    // Inaction (Plan A) approximate impact:
+                    // EBIT reduction = revLoss * 0.25 (gross margin) + taxA
+                    // EBT reduction...
+                    // In our case: with 5% loss (600M) and $50 tax (100M), NI = 314M, OCF = 864M
+                    // Plan C OCF = 1298.4M.
+                    // Differential OCF roughly scales with order loss avoided and tax difference:
+                    const ocfDiff = (revLoss * 0.5) + (taxA - taxC) + 50.5; // roughly 434M at baseline
+                    const initialCapEx = 250.0;
+
+                    const payback = initialCapEx / ocfDiff;
+                    // Annuity factor for 5 yrs: (1 - (1+r)^-5) / r
+                    const annuityFactor = (1 - Math.pow(1 + r, -5)) / r;
+                    const npvStrategic = (ocfDiff * annuityFactor) - initialCapEx;
+
+                    // Standalone NPV (only direct savings: 50M energy + (taxA - taxC) + 0.5M interest)
+                    const standaloneCF = 52.4; // 60.5 EBITDA - 20 depr = 40.5 EBIT * 0.8 = 32.4 NOPAT + 20 depr
+                    const npvStandalone = (standaloneCF * annuityFactor) - initialCapEx;
+                    const standalonePayback = initialCapEx / standaloneCF;
+
+                    document.getElementById('resOcfDiff').textContent = `$${ocfDiff.toFixed(1)} M`;
+                    document.getElementById('resPayback').textContent = `${payback.toFixed(2)} 年 (${(payback * 12).toFixed(1)} 個月)`;
+                    document.getElementById('resNpvStrategic').textContent = `$${npvStrategic.toFixed(1)} M`;
+
+                    document.getElementById('resStandalonePayback').textContent = `${standalonePayback.toFixed(2)} 年`;
+                    document.getElementById('resNpvStandalone').textContent = `$${npvStandalone.toFixed(1)} M`;
+                };
+
+                discountSlider.addEventListener('input', updateCalc);
+                orderLossSlider.addEventListener('input', updateCalc);
+                carbonTaxSlider.addEventListener('input', updateCalc);
+                updateCalc();
+            }
+        }
+
+        // Navigation Handlers
+        btnNext.addEventListener('click', () => {
+            if (currentSlide < slidesData.length - 1) renderSlide(currentSlide + 1);
+        });
+
+        btnPrev.addEventListener('click', () => {
+            if (currentSlide > 0) renderSlide(currentSlide - 1);
+        });
+
+        btnNotes.addEventListener('click', () => {
+            notesDrawer.classList.toggle('collapsed');
+            btnNotes.classList.toggle('active');
+        });
+
+        btnCloseNotes.addEventListener('click', () => {
+            notesDrawer.classList.add('collapsed');
+            btnNotes.classList.remove('active');
+        });
+
+        btnOverview.addEventListener('click', () => {
+            buildOverviewGrid();
+            overviewModal.classList.add('active');
+        });
+
+        btnCloseOverview.addEventListener('click', () => {
+            overviewModal.classList.remove('active');
+        });
+
+        btnBoard.addEventListener('click', () => {
+            boardModal.classList.add('active');
+        });
+
+        btnCloseBoard.addEventListener('click', () => {
+            boardModal.classList.remove('active');
+        });
+
+        btnFullscreen.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`無法切換全螢幕: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Close modals on clicking overlay background
+        [boardModal, overviewModal].forEach(m => {
+            m.addEventListener('click', (e) => {
+                if (e.target === m) m.classList.remove('active');
+            });
+        });
+
+        // Keyboard Shortcut Listeners
+        window.addEventListener('keydown', (e) => {
+            if (overviewModal.classList.contains('active') || boardModal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    overviewModal.classList.remove('active');
+                    boardModal.classList.remove('active');
+                }
+                return;
+            }
+
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                if (currentSlide < slidesData.length - 1) renderSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                if (currentSlide > 0) renderSlide(currentSlide - 1);
+            } else if (e.key === 'n' || e.key === 'N') {
+                notesDrawer.classList.toggle('collapsed');
+                btnNotes.classList.toggle('active');
+            } else if (e.key === 'o' || e.key === 'O') {
+                buildOverviewGrid();
+                overviewModal.classList.add('active');
+            } else if (e.key === 'b' || e.key === 'B') {
+                boardModal.classList.add('active');
+            } else if (e.key === 'f' || e.key === 'F') {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        // Initialize First Slide
+        renderSlide(0);
+    </script>
+</body>
+</html>
